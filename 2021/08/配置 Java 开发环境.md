@@ -40,7 +40,7 @@
 
 ## 二、CentOS
 
-### 1、下载JDK并解压到指定目录
+### 1、下载 JDK 并解压到指定目录
 
 ```bash
 tar -zxvf jdk-11.0.10_linux-x64_bin.tar.gz -C ../java
