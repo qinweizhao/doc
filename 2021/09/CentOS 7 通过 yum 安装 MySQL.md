@@ -116,7 +116,7 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY '112121';
 ## 六、数据库授权
 
 ```sql
-ALTER USER 'root'@'localhost' IDENTIFIED BY 'ppqhmiwq8d+Z';
+ALTER USER 'root'@'localhost' IDENTIFIED BY '1';
 ```
 
 ![2021-09-12_003311](https://img.qinweizhao.com/2021/09/2021-09-12_003311.png)
