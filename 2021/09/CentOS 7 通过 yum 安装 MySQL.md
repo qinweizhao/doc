@@ -24,7 +24,7 @@ yum -y install mysql80-community-release-el7-3.noarch.rpm
 yum repolist enabled | grep mysql.*
 ```
 
-![2021-09-11_211413](https://img.qinweizhao.com/img/2021/09/2021-09-11_211413.png)
+![2021-09-11_235114](https://img.qinweizhao.com/2021/09/2021-09-11_235114.png)
 
 ## 三、安装mysql服务器
 
@@ -42,7 +42,7 @@ systemctl start  mysqld.service
 systemctl status mysqld.service
 ```
 
-![2021-09-11_211733](https://img.qinweizhao.com/img/2021/09/2021-09-11_211733.png)
+![2021-09-11_235229](https://img.qinweizhao.com/2021/09/2021-09-11_235229.png)
 
 ### 五、查看初始化密码
 
@@ -50,4 +50,4 @@ systemctl status mysqld.service
 grep "password" /var/log/mysqld.log
 ```
 
-![2021-09-11_212625](https://img.qinweizhao.com/img/2021/09/2021-09-11_212625.png)
+![2021-09-11_235335](https://img.qinweizhao.com/2021/09/2021-09-11_235335.png)
