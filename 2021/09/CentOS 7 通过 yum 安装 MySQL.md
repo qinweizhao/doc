@@ -116,17 +116,29 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY '112121';
 ## 六、数据库授权
 
 ```sql
-ALTER USER 'root'@'localhost' IDENTIFIED BY '1';
+USE mysql;
+UPDATE user SET HOST='%' WHERE USER='root';
 ```
 
 ![2021-09-12_003311](https://img.qinweizhao.com/2021/09/2021-09-12_003311.png)
 
 ## 七、授权其他用户(可选)
 
-```sql
-CREATE USER 'username'@'host' IDENTIFIED BY 'password';
-GRANT ALL PRIVILEGES ON *.* TO 'username'@'%'  WITH GRANT OPTION;
-```
+1. 创建新用户
+
+   ```sql
+   CREATE USER 'yvkg'@'%' IDENTIFIED BY '123321';
+   ```
+
+   ![2021-09-12_015218](https://img.qinweizhao.com/2021/09/2021-09-12_015218.png)
+
+2. 授权
+
+   ```sql
+   GRANT ALL PRIVILEGES ON *.* TO 'yvkg'@'%';
+   ```
+
+   ![2021-09-12_015225](https://img.qinweizhao.com/2021/09/2021-09-12_015225.png)
 
 ## 八、刷新权限
 
