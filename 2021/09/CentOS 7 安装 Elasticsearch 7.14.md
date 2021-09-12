@@ -63,18 +63,20 @@
    在配置文件中增加：
 
    ```conf
+   # 修改虚拟内存的大小
    vm.max_map_count=655360
+   
    fs.file-max=655360
    ```
 
    ![2021-09-12_174234](https://img.qinweizhao.com/2021/09/2021-09-12_174234.png)
 
    更改完成后执行命令使得系统文件配置生效
-
+   
    ```bash
    sysctl -p
    ```
-
+   
    ![2021-09-12_175221](https://img.qinweizhao.com/2021/09/2021-09-12_175221.png)
 
 ### 2、修改 Elasticsearch 配置
@@ -225,9 +227,20 @@
       - master-node-c
    ```
 
-   
+2. 修改堆内存配置文件为安装目录的 **jvm.options**
 
-2. 使用 Elasicsearch 自带的 jdk（位置与 bin 目录同级的 jdk 文件夹）
+   ```bash
+   vim config/jvm.options
+   ```
+
+   在配置文件中增加：
+
+   ```options
+   -Xms512m
+   -Xmx512m
+   ```
+
+3. 使用 Elasicsearch 自带的 jdk（位置与 bin 目录同级的 jdk 文件夹）
 
    ```bash
    # 进入 bin 目录
@@ -236,13 +249,13 @@
    # 编辑
    vim elasticsearch-env
    ```
-   
+
    增加内容：
-   
+
    ```
    ES_JAVA_HOME="/usr/local/elasticsearch/jdk"
    ```
-   
+
    ![2021-09-12_185303](https://img.qinweizhao.com/2021/09/2021-09-12_185303.png)
 
 ## 五、启动 Elasticsearch
