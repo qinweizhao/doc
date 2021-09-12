@@ -1,4 +1,4 @@
-# CentOS 7 安装 Elasticsearch
+# CentOS 7 安装 Elasticsearch 7.14
 
 ## 一、下载 Elasticsearch
 
