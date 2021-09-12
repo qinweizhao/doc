@@ -97,6 +97,7 @@
    http.port: 9200
    
    discovery.seed_hosts: ["192.168.79.79"]
+   cluster.initial_master_nodes: ["node-1"]
    
    http.cors.enabled: true 
    http.cors.allow-origin: "*"
