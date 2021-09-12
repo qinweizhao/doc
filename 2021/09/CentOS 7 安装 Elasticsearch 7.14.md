@@ -242,7 +242,7 @@
    
    ![2021-09-12_220444](https://img.qinweizhao.com/2021/09/2021-09-12_220444.png)
    
-3. 使用 Elasicsearch 自带的 jdk（位置与 bin 目录同级的 jdk 文件夹）
+3. 使用 Elasticsearch 自带的 jdk（位置与 bin 目录同级的 jdk 文件夹）
 
    ```bash
    # 进入 bin 目录
