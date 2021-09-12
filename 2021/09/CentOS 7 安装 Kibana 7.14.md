@@ -23,6 +23,7 @@
    ```bash
    # 返回上层目录
    cd ..
+   
    # 重命名
    mv kibana-7.14.1-linux-x86_64/ kibana/
    ```
@@ -34,6 +35,7 @@ Kibana 的配置文件为安装目录的 **config/kibana.yml**
 ```bash
 # 进入 kibana 的安装目录
 cd /usr/local/kibana/config
+
 # 编辑 yml 配置文件
 vim kibana.yml
 ```

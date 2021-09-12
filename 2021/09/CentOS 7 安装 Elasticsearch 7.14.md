@@ -23,6 +23,7 @@
    ```bash
    # 返回上层目录
    cd ..
+   
    # 重命名
    mv elasticsearch-7.14.1 elasticsearch
    ```
@@ -83,6 +84,7 @@
    ```bash
    # 进入 es 的安装目录
    cd /usr/local/elasticsearch/config
+   
    # 编辑 yml 配置文件
    vim elasticsearch.yml
    ```
@@ -216,6 +218,7 @@
       - 192.168.1.10:9300
       - 192.168.1.11 
       - seeds.mydomain.com 
+      
    cluster.initial_master_nodes: 
       - master-node-a
       - master-node-b
@@ -229,16 +232,17 @@
    ```bash
    # 进入 bin 目录
    cd bin
+   
    # 编辑
    vim elasticsearch-env
    ```
-
+   
    增加内容：
-
+   
    ```
    ES_JAVA_HOME="/usr/local/elasticsearch/jdk"
    ```
-
+   
    ![2021-09-12_185303](https://img.qinweizhao.com/2021/09/2021-09-12_185303.png)
 
 ## 五、启动 Elasticsearch
