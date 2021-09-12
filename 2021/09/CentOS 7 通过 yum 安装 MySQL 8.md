@@ -1,4 +1,4 @@
-# CentOS 7 通过 yum 安装 MySQL
+# CentOS 7 通过 yum 安装 MySQL 8
 
 ## 一、官网查看最新的安装包
 
