@@ -57,7 +57,7 @@ kibana.index: ".kibana"
 i18n.locale: "zh-CN"
 ```
 
-## 五、启动 Elasticsearch
+## 五、启动 Kibana 7.14
 
 1. 启动
 
