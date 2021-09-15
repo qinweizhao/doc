@@ -3,14 +3,16 @@
 ## 一、将原来的CentOS-Base.repo进行备份
 
 ```bash
+# 进入源所在目录
+cd /etc/yum.repos.d
+# 备份
 mv CentOS-Base.repo CentOS-Base.repo_back
 ```
 
 ## 二、下载阿里源
 
 ```bash
-# 进入源所在目录
-cd /etc/yum.repos.d
+
 # 下载源
 wget -nc http://mirrors.aliyun.com/repo/Centos-7.repo
 ```
