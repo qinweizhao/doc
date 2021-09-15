@@ -1,4 +1,4 @@
-# 配置 Maven 仓库
+# 配置 Maven 仓库和 JDK
 
 ## 一、本地仓库
 
@@ -41,3 +41,22 @@
 ```
 
 ![2021-08-14_191035](https://img.qinweizhao.com/2021/08/2021-08-14_191035.png)
+
+## 三、配置 JDK
+
+```
+      <profile>
+          <id>JDK-1.8</id>
+          <activation>
+              <activeByDefault>true</activeByDefault>
+              <jdk>1.8</jdk>
+          </activation>
+          <properties>
+              <maven.compiler.source>1.8</maven.compiler.source>
+              <maven.compiler.target>1.8</maven.compiler.target>
+              <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+          </properties>
+      </profile>
+```
+
+![2021-08-14_205141](https://img.qinweizhao.com/2021/08/2021-08-14_205141.png)
