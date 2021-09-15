@@ -78,7 +78,7 @@
     yum provides ~
     ```
 
-## 三、清除YUM缓存
+## 三、清除Yum缓存
 
 ​		yum 会把下载的软件包和 header 存储在 cache 中，而不会自动删除。如果我们觉得它们占用了磁盘空间，可以使用 yum clean 指令进行清除，更精确的用法是 yum clean headers 清除 header ，yum clean packages 清除下载的 rpm 包，yum clean all 清除所有。
 
