@@ -64,7 +64,7 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY '112121';
 
 解决办法：
 
-1. 查看 MySQL 初始的密码策略
+1. 查看 MySQL 初始的密码策略（如果报错，直接执行第二步）
 
    ```sql
    SHOW VARIABLES LIKE 'validate_password%'; 
