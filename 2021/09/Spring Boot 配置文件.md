@@ -449,6 +449,40 @@ public class Pet {
 加载 person.properties 配置文件
 ```
 
+**注**：指定配置文件默认只支持 properties 文件，若要用指定的 yam 则需要如下配置：
+
+```java
+// 实体类
+@PropertySource(value = "classpath:person.yml",factory = YamlPropertySourceFactory.class)
+public class Person
+    
+    
+    
+// factory
+package com.qinweizhao.support;
+import org.springframework.boot.env.YamlPropertySourceLoader;
+import org.springframework.core.env.PropertySource;
+import org.springframework.core.io.support.EncodedResource;
+import org.springframework.core.io.support.PropertySourceFactory;
+import org.springframework.lang.Nullable;
+import java.io.IOException;
+import java.util.List;
+
+/**
+ * @author qinweizhao
+ * @since 2021/9/17
+ */
+public class YamlPropertySourceFactory implements PropertySourceFactory {
+    @Override
+    public PropertySource<?> createPropertySource(@Nullable String name, EncodedResource resource) throws IOException {
+        List<PropertySource<?>> sources = new YamlPropertySourceLoader().load(resource.getResource().getFilename(), resource.getResource());
+        return sources.get(0);
+    }
+
+}
+
+```
+
 @**ImportResource**：导入Spring的配置文件，让配置文件里面的内容生效；
 
 Spring Boot里面没有 Spring 的配置文件，我们自己编写的配置文件，也不能自动识别；
