@@ -4,10 +4,11 @@
 
 图形界面——>命令行：
 
-<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>F1</kbd>
+Ctrl+Alt+F1
+
 图形界面<——命令行：
 
-<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>F2</kbd>
+Ctrl+Alt+F2
 
 ## 二、命令切换
 
@@ -54,4 +55,3 @@ systemctl get-default graphical.target
 ```bash
 reboot
 ```
-
