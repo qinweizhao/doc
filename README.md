@@ -1,2 +1,2 @@
-# doc(Markdown文档)
+# doc（Markdown文档）
 ## www.qinweizhao.com
