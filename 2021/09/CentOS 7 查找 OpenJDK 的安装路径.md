@@ -1,6 +1,7 @@
 # CentOS 7 查找 OpenJDK 的安装路径
 
 ## 一、确认是否已安装 JDK
+
 ```bash
 java -version
 ```
@@ -30,4 +31,3 @@ ll /etc/alternatives/java
 ```
 
 ![2021-09-15_144605](https://img.qinweizhao.com/2021/09/2021-09-15_144605.png)
-
