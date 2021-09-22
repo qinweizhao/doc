@@ -73,8 +73,6 @@ a = 3; //Uncaught TypeError: Assignment to constant variable.
    console.log(language);
    ```
 
-   
-
 ## 4、字符串扩展
 
 1. 新增 API
@@ -82,16 +80,16 @@ a = 3; //Uncaught TypeError: Assignment to constant variable.
    >ES6 为字符串扩展了几个新的 API：
    >
    >- `includes()`：返回布尔值，表示是否找到了参数字符串。
-   >- `startsWith()`：返回布尔值，表示参数字符串是否在原字符串的头部。 
+   >- `startsWith()`：返回布尔值，表示参数字符串是否在原字符串的头部。
    >- `endsWith()`：返回布尔值，表示参数字符串是否在原字符串的尾部。
 
    ```javascript
-   	// 新 API	
-   	let str ="hello";
-       console.log(str.startsWith("h")); //true
-       console.log(str.endsWith("o")); //true
-       console.log(str.includes("l")); //true
-       console.log(str.includes("hello")); //true
+    // 新 API 
+    let str ="hello";
+    console.log(str.startsWith("h")); //true
+    console.log(str.endsWith("o")); //true
+    console.log(str.includes("l")); //true
+    console.log(str.includes("hello")); //true
    ```
 
 2. 字符串模板
@@ -99,7 +97,7 @@ a = 3; //Uncaught TypeError: Assignment to constant variable.
    >模板字符串相当于加强版的字符串，用反引号 `，除了作为普通字符串，还可以用来定义多行 字符串，还可以在字符串中加入变量和表达式。
 
    ```javascript
-   	// 字符串模板
+   // 字符串模板
        // 1、多行字符串
        let s =
            `
@@ -124,8 +122,6 @@ a = 3; //Uncaught TypeError: Assignment to constant variable.
        let ss = ` 这是一个${fun()}`;
        console.log(ss); //这是一个函数
    ```
-
-   
 
 ## 5、函数优化
 
@@ -197,8 +193,6 @@ a = 3; //Uncaught TypeError: Assignment to constant variable.
    console.log(sum3(10, 20));//3
    ```
 
-   
-
 4. 实战：箭头函数结合解构表达式
 
    ```javascript
@@ -218,15 +212,13 @@ a = 3; //Uncaught TypeError: Assignment to constant variable.
    hello2(person);
    ```
 
-   
-
 ## 6、对象优化
 
 1. 新增的 API
 
-   >ES6 给 Object 拓展了许多新的方法，如： 
+   >ES6 给 Object 拓展了许多新的方法，如：
    >
-   >- keys(obj)：获取对象的所有 key 形成的数组 
+   >- keys(obj)：获取对象的所有 key 形成的数组
    >
    >- values(obj)：获取对象的所有 value 形成的数组
    >
@@ -306,8 +298,6 @@ a = 3; //Uncaught TypeError: Assignment to constant variable.
    console.log(person2) //{age: 15, name: "Amy"}
    ```
 
-   
-
 ## 7、map 和 reduce
 
 1. map
@@ -323,15 +313,15 @@ a = 3; //Uncaught TypeError: Assignment to constant variable.
 
 2. reduce
 
-   >语法： arr.reduce(callback,[initialValue]) reduce 为数组中的每一个元素依次执行回调函数，不包括数组中被删除或从未被赋值的元 素，接受四个参数：初始值（或者上一次回调函数的返回值），当前元素值，当前索引，调 用 reduce 的数组。 
+   >语法： arr.reduce(callback,[initialValue]) reduce 为数组中的每一个元素依次执行回调函数，不包括数组中被删除或从未被赋值的元 素，接受四个参数：初始值（或者上一次回调函数的返回值），当前元素值，当前索引，调 用 reduce 的数组。
    >
-   >callback （执行数组中每个值的函数，包含四个参数） 
+   >callback （执行数组中每个值的函数，包含四个参数）
    >
-   >1、previousValue （上一次调用回调返回的值，或者是提供的初始值（initialValue）） 
+   >1、previousValue （上一次调用回调返回的值，或者是提供的初始值（initialValue））
    >
-   >2、currentValue （数组中当前被处理的元素） 
+   >2、currentValue （数组中当前被处理的元素）
    >
-   >3、index （当前元素在数组中的索引） 
+   >3、index （当前元素在数组中的索引）
    >
    >4、array （调用 reduce 的数组） initialValue （作为第一次调用 callback 的第一个参数。）
 
@@ -346,19 +336,15 @@ a = 3; //Uncaught TypeError: Assignment to constant variable.
    console.log(arr.reduce((a,b)=>a*b,0));//-
    ```
 
-   
-
 ## 8、Promise
 
-在 JavaScript 的世界中，所有代码都是单线程执行的。由于这个“缺陷”，导致 JavaScript 的所有网络操作，浏览器事件，都必须是异步执行。异步执行可以用回调函数实现。一旦有一连串的 ajax 请求 a,b,c,d... 后面的请求依赖前面的请求结果，就需要层层嵌套。这种缩进和层层嵌套的方式，非常容易造成上下文代码混乱，我们不得不非常小心翼翼处理内层函数与外层函数的数据，一旦内层函数使用了上层函数的变量，这种混乱程度就会加剧......总之，这 种`层叠上下文`的层层嵌套方式，着实增加了神经的紧张程度。案例：用户登录，并展示该用户的各科成绩。在页面发送两次请求： 
+在 JavaScript 的世界中，所有代码都是单线程执行的。由于这个“缺陷”，导致 JavaScript 的所有网络操作，浏览器事件，都必须是异步执行。异步执行可以用回调函数实现。一旦有一连串的 ajax 请求 a,b,c,d... 后面的请求依赖前面的请求结果，就需要层层嵌套。这种缩进和层层嵌套的方式，非常容易造成上下文代码混乱，我们不得不非常小心翼翼处理内层函数与外层函数的数据，一旦内层函数使用了上层函数的变量，这种混乱程度就会加剧......总之，这 种`层叠上下文`的层层嵌套方式，着实增加了神经的紧张程度。案例：用户登录，并展示该用户的各科成绩。在页面发送两次请求：
 
-1. 查询用户，查询成功说明可以登录 
+1. 查询用户，查询成功说明可以登录
 
-2. 查询用户成功，查询科目 
+2. 查询用户成功，查询科目
 
-3. 根据科目的查询结果，获取去成绩 分析：此时后台应该提供三个接口，一个提供用户查询接口，一个提供科目的接口，一个提 供各科成绩的接口，为了渲染方便，最好响应 json 数据。在这里就不编写后台接口了，而 是提供三个 json 文件，直接提供 json 
-
-   
+3. 根据科目的查询结果，获取去成绩 分析：此时后台应该提供三个接口，一个提供用户查询接口，一个提供科目的接口，一个提 供各科成绩的接口，为了渲染方便，最好响应 json 数据。在这里就不编写后台接口了，而 是提供三个 json 文件，直接提供 json
 
 ```json
 user.json：
@@ -443,8 +429,6 @@ console.log("出现异常了：" + error);
 
    这样，在 promise 中就封装了一段异步执行的结果
 
-   
-
 2. 、处理异步结果
 
    如果我们想要等待异步执行完成，做一些事情，我们可以通过 promise 的 then 方法来实现。 如果想要处理 promise 异步执行失败的事件，还可以跟上 catch
@@ -456,8 +440,6 @@ console.log("出现异常了：" + error);
    // 异步执行失败后的回调
    })
    ```
-
-   
 
 3. Promise 改造以前嵌套方式
 
@@ -500,8 +482,6 @@ console.log("出现异常了：" + error);
    });
    ```
 
-   
-
 4. 优化处理
 
    优化：通常在企业开发中，会把 promise 封装成通用方法，如下：封装了一个通用的 get 请 求方法；
@@ -542,7 +522,7 @@ console.log("出现异常了：" + error);
 
 1. 什么是模块化
 
-   模块化就是把代码进行拆分，方便重复利用。类似 java 中的导包：要使用一个包，必须先 导包。而 JS 中没有包的概念，换来的是 模块。 模块功能主要由两个命令构成：`export`和`import`。 
+   模块化就是把代码进行拆分，方便重复利用。类似 java 中的导包：要使用一个包，必须先 导包。而 JS 中没有包的概念，换来的是 模块。 模块功能主要由两个命令构成：`export`和`import`。
 
     `export`命令用于规定模块的对外接口。
 
@@ -590,13 +570,11 @@ console.log("出现异常了：" + error);
    export {name,age}
    ```
 
-   省略名称 上面的导出代码中，都明确指定了导出的变量名，这样其它人在导入使用时就必须准确写出 变量名，否则就会出错。 因此 js 提供了`default`关键字，可以对导出的变量名进行省略 例如： 
+   省略名称 上面的导出代码中，都明确指定了导出的变量名，这样其它人在导入使用时就必须准确写出 变量名，否则就会出错。 因此 js 提供了`default`关键字，可以对导出的变量名进行省略 例如：
 
    ```javascript
    // 无需声明对象的名字 export default { sum(a,b){ return a + b; } } 
    ```
-
-   
 
    这样，当使用者导入时，可以任意起名字
 
@@ -620,4 +598,4 @@ console.log("出现异常了：" + error);
    console.log(name + " , 今年"+ age +"岁了")
    ```
 
-   但是上面的代码暂时无法测试，因为浏览器目前还不支持 ES6 的导入和导出功能。除非借 助于工具，把 ES6 的语法进行编译降级到 ES5，比如`Babel-cli`工具 我们暂时不做测试，大家了解即可。
+   但是上面的代码暂时无法测试，因为浏览器目前还不支持 ES6 的导入和导出功能。除非借 助于工具，把 ES6 的语法进行编译降级到 ES5。
