@@ -23,14 +23,14 @@ tar -zxvf tar -zxvf git-2.33.0.tar.gz
 ## 四、编译
 
 ```bash
-  # 进入解压后的目录
-  cd git-2.33.0/
-  # 指定安装位置
-  ./configure --prefix=/usr/local
-  # 执行 mack 命令编译
-  make 
-  # 安装
-  make install
+# 进入解压后的目录
+cd git-2.33.0/
+# 指定安装位置
+./configure --prefix=/usr/local
+# 执行 mack 命令编译
+make 
+# 安装
+make install
 ```
 
   解释：
