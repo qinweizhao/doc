@@ -1,4 +1,4 @@
-# CentOS 更换 yum 源
+# CentOS 更换 Yum 源
 
 ## 一、将原来的CentOS-Base.repo进行备份
 

@@ -52,9 +52,9 @@ a = 3; //Uncaught TypeError: Assignment to constant variable.
 
    ```javascript
    const person = {
-   name: "jack",
-   age: 21,
-   language: ['java', 'js', 'css']
+     name: "jack",
+     age: 21,
+     language: ['java', 'js', 'css']
    }
    // 解构表达式获取值，将 person 里面每一个属性和左边对应赋值
    const { name, age, language } = person;
