@@ -6,7 +6,7 @@
 // var 声明的变量往往会越域
 // let 声明的变量有严格局部作用域
 {
-var a = 1;
+ var a = 1;
 let b = 2;
 }
 console.log(a); // 1
@@ -98,29 +98,29 @@ a = 3; //Uncaught TypeError: Assignment to constant variable.
 
    ```javascript
    // 字符串模板
-       // 1、多行字符串
-       let s =
-           `
-       <div>
-           <span>hello world<span>
-       </div>
-       `;
-       console.log(s); // <div>
-                       //   <span>hello world<span>
-                       // </div>
+   // 1、多行字符串
+   let s =
+      `
+   <div>
+      <span>hello world<span>
+   </div>
+   `;
+   console.log(s); // <div>
+                  //   <span>hello world<span>
+                  // </div>
    
-       // 2、字符串插入变量和表达式。变量名写在 ${} 中，${} 中可以放入 JavaScript 表达式。
-       let name = "qinweizhao";
-       let age = 24;
-       let info = `我是${name},今年${age}岁了`;
-       console.log(info); // 我是qinweizhao,今年24岁了
-       
-       // 3、字符串中调用函数
-       function fun(){
-           return "函数"
-       }
-       let ss = ` 这是一个${fun()}`;
-       console.log(ss); //这是一个函数
+   // 2、字符串插入变量和表达式。变量名写在 ${} 中，${} 中可以放入 JavaScript 表达式。
+   let name = "qinweizhao";
+   let age = 24;
+   let info = `我是${name},今年${age}岁了`;
+   console.log(info); // 我是qinweizhao,今年24岁了
+   
+   // 3、字符串中调用函数
+   function fun(){
+     return "函数"
+   }
+   let ss = ` 这是一个${fun()}`;
+   console.log(ss); //这是一个函数
    ```
 
 ## 5、函数优化
@@ -128,17 +128,17 @@ a = 3; //Uncaught TypeError: Assignment to constant variable.
 1. 函数参数默认值
 
    ```javascript
-   //在 ES6 以前，我们无法给一个函数参数设置默认值，只能采用变通写法：
+   // 在 ES6 以前，我们无法给一个函数参数设置默认值，只能采用变通写法：
    function add(a, b) {
-   // 判断 b 是否为空，为空就给默认值 1
-   b = b || 1;
-   return a + b;
+     // 判断 b 是否为空，为空就给默认值 1
+     b = b || 1;
+     return a + b;
    }
    // 传一个参数
    console.log(add(10));
-   //现在可以这么写：直接给参数写上默认值，没传就会自动使用默认值
+   // 现在可以这么写：直接给参数写上默认值，没传就会自动使用默认值
    function add2(a , b = 1) {
-   return a + b;
+     return a + b;
    }
    // 传一个参数
    console.log(add2(10));
@@ -150,7 +150,7 @@ a = 3; //Uncaught TypeError: Assignment to constant variable.
 
    ```javascript
    function fun(...values) {
-   console.log(values.length)
+     console.log(values.length)
    }
    fun(1, 2) //2
    fun(1, 2, 3, 4) //4
@@ -162,9 +162,9 @@ a = 3; //Uncaught TypeError: Assignment to constant variable.
 
    ```javascript
    
-   //以前声明一个方法
+   // 以前声明一个方法
    // var print = function (obj) {
-   // console.log(obj);
+   //   console.log(obj);
    // }
    // 可以简写为：
    var print = obj => console.log(obj);
@@ -177,38 +177,38 @@ a = 3; //Uncaught TypeError: Assignment to constant variable.
    ```javascript
    // 两个参数的情况：
    var sum = function (a, b) {
-   return a + b;
+     return a + b;
    }
    // 简写为：
-   //当只有一行语句，并且需要返回结果时，可以省略 {} , 结果会自动返回。
+   // 当只有一行语句，并且需要返回结果时，可以省略 {} , 结果会自动返回。
    var sum2 = (a, b) => a + b;
-   //测试调用
-   console.log(sum2(10, 10));//20
+   // 测试调用
+   console.log(sum2(10, 10)); // 20
    // 代码不止一行，可以用`{}`括起来
    var sum3 = (a, b) => {
-   c = a + b;
-   return c;
+     c = a + b;
+     return c;
    };
-   //测试调用
-   console.log(sum3(10, 20));//3
+   // 测试调用
+   console.log(sum3(10, 20)); // 3
    ```
 
 4. 实战：箭头函数结合解构表达式
 
    ```javascript
-   //需求，声明一个对象，hello 方法需要对象的个别属性
-   //以前的方式：
+   // 需求，声明一个对象，hello 方法需要对象的个别属性
+   // 以前的方式：
    const person = {
-   name: "jack",
-   age: 21,
-   language: ['java', 'js', 'css']
+     name: "jack",
+     age: 21,
+     language: ['java', 'js', 'css']
    }
    function hello(person) {
-   console.log("hello," + person.name)
+     console.log("hello," + person.name)
    }
-   //现在的方式
+   // 现在的方式
    var hello2 = ({ name }) => { console.log("hello," + name) };
-   //测试
+   // 测试
    hello2(person);
    ```
 
@@ -222,28 +222,28 @@ a = 3; //Uncaught TypeError: Assignment to constant variable.
    >
    >- values(obj)：获取对象的所有 value 形成的数组
    >
-   >- entries(obj)：获取对象的所有 key 和 value 形成的二维数组。
+   >- entries(obj)：获取对象的所有 key 和 value 形成的二维数组。格式：[[k1,v1],[k2,v2],...]
    >
-   >  格式：`[[k1,v1],[k2,v2],...]` - assign(dest, ...src) ：将多个 src 对象的值 拷贝到 dest 中。（第一层为深拷贝，第二层为浅 拷贝）
+   >- assign(dest, ...src) ：将多个 src 对象的值 拷贝到 dest 中。（第一层为深拷贝，第二层为浅 拷贝）
 
    ```javascript
    const person = {
-   name: "jack",
-   age: 21,
-   language: ['java', 'js', 'css']
+     name: "jack",
+     age: 21,
+     language: ['java', 'js', 'css']
    }
-   console.log(Object.keys(person));//["name", "age", "language"]
-   console.log(Object.values(person));//["jack", 21, Array(3)]
-   console.log(Object.entries(person));//[Array(2), Array(2), Arra
+   console.log(Object.keys(person)); // ["name", "age", "language"]
+   console.log(Object.values(person)); // ["jack", 21, Array(3)]
+   console.log(Object.entries(person)); // [Array(2), Array(2), Arra
    y(2)]
    
    
    const target = { a: 1 };
    const source1 = { b: 2 };
    const source2 = { c: 3 };
-   //Object.assign 方法的第一个参数是目标对象，后面的参数都是源对象。
+   // Object.assign 方法的第一个参数是目标对象，后面的参数都是源对象。
    Object.assign(target, source1, source2);
-   console.log(target)//{a: 1, b: 2, c: 3}
+   console.log(target) // {a: 1, b: 2, c: 3}
    ```
 
 2. 声明对象简写
@@ -264,38 +264,35 @@ a = 3; //Uncaught TypeError: Assignment to constant variable.
 
    ```javascript
    let person = {
-   name: "jack",
-   // 以前：
-   eat: function (food) {
-   console.log(this.name + "在吃" + food);
+     name: "jack",
+     // 以前：
+     eat: function (food) {
+     console.log(this.name + "在吃" + food);
    },
-   // 箭头函数版：这里拿不到 this
-   eat2: food => console.log(person.name + "在吃" + food),
-   // 简写版：
-   eat3(food) {
-   console.log(this.name + "在吃" + food);
-   }
+     // 箭头函数版：这里拿不到 this
+     eat2: food => console.log(person.name + "在吃" + food),
+     // 简写版：
+     eat3(food) {
+       console.log(this.name + "在吃" + food);
+     }
    }
    person.eat("apple");
    ```
 
 4. 对象拓展运算符
 
-   >
-   >
    >拓展运算符（...）用于取出参数对象所有可遍历属性然后拷贝到当前对象。
 
    ```javascript
    // 1、拷贝对象（深拷贝）
    let person1 = { name: "Amy", age: 15 }
    let someone = { ...person1 }
-   console.log(someone) //{name: "Amy", age: 15}
+   console.log(someone) // {name: "Amy", age: 15}
    // 2、合并对象
    let age = { age: 15 }
    let name = { name: "Amy" }
-   let person2 = { ...age, ...name } //如果两个对象的字段名重复，后面对象字
-   段值会覆盖前面对象的字段值
-   console.log(person2) //{age: 15, name: "Amy"}
+   let person2 = { ...age, ...name } // 如果两个对象的字段名重复，后面对象字段值会覆盖前面对象的字段值
+   console.log(person2) // {age: 15, name: "Amy"}
    ```
 
 ## 7、map 和 reduce
@@ -308,12 +305,12 @@ a = 3; //Uncaught TypeError: Assignment to constant variable.
    let arr = ['1', '20', '-5', '3'];
    console.log(arr)
    arr = arr.map(s => parseInt(s));
-   console.log(arr
+   console.log(arr)
    ```
 
 2. reduce
 
-   >语法： arr.reduce(callback,[initialValue]) reduce 为数组中的每一个元素依次执行回调函数，不包括数组中被删除或从未被赋值的元 素，接受四个参数：初始值（或者上一次回调函数的返回值），当前元素值，当前索引，调 用 reduce 的数组。
+   >语法： arr.reduce(callback,[initialValue]) reduce 为数组中的每一个元素依次执行回调函数，不包括数组中被删除或从未被赋值的元素，接受四个参数：初始值（或者上一次回调函数的返回值），当前元素值，当前索引，调用 reduce 的数组。
    >
    >callback （执行数组中每个值的函数，包含四个参数）
    >
@@ -327,13 +324,13 @@ a = 3; //Uncaught TypeError: Assignment to constant variable.
 
    ```javascript
    const arr = [1,20,-5,3];
-   //没有初始值：
-   console.log(arr.reduce((a,b)=>a+b));//19
-   console.log(arr.reduce((a,b)=>a*b));//-300
+   // 没有初始值：
+   console.log(arr.reduce((a,b)=>a+b)); // 19
+   console.log(arr.reduce((a,b)=>a*b)); // -300
    
-   //指定初始值：
-   console.log(arr.reduce((a,b)=>a+b,1));//20
-   console.log(arr.reduce((a,b)=>a*b,0));//-
+   // 指定初始值：
+   console.log(arr.reduce((a,b)=>a+b,1)); // 20
+   console.log(arr.reduce((a,b)=>a*b,0)); // -0
    ```
 
 ## 8、Promise
@@ -349,53 +346,55 @@ a = 3; //Uncaught TypeError: Assignment to constant variable.
 ```json
 user.json：
 { 
-    "id": 1, 
-    "name": "zhangsan", 
-    "password": "123456"
+  "id": 1, 
+  "name": "zhangsan", 
+  "password": "123456"
 }
 ```
 
 ```json
 user_corse_1.json:
-{ "id": 10, "name": "chinese"
+{ 
+  "id": 10, "name": "chinese"
 }
 ```
 
 ```json
 corse_score_10.json:
-{ "id": 100, "score": 90
+{ 
+  "id": 100, "score": 90
 }
 ```
 
 ```javascript
-//回调函数嵌套的噩梦：层层嵌套。
-$.ajax({
-url: "mock/user.json",
-success(data) {
-console.log("查询用户：", data);
-$.ajax({
-url: `mock/user_corse_${data.id}.json`,
-success(data) {
-console.log("查询到课程：", data);
-$.ajax({
-url: `mock/corse_score_${data.id}.json`,
-success(data) {
-console.log("查询到分数：", data);
-},
-error(error) {
-console.log("出现异常了：" + error);
-}
-});
-},
-error(error) {
-console.log("出现异常了：" + error);
-}
-});
-},
-error(error) {
-console.log("出现异常了：" + error);
-}
-});
+    //回调函数嵌套的噩梦：层层嵌套。
+    $.ajax({
+        url: "mock/user.json",
+        success(data) {
+            console.log("查询用户：", data);
+            $.ajax({
+                url: `mock/user_corse_${data.id}.json`,
+                success(data) {
+                    console.log("查询到课程：", data);
+                    $.ajax({
+                        url: `mock/corse_score_${data.id}.json`,
+                        success(data) {
+                            console.log("查询到分数：", data);
+                        },
+                        error(error) {
+                            console.log("出现异常了：" + error);
+                        }
+                    });
+                },
+                error(error) {
+                    console.log("出现异常了：" + error);
+                }
+            });
+        },
+        error(error) {
+            console.log("出现异常了：" + error);
+        }
+    });
 ```
 
 **我们可以通过 Promise 解决以上问题。**
