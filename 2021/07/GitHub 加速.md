@@ -10,7 +10,7 @@
 
 ## 二、修改 Windows的 hosts 文件（C:\Windows\System32\drivers\etc）
 
-```
+``` hosts
 140.82.112.4    github.com
 
 185.199.108.153    assets-cdn.github.com
@@ -24,4 +24,3 @@
 ### 三、以管理员方式打开cmd执行 `ipconfig /flushdns` 手动刷新系统DNS缓存
 
 ![2021-07-22_190021](https://img.qinweizhao.com/2021/07/2021-07-22_190021.png)
-

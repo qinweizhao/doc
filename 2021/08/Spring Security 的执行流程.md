@@ -4,7 +4,7 @@
 
 ![2021-08-03_151308](https://img.qinweizhao.com/2021/08/2021-08-03_151308.png)
 
-## 二、Spring Security 采用的是责任链的设计模式，它有一条很长的过滤器链。过滤器链的各个过滤器说明:
+## 二、Spring Security 采用的是责任链的设计模式，它有一条很长的过滤器链。过滤器链的各个过滤器说明
 
 ![2021-08-03_152037](https://img.qinweizhao.com/2021/08/2021-08-03_152037.png)
 
@@ -37,4 +37,3 @@
 14. FilterSecurityInterceptor：可以看做过滤器链的出口。
 
 15. RememberMeAuthenticationFilter：当用户没有登录而直接访问资源时, 从 cookie 里找出用户的信息, 如果 Spring Security 能够识别出用户提供的remember me cookie, 用户将不必填写用户名和密码, 而是直接登录进入系统，该过滤器默认不开启。
-

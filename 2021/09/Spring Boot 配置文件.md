@@ -10,10 +10,10 @@ SpringBoot 配置文件名有两种不同的格式，一个是 properties ，另
 
 默认的配置文件名为 application（可更改）
 
-		- application.properties
-		- application.yml
+- application.properties
+- application.yml
 
-## 二、YAML语法：
+## 二、YAML语法
 
 >YAML：**以数据为中心**，比json、xml等更适合做配置文件；
 
@@ -34,17 +34,17 @@ server:
 
 1. 字面量：普通的值（数字，字符串，布尔）
 
-   ​	k: v：字面直接来写；
+   ​k: v：字面直接来写；
 
-   ​		字符串默认不用加上单引号或者双引号；
+   ​字符串默认不用加上单引号或者双引号；
 
-   ​		""：双引号；不会转义字符串里面的特殊字符；特殊字符会作为本身想表示的意思
+   ​""：双引号；不会转义字符串里面的特殊字符；特殊字符会作为本身想表示的意思
 
-   ​				name:   "tom\n jerry"：输出： tom换行  jerry
+   ​name:   "tom\n jerry"：输出： tom换行  jerry
 
-   ​		''：单引号；会转义特殊字符，特殊字符最终只是一个普通的字符串数据
+   ''：单引号；会转义特殊字符，特殊字符最终只是一个普通的字符串数据
 
-   ​				name:   ‘tom\n jerry’：输出： tom\n jerry’i
+   ​name:   ‘tom\n jerry’：输出： tom\n jerry’i
 
 2. 对象、Map（属性和值）（键值对）：
 
@@ -113,11 +113,11 @@ server:
 
 3. 激活指定profile
 
-​	1、在配置文件中指定  spring.profiles.active=dev
+​ 1、在配置文件中指定  spring.profiles.active=dev
 
-​	2、命令行：java -jar spring-boot-02-config-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev；可以直接在测试的时候，配置传入命令行参数
+​ 2、命令行：java -jar spring-boot-02-config-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev；可以直接在测试的时候，配置传入命令行参数
 
-​	3、虚拟机参数；-Dspring.profiles.active=dev
+​ 3、虚拟机参数；-Dspring.profiles.active=dev
 
 ## 三、配置文件值注入
 
@@ -385,11 +385,11 @@ public class Pet {
 
 ```xml
 <!--导入配置文件处理器，配置文件进行绑定就会有提示-->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-configuration-processor</artifactId>
-			<optional>true</optional>
-		</dependency>
+  <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-configuration-processor</artifactId>
+    <optional>true</optional>
+  </dependency>
 ```
 
 ### 3、@Value 获取值和 @ConfigurationProperties 获取值比较
@@ -426,7 +426,7 @@ public class Pet {
    @ConfigurationProperties(prefix = "person")
    @Validated
    public class Person {
-   	、、、
+    、、、
        
        /**
         * 邮箱
@@ -487,7 +487,7 @@ public class YamlPropertySourceFactory implements PropertySourceFactory {
 
 Spring Boot里面没有 Spring 的配置文件，我们自己编写的配置文件，也不能自动识别；
 
-想让 Spring 的配置文件生效，加载进来；@**ImportResource **标注在一个配置类上
+想让 Spring 的配置文件生效，加载进来；@ImportResource 标注在一个配置类上
 
 ```java
 @ImportResource(locations = {"classpath:beans.xml"})
@@ -572,7 +572,7 @@ public class MyConfig {
 
 springboot 启动会扫描以下位置的 application.properties 或者 application.yml 文件作为 SpringBoot 的默认配置文件
 
-```
+```help
 –file:./config/
 
 –file:./

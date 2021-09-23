@@ -1,6 +1,6 @@
-#  List 集合去除 null 元素
+# List 集合去除 null 元素
 
-## 一、使用for循环处理集合。
+## 一、使用for循环处理集合
 
 ```java
 public static List<Object> removeNull(List<Object> oldList) {
@@ -35,4 +35,3 @@ public static List<Object> removeNull(List<Object> oldList) {
         return oldList;
 }
 ```
-

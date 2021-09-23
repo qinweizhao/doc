@@ -72,11 +72,11 @@
    ![2021-09-12_174234](https://img.qinweizhao.com/2021/09/2021-09-12_174234.png)
 
    更改完成后执行命令使得系统文件配置生效
-   
+
    ```bash
    sysctl -p
    ```
-   
+
    ![2021-09-12_175221](https://img.qinweizhao.com/2021/09/2021-09-12_175221.png)
 
 ### 2、修改 Elasticsearch 配置
@@ -239,9 +239,9 @@
    -Xms512m
    -Xmx512m
    ```
-   
+
    ![2021-09-12_220444](https://img.qinweizhao.com/2021/09/2021-09-12_220444.png)
-   
+
 3. 使用 Elasticsearch 自带的 jdk（位置与 bin 目录同级的 jdk 文件夹）
 
    ```bash
@@ -254,7 +254,7 @@
 
    增加内容：
 
-   ```
+   ```elasticsearch-env
    ES_JAVA_HOME="/usr/local/elasticsearch/jdk"
    ```
 
@@ -264,7 +264,7 @@
 
 ### 1、新增系统用户
 
-​	由于 Elasticsearch 不能使用root账户启动。
+​由于 Elasticsearch 不能使用root账户启动。
 
 1. 新增用户
 

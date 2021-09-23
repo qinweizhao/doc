@@ -2,7 +2,7 @@
 
 ## 一、前置了解
 
-​		当 Yum执行安装或删除的命令时，Yum会查询数据库，有无这一软件包，如果有，则检查其依赖冲突关系。如果有，则会给出提示，询问是否要同时安装或删除有冲突的包。
+​  当 Yum执行安装或删除的命令时，Yum会查询数据库，有无这一软件包，如果有，则检查其依赖冲突关系。如果有，则会给出提示，询问是否要同时安装或删除有冲突的包。
 
 ## 二、Yum 查询
 
@@ -80,7 +80,7 @@
 
 ## 三、清除Yum缓存
 
-​		yum 会把下载的软件包和 header 存储在 cache 中，而不会自动删除。如果我们觉得它们占用了磁盘空间，可以使用 yum clean 指令进行清除，更精确的用法是 yum clean headers 清除 header ，yum clean packages 清除下载的 rpm 包，yum clean all 清除所有。
+​  yum 会把下载的软件包和 header 存储在 cache 中，而不会自动删除。如果我们觉得它们占用了磁盘空间，可以使用 yum clean 指令进行清除，更精确的用法是 yum clean headers 清除 header ，yum clean packages 清除下载的 rpm 包，yum clean all 清除所有。
 
 1. 清除缓存目录(/var/cache/yum)下的软件包
 
@@ -121,4 +121,3 @@ yum deplist ～ 查询指定软件包的依赖关系
 yum list yum\* 列出所有以yum开头的软件包
 yum localinstall ～ 从硬盘安装rpm包并使用yum解决依赖
 ```
-

@@ -21,7 +21,7 @@
 
 - 变量名： **Path**
 
-  变量值： **%JAVA_HOME%\bin**	/	**%JAVA_HOME%\jre\bin**
+  变量值： **%JAVA_HOME%\bin** / **%JAVA_HOME%\jre\bin**
 
   ![2021-08-14_165606](https://img.qinweizhao.com/2021/08/2021-08-14_165606.png)
 
@@ -46,11 +46,11 @@
 tar -zxvf jdk-11.0.10_linux-x64_bin.tar.gz -C ../java
 ```
 
-​		注：压缩包路径：**/usr/local/install**
+​  注：压缩包路径：**/usr/local/install**
 
-​				安装路径：**/usr/local/java**
+​    安装路径：**/usr/local/java**
 
-### 2、配置环境变量
+### 2、编辑 profile 文件，配置环境变量
 
 ```bash
 vi /etc/profile
@@ -58,7 +58,7 @@ vi /etc/profile
 
 增加：
 
-```
+```profile
 export JAVA_HOME=/usr/local/java/jdk-11.0.10
 export CLASSPATH=.:$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar
 export PATH=$JAVA_HOME/bin:$PATH
@@ -70,10 +70,10 @@ export PATH=$JAVA_HOME/bin:$PATH
 source /etc/profile
 ```
 
-### 3、测试
+### 3、在任意路径下测试
 
 ```bash
 java -version
 ```
 
-运行效果与 Windows 一致。
+运行效果与 Windows 一致

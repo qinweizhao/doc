@@ -6,7 +6,7 @@
 >
 >node_global
 >
->// 缓存 
+>// 缓存
 >
 >node_cache node
 
@@ -16,7 +16,7 @@
 
 打开 cmd 窗口，执行命令
 
-```
+```bash
 npm config set prefix "D:\Develop\nodejs\node_global"
 npm config set cache "D:\Develop\nodejs\node_cache"
 ```
@@ -25,7 +25,7 @@ npm config set cache "D:\Develop\nodejs\node_cache"
 
 在Nodejs 的安装目录中找到 node_modules/npm/npmrc 文件，修改如下：
 
-```
+```npmrc
 prefix=D:\Develop\nodejs\node_global
 cache=D:\Develop\nodejs\node_cache
 ```

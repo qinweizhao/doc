@@ -1,6 +1,6 @@
 # CentOS 7 设置静态IP
 
-## 一、查看当前网卡名称 
+## 一、查看当前网卡名称
 
 ```bash
 ip addr
@@ -18,7 +18,7 @@ vi /etc/sysconfig/network-scripts/ifcfg-ens33
 
 ![2021-08-10_153428](https://img.qinweizhao.com/2021/08/2021-08-10_153428.png)
 
-```
+```file
 # 网络类型为以太网
 TYPE=Ethernet
 PROXY_METHOD=none
@@ -57,4 +57,3 @@ service network restart
 ```
 
 ![2021-08-10_153732](https://img.qinweizhao.com/2021/08/2021-08-10_153732.png)
-

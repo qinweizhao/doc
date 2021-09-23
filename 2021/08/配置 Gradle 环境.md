@@ -12,7 +12,6 @@
 
   变量值： **D:\Maven\repository**
 
-
 ![2021-08-14_224053](https://img.qinweizhao.com/2021/08/2021-08-14_224053.png)
 
 - 变量名： **Path**
@@ -32,7 +31,7 @@
 
 　在Gradle安装目录下的 init.d 文件夹下，新建一个 init.gradle 文件，里面填写以下配置。
 
-```
+```gradle
 allprojects {
     repositories {
         maven { url 'file:///D:/Maven/repository'}
@@ -52,4 +51,4 @@ allprojects {
 }
 ```
 
-​	repositories 中写的是获取 jar 包的顺序。先是本地的 Maven 仓库路径；接着的 mavenLocal() 是获取 Maven 本地仓库的路径，应该是和第一条一样，但是不冲突；第三条和第四条是从国内和国外的网络上仓库获取；最后的 mavenCentral() 是从Apache提供的中央仓库获取 jar 包。
+​repositories 中写的是获取 jar 包的顺序。先是本地的 Maven 仓库路径；接着的 mavenLocal() 是获取 Maven 本地仓库的路径，应该是和第一条一样，但是不冲突；第三条和第四条是从国内和国外的网络上仓库获取；最后的 mavenCentral() 是从Apache提供的中央仓库获取 jar 包。
