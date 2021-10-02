@@ -10,15 +10,12 @@
 
 ## 1、全局安装
 
- 
-
 ```
 npm install -g webpack webpack-cli
 ```
 
 ## 2、安装后查看版本号
 
- 
 
 ```
 webpack -v
