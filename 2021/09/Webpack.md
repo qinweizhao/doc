@@ -106,7 +106,7 @@ npm init -y
    </body>
    ```
 
-### 2、CSS 打包
+### 2、css
 
 1. 安装 style-loader 和 css-loader
 
