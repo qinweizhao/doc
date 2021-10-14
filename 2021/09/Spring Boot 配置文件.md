@@ -34,17 +34,17 @@ server:
 
 1. 字面量：普通的值（数字，字符串，布尔）
 
-   ​k: v：字面直接来写；
+   k: v：字面直接来写；
 
-   ​字符串默认不用加上单引号或者双引号；
+   字符串默认不用加上单引号或者双引号；
 
-   ​""：双引号；不会转义字符串里面的特殊字符；特殊字符会作为本身想表示的意思
+   ""：双引号；不会转义字符串里面的特殊字符；特殊字符会作为本身想表示的意思
 
-   ​name:   "tom\n jerry"：输出： tom换行  jerry
+   name:   "tom\n jerry"：输出： tom换行  jerry
 
    ''：单引号；会转义特殊字符，特殊字符最终只是一个普通的字符串数据
 
-   ​name:   ‘tom\n jerry’：输出： tom\n jerry’i
+   name:   ‘tom\n jerry’：输出： tom\n jerry’i
 
 2. 对象、Map（属性和值）（键值对）：
 
@@ -113,11 +113,11 @@ server:
 
 3. 激活指定profile
 
-​ 1、在配置文件中指定  spring.profiles.active=dev
+ 1、在配置文件中指定  spring.profiles.active=dev
 
-​ 2、命令行：java -jar spring-boot-02-config-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev；可以直接在测试的时候，配置传入命令行参数
+ 2、命令行：java -jar spring-boot-02-config-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev；可以直接在测试的时候，配置传入命令行参数
 
-​ 3、虚拟机参数；-Dspring.profiles.active=dev
+ 3、虚拟机参数；-Dspring.profiles.active=dev
 
 ## 三、配置文件值注入
 
@@ -126,8 +126,8 @@ server:
 配置文件：
 
 ```properties
-user.name="qinweizhao"
-user.age=24
+entity.user.name="qinweizhao"
+entity.user.age=24
 ```
 
 entity:
@@ -155,13 +155,13 @@ public class User {
     /**
      * 名字
      */
-    @Value("${user.name}")
+    @Value("${entity.user.name}")
     private String name;
 
     /**
      * 年龄
      */
-    @Value("${user.age}")
+    @Value("${entity.user.age}")
     private Integer age;
 
 
@@ -244,7 +244,6 @@ import java.util.Map;
  */
 @Component
 @ConfigurationProperties(prefix = "person")
-@Validated
 public class Person {
 
     /**
