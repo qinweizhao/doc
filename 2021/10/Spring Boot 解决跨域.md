@@ -80,6 +80,3 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 ```
 
 一个 `.cors` 就开启了 Spring Security 对 CORS 的支持。
-
-
-
