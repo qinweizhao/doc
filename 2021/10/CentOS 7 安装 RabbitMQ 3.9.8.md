@@ -1,4 +1,4 @@
-# CentOS 7 安装 RabbitMQ
+# CentOS 7 安装 RabbitMQ 3.9.8
 
 ## 一、安装依赖
 
