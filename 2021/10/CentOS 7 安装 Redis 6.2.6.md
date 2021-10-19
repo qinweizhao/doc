@@ -2,7 +2,7 @@
 
 ## 一、获取压缩包
 
-![2021-10-18_131030](https://img.qinweizhao.com//2021/10/2021-10-18_131030.png)
+![2021-10-18_131030](https://img.qinweizhao.com/2021/10/2021-10-18_131030.png)
 
 ```bash
 wget https://download.redis.io/releases/redis-6.2.6.tar.gz
@@ -22,7 +22,7 @@ tar -zxvf redis-6.2.6.tar.gz -C /usr/local/redis/
 whereis gcc make
 ```
 
-![2021-10-18_131515](https://img.qinweizhao.com//2021/10/2021-10-18_131515.png)
+![2021-10-18_131515](https://img.qinweizhao.com/2021/10/2021-10-18_131515.png)
 
 如果未安装，执行安装
 
@@ -37,14 +37,14 @@ yum install -y gcc make
 make
 ```
 
-![2021-10-18_132240](https://img.qinweizhao.com//2021/10/2021-10-18_132240.png)
+![2021-10-18_132240](https://img.qinweizhao.com/2021/10/2021-10-18_132240.png)
 
 ```bash
 # 安装，将 redis 的命令安装到 /usr/local/bin/ 目录
 make install
 ```
 
-![2021-10-18_132425](https://img.qinweizhao.com//2021/10/2021-10-18_132425.png)
+![2021-10-18_132425](https://img.qinweizhao.com/2021/10/2021-10-18_132425.png)
 
 ## 四、修改配置
 
@@ -114,7 +114,7 @@ PrivateTmp=true
 WantedBy=multi-user.target
 ```
 
-![2021-10-18_150144](https://img.qinweizhao.com//2021/10/2021-10-18_150144.png)
+![2021-10-18_150144](https://img.qinweizhao.com/2021/10/2021-10-18_150144.png)
 
 >Description:描述服务
 >After:描述服务类别
