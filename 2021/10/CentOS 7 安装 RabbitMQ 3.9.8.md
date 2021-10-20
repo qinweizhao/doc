@@ -58,9 +58,9 @@ wget https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.9.8/rabbit
 # 需要 xz ,如果没有先安装 xz
 yum install -y xz
 # 1.
-/bin/xz -d rabbitmq-server-generic-unix-3.7.15.tar.xz
+/bin/xz -d rabbitmq-server-generic-unix-3.9.8.tar.xz
 # 2.
-tar -xvf rabbitmq-server-3.9.8.tar -C /usr/local/rabbitmq/
+tar -xvf rabbitmq-server-generic-unix-3.9.8.tar -C /usr/local/rabbitmq/
 ```
 
 下载地址：
@@ -71,7 +71,7 @@ tar -xvf rabbitmq-server-3.9.8.tar -C /usr/local/rabbitmq/
 
 ```bash
 # 添加 rabbitmq 环境变量
-echo 'export PATH=$PATH:/usr/local/rabbitmq/rabbitmq-server-3.9.8/sbin' >> /etc/profile
+echo 'export PATH=$PATH:/usr/local/rabbitmq/rabbitmq_server-3.9.8/sbin' >> /etc/profile
 # 刷新环境变量
 source /etc/profile
 ```
@@ -86,7 +86,30 @@ rabbitmq-plugins enable rabbitmq_management
 
 省略
 
-## 八、常用命令
+## 九、问题
+
+默认用户无法在远程机器上登录
+
+![2021-10-20_112226](https://img.qinweizhao.com/2021/10/2021-10-20_112226.png)
+
+解决方案：创建一个新的用户。
+
+```bash
+# 查看所有用户
+rabbitmqctl list_users
+# 添加一个用户
+rabbitmqctl add_user yvkg 112121
+# 配置权限
+rabbitmqctl set_permissions -p "/" yvkg ".*" ".*" ".*"
+# 查看用户权限
+rabbitmqctl list_user_permissions yvkg
+# 设置tag
+rabbitmqctl set_user_tags yvkg administrator
+# 删除用户（安全起见，删除默认用户）
+rabbitmqctl delete_user guest
+```
+
+## 十、常用命令
 
 ```bash
 # 启动
@@ -95,17 +118,4 @@ rabbitmq-server -detached
 rabbitmqctl stop
 # 状态
 rabbitmqctl status
-# 查看所有用户
-rabbitmqctl list_users
-# 添加一个用户
-rabbitmqctl add_user zhaobl 123456
-# 配置权限
-rabbitmqctl set_permissions -p "/" zhaobl ".*" ".*" ".*"
-# 查看用户权限
-rabbitmqctl list_user_permissions zhaobl
-# 设置tag
-rabbitmqctl set_user_tags zhaobl administrator
-# 删除用户（安全起见，删除默认用户）
-rabbitmqctl delete_user guest
 ```
-
