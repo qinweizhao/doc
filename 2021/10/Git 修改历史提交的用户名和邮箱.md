@@ -3,7 +3,7 @@
 ## 一、裸需要修改的仓库
 
 ```bash
-# 仓库地址 .git 可以不要
+# 仓库地址 .git 可以不要，也可以不加 --bare 参数 直接克隆完整项目
 # git clone --bare https://github.com/qinweizhao/仓库地址.git
 git clone --bare https://github.com/qinweizhao/qwz-spring-boot-sample.git 
 # 进入该目录， 注意有 .git 
