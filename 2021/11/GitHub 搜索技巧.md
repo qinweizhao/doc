@@ -66,6 +66,6 @@
 
    ![2021-11-04_171716](https://img.qinweizhao.com/2021/11/2021-11-04_171716.png)
 
-5. [总结了每天/每周/每月周期的热门](https://github.com/trending/3)
+5. [总结了每天/每周/每月周期的热门](https://github.com/trending)
 
 ![2021-11-04_172009](https://img.qinweizhao.com/2021/11/2021-11-04_172009.png)
