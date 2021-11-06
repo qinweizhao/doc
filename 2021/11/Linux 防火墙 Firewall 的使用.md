@@ -1,4 +1,4 @@
-# Linux 防火墙 Firewall 的使用
+# CentOS 7 防火墙 Firewall 的使用
 
 ```bash
 # 开启防火墙
