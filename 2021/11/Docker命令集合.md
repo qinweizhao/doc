@@ -35,7 +35,7 @@ docker build
 docker commit
 # 删除一个镜像
 docker rmi
-# 从一个tar包创建一个镜像，和 save 配合使用
+# 从一个 tar 包创建一个镜像，和 save 配合使用
 docker load
 # 将一个镜像保存为一个tar包，带 layers 和 tag 信息
 docker save
@@ -76,7 +76,7 @@ docker ps -a
 docker inspect
 # 查看容器的日志 (stdout/stderr)
 docker logs
-# 得到docker服务器的实时的事件
+# 得到 docker 服务器的实时的事件
 docker events
 # 显示容器的端口映射
 docker port
@@ -86,7 +86,7 @@ docker top
 docker diff
 # 从容器里向外拷贝文件或目录
 docker cp
-# 将容器整个文件系统导出为一个tar包，不带 layers、tag 等信息
+# 将容器整个文件系统导出为一个 tar 包，不带 layers、tag 等信息
 docker export
 ```
 
