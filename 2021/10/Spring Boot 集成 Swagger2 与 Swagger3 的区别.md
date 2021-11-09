@@ -43,7 +43,7 @@ public class SwaggerConfig {
                 .apiInfo(apiInfo())
                 .select()
                 // 自行修改为自己的包路径
-                .apis(RequestHandlerSelectors.basePackage("com.tsing"))
+                .apis(RequestHandlerSelectors.basePackage("com.qinweizhao"))
                 .paths(PathSelectors.any())
                 .build();
     }
@@ -53,7 +53,7 @@ public class SwaggerConfig {
                 .title("swagger-api文档")
                 .description("swagger接入教程")
                 .version("1.0")
-                .contact(new Contact("TheTsing", "https://blog.csdn.net/qq_42375133?type=blog", "thetsing@foxmail.com"))
+                .contact(new Contact("qinweizhao", "https://www.qinweizhao.com", "yvkg@foxmail.com"))
                 .build();
     }
 
@@ -72,15 +72,15 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.OAS_30)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.tsing"))
+                .apis(RequestHandlerSelectors.basePackage("com.qinweizhao"))
                 .paths(PathSelectors.any())
-                .build()
+                .build();
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("Api Documentation")
-                .contact(new Contact("TheTsing", "http://www.baidu.com", "thetsing@foxmail.com"))
+                .contact(new Contact("qinweizhao", "http://www.baidu.com", "yvkg@foxmail.com"))
                 .version("1.0")
                 .build();
     }
@@ -169,7 +169,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
                  .apiInfo(apiInfo())
                  .select()
                  // 自行修改为自己的包路径
-                 .apis(RequestHandlerSelectors.basePackage("com.tsing"))
+                 .apis(RequestHandlerSelectors.basePackage("com.qinweizhao"))
                  .paths(PathSelectors.any())
                  .build()
                  .securitySchemes(securitySchemes())
@@ -181,13 +181,13 @@ public class WebMvcConfig implements WebMvcConfigurer {
                  .title("swagger-api文档")
                  .description("swagger接入教程")
                  .version("1.0")
-                 .contact(new Contact("TheTsing", "https://blog.csdn.net/qq_42375133?type=blog", "thetsing@foxmail.com"))
+                 .contact(new Contact("qinweizhao", "https://www.qinweizhao.com", "yvkg@foxmail.com"))
                  .build();
      }
  
      private List<ApiKey> securitySchemes() {
          List<ApiKey> apiKeyList = new ArrayList();
-         apiKeyList.add(new ApiKey("token", "token", "header"));
+         apiKeyList.add(new ApiKey("tokenName", "token", "header"));
          return apiKeyList;
      }
  
@@ -223,7 +223,7 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.OAS_30)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.tsing"))
+                .apis(RequestHandlerSelectors.basePackage("com.qinweizhao"))
                 .paths(PathSelectors.any())
                 .build()
                 .protocols(newHashSet("https", "http"))
@@ -234,7 +234,7 @@ public class SwaggerConfig {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("Api Documentation")
-                .contact(new Contact("TheTsing", "http://www.baidu.com", "thetsing@foxmail.com"))
+                .contact(new Contact("qinweizhao", "http://www.baidu.com", "yvkg@foxmail.com"))
                 .version("1.0")
                 .build();
     }
@@ -263,7 +263,7 @@ public class SwaggerConfig {
         if (ts.length > 0) {
             return new LinkedHashSet<>(Arrays.asList(ts));
         }
-        return null;
+        return new HashSet<>();
     }
 
 }

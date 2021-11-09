@@ -430,7 +430,7 @@ public class Pet {
        /**
         * 邮箱
         * 类上标注 @Validated 注解
-        * 属性标注 @Email
+        * 属性标注  
         */
        @Email
        private String email;
@@ -448,7 +448,7 @@ public class Pet {
 加载 person.properties 配置文件
 ```
 
-**注**：指定配置文件默认只支持 properties 文件，若要用指定的 yam 则需要如下配置：
+**注**：即便指定了配置文件但还是会去读取 application 配置文件，并且优先读取 application 配置文件；指定配置文件默认只支持 properties 文件，若要用指定的 yam 则需要如下配置：
 
 ```java
 // 实体类
