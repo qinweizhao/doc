@@ -55,14 +55,14 @@ grep "password" /var/log/mysqld.log
 ## 六、修改 MySQL 密码
 
 ``` sql
-ALTER USER 'root'@'localhost' IDENTIFIED BY '112121';
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'dcPAy5Sl';
 ```
+
+注：可能如果密码过于简单则会报错（1819）：新密码不符合当前策略；
 
 ![2021-09-12_005621](https://img.qinweizhao.com/2021/09/2021-09-12_005621.png)
 
-报错（1819）：新密码不符合当前策略；
-
-解决办法：
+设置简单密码（可选）：
 
 ### 1、查看 MySQL 初始的密码策略（如果报错，直接执行第二步）
 
@@ -117,7 +117,7 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY '112121';
 
 ```sql
 USE mysql;
-UPDATE user SET HOST='%' WHERE USER='root';
+UPDATE user SET host='%',plugin='mysql_native_password' WHERE u='root';
 ```
 
 ![2021-09-12_003311](https://img.qinweizhao.com/2021/09/2021-09-12_003311.png)
@@ -151,6 +151,7 @@ FLUSH PRIVILEGES;
 ## 九、防火墙打开3306端口
 
 ```bash
+# 执行 exit 退出 MySQL
 firewall-cmd --zone=public --add-port=3306/tcp --permanent
 ```
 
