@@ -23,9 +23,12 @@ wget -nc http://mirrors.aliyun.com/repo/Centos-7.repo
  mv Centos-7.repo CentOS-Base.repo
 ```
 
-## 四、生成缓存
+## 四、更新缓存
 
 ```bash
+# 清除
+yum clean all
+# 生成
 yum makecache
 ```
 

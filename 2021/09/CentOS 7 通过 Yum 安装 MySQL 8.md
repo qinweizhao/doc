@@ -55,16 +55,16 @@ grep "password" /var/log/mysqld.log
 ## 六、修改 MySQL 密码
 
 ``` sql
-ALTER USER 'root'@'localhost' IDENTIFIED BY 'dcPAy5Sl';
+ALTER USER 'root'@'localhost' IDENTIFIED BY '你的密码';
 ```
 
 注：可能如果密码过于简单则会报错（1819）：新密码不符合当前策略；
 
 ![2021-09-12_005621](https://img.qinweizhao.com/2021/09/2021-09-12_005621.png)
 
-设置简单密码（可选）：
+修改过密码后如果嫌复杂可以设置简单密码（可选）：
 
-### 1、查看 MySQL 初始的密码策略（如果报错，直接执行第二步）
+### 1、查看 MySQL 初始的密码策略
 
 ```sql
 SHOW VARIABLES LIKE 'validate_password%'; 
@@ -117,7 +117,7 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY '112121';
 
 ```sql
 USE mysql;
-UPDATE user SET host='%',plugin='mysql_native_password' WHERE u='root';
+update user set host='%' where user='root';
 ```
 
 ![2021-09-12_003311](https://img.qinweizhao.com/2021/09/2021-09-12_003311.png)
@@ -127,7 +127,7 @@ UPDATE user SET host='%',plugin='mysql_native_password' WHERE u='root';
 ### 1、创建新用户
 
 ```sql
-CREATE USER 'yvkg'@'%' IDENTIFIED BY '123321';
+CREATE USER '用户名'@'%' IDENTIFIED BY '123321';
 ```
 
 ![2021-09-12_015218](https://img.qinweizhao.com/2021/09/2021-09-12_015218.png)
@@ -135,7 +135,7 @@ CREATE USER 'yvkg'@'%' IDENTIFIED BY '123321';
 ### 2、授权
 
 ```sql
-GRANT ALL PRIVILEGES ON *.* TO 'yvkg'@'%';
+update user set host='%' where user='用户名';
 ```
 
 ![2021-09-12_015225](https://img.qinweizhao.com/2021/09/2021-09-12_015225.png)
