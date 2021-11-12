@@ -19,7 +19,7 @@
 
 2. **访问日志**
 
-    ```
+    ```conf
     server {  
     # Relative or full path to log file  
     access_log /path/to/file.log;  
@@ -30,7 +30,7 @@
 
 3. **域名**
 
-    ```
+    ```conf
     server {  
     # Listen to yourdomain.com  
     server_name yourdomain.com;  
@@ -46,7 +46,7 @@
 
 4. **静态资产**
 
-    ```
+    ```conf
     server {  
     listen 80;  
     server_name yourdomain.com;  
@@ -58,7 +58,7 @@
 
 5. **重定向**
 
-    ```
+    ```conf
     server {  
     listen 80;  
     server_name www.yourdomain.com;  
@@ -75,7 +75,7 @@
 
 6. **反向代理**
 
-    ```
+    ```conf
     server {  
     listen 80;  
     server_name yourdomain.com;  
@@ -88,7 +88,7 @@
 
 7. **负载均衡**
 
-    ```
+    ```conf
     upstream node_js {  
     server 0.0.0.0:3000;  
     server 0.0.0.0:4000;  
@@ -105,7 +105,7 @@
 
 8. **SSL 协议**
 
-    ```
+    ```conf
     server {  
     listen 443 ssl;  
     server_name yourdomain.com;  
