@@ -1,4 +1,4 @@
-# SpringBean 的生命周期和作用域详解
+# Spring Bean 的生命周期和作用域详解
 
 ## 一、SpringBean 的作用域
 

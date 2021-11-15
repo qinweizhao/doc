@@ -1,4 +1,4 @@
-# Centos 7 卸载自带的 OpenJDK
+# CentOS 7 卸载自带的 OpenJDK
 
 ## 一、查询系统是否已经安装 JDK
 

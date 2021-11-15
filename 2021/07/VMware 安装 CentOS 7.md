@@ -1,4 +1,4 @@
-# VMware 安装 Centos 7 详细过程
+# VMware 安装 CentOS 7 详细过程
 
 ## 一、准备
 
