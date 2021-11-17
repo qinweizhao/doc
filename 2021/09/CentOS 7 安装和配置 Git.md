@@ -45,6 +45,8 @@ make install
 
   如果需要安装到其他位置则需要配置环境变量。
 
+> 配置文件：  /etc/profile
+
 ```config
 # git
 export PATH=/xxx/git/bin:$PATH
