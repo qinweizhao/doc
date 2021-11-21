@@ -1,4 +1,4 @@
-# List去除重复数据
+# List 去除重复数据
 
 去除 Java 中 ArrayList 中的重复数据
 
