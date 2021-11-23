@@ -47,13 +47,13 @@ docker ps
 docker logs jenkins
 ```
 
-![2021-11-23_163858](../../../img/2021/11/2021-11-23_163858.png)
+![2021-11-23_163858](https://img.qinweizhao.com/2021/11/2021-11-23_163858.png)
 
 ## 五、配置镜像加速
 
  当前位置 /usr/local/mount/jenkins/jenkins_home，修改 hudson.model.UpdateCenter.xml 文件。
 
-![2021-11-23_164513](../../../img/2021/11/2021-11-23_164513.png)
+![2021-11-23_164513](https://img.qinweizhao.com/2021/11/2021-11-23_164513.png)
 
 更换 url 为 清华大学官方镜像
 
@@ -63,15 +63,15 @@ docker logs jenkins
 
 **访问 http:ip:8080** ，出现如下界面。
 
-![2021-11-23_165124](../../../img/2021/11/2021-11-23_165124.png)
+![2021-11-23_165124](https://img.qinweizhao.com/2021/11/2021-11-23_165124.png)
 
 因为容器的 **/var/jenkins_home** 挂载在本地的 **/usr/local/mount/jenkins/jenkins_home** ，所以直接去查看 **/usr/local/mount/jenkins/jenkins_home/secrets/initialAdminPassword** 文件获取密码。
 
-![2021-11-23_165555](../../../img/2021/11/2021-11-23_165555.png)
+![2021-11-23_165555](https://img.qinweizhao.com/2021/11/2021-11-23_165555.png)
 
 ## 七、安装插件
 
 选择安装推荐的插件即可
 
-![2021-11-23_171023](../../../img/2021/11/2021-11-23_171023.png)
+![2021-11-23_171023](https://img.qinweizhao.com/2021/11/2021-11-23_171023.png)
 
