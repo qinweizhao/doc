@@ -17,8 +17,8 @@
 打开 cmd 窗口，执行命令
 
 ```bash
-npm config set prefix "D:\Develop\nodejs\node_global"
-npm config set cache "D:\Develop\nodejs\node_cache"
+npm config set prefix "D:\Node\nodejs\node_global"
+npm config set cache "D:\Node\nodejs\node_cache"
 ```
 
 或：
@@ -26,8 +26,8 @@ npm config set cache "D:\Develop\nodejs\node_cache"
 在Nodejs 的安装目录中找到 node_modules/npm/npmrc 文件，修改如下：
 
 ```npmrc
-prefix=D:\Develop\nodejs\node_global
-cache=D:\Develop\nodejs\node_cache
+prefix=D:\Node\nodejs\node_global
+cache=D:\Node\nodejs\node_cache
 ```
 
 全局包的存放路径可通过 npm root -g 查看
