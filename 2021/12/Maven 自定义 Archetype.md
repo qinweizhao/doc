@@ -65,7 +65,7 @@ mvn archetype:crawl
 
 ![2021-12-29_140330](https://img.qinweizhao.com/2021/12/2021-12-29_140330.png)
 
-### 三、使用 archetype 模板
+## 三、使用 archetype 模板
 
 ```bash
  mvn archetype:generate -DarchetypeCatalog=local
