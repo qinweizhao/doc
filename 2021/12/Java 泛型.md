@@ -339,7 +339,7 @@ T extends A
 ? super A
 ```
 
-## 5、`Class<T>` 和 `Class<?>` 区别
+### 5、`Class<T>` 和 `Class<?>` 区别
 
 前面介绍了 ？和 T 的区别，那么对于，`Class<T>`和 `<Class<?>`又有什么区别呢？`Class<T>`和 `Class<?>`
 
@@ -362,7 +362,7 @@ package com.qinweizhao.generics;
  * @author qinweizhao
  * @since 2021/12/29
  */
-public class Test3 {
+public class Test {
 
     public static <T> T createInstance(Class<T> clazz) throws IllegalAccessException, InstantiationException {
         return clazz.newInstance();
