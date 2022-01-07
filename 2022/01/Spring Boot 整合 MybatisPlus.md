@@ -80,7 +80,7 @@ public class Application {
 }
 ```
 
-### 三、准备数据
+## 三、准备数据
 
 entity:
 
@@ -225,7 +225,7 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
 
 ![2022-01-06_164929](https://img.qinweizhao.com/2022/01/2022-01-06_164929.png)
 
-### 四、测试
+## 四、测试
 
 ```java
 package com.qinweizhao.mybatis.plus;
