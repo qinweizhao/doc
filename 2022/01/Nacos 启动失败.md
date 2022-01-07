@@ -7,7 +7,7 @@
 
 ## 二、报错信息
 
-![2022-01-07_163904](https:img.qinweizhao.com/2022/01/2022-01-07_163904.png)
+![2022-01-07_163904](https://img.qinweizhao.com/2022/01/2022-01-07_163904.png)
 
 ## 三、解决方案
 
@@ -48,5 +48,3 @@
 4. ```sh
    nohup $JAVA ${JAVA_OPT} nacos.nacos >> ${BASE_DIR}/logs/start.out 2>&1 &
    ```
-
-   
