@@ -7,6 +7,8 @@
 
 ## 一、向 ApplicationContext 中添加监听器
 
+创建 MyListener1 类，在springboot应用启动类中获取ConfigurableApplicationContext上下文，装载监听
+
 ### 1、代码
 
 ```java
@@ -51,6 +53,8 @@ public class FsbListenerApplication {
 
 ## 二、将监听器装载入 Spring 容器
 
+创建 MyListener2 类，并使用@Component注解将该类装载入spring容器中
+
 ### 1、代码
 
 ```java
@@ -71,7 +75,7 @@ public class MyListener2 implements ApplicationListener<MyEvent>
 
 ![2022-02-08_173440](img.qinweizhao.com/2022/02/2022-02-08_173440.png)
 
-## 三、在application.properties中配置监听器
+## 三、在 application.properties 中配置监听器
 
 ### 1、代码
 
@@ -94,6 +98,8 @@ context.listener.classes=com.qinweizhao.listener.MyListener3
 ![2022-02-08_173614](img.qinweizhao.com/2022/02/2022-02-08_173614.png)
 
 ## 四、通过@EventListener注解实现事件监听
+
+创建 MyListener4 类，该类无需实现 ApplicationListener 接口，使用 @EventListener 装饰具体方法
 
 ### 1、代码
 
