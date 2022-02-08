@@ -49,7 +49,7 @@ public class FsbListenerApplication {
 
 ### 2、运行截图
 
-![2022-02-08_173226](img.qinweizhao.com/2022/02/2022-02-08_173226.png)
+![2022-02-08_173226](https://img.qinweizhao.com/2022/02/2022-02-08_173226.png)
 
 ## 二、将监听器装载入 Spring 容器
 
@@ -73,7 +73,7 @@ public class MyListener2 implements ApplicationListener<MyEvent>
 
 ### 2、运行截图
 
-![2022-02-08_173440](img.qinweizhao.com/2022/02/2022-02-08_173440.png)
+![2022-02-08_173440](https://img.qinweizhao.com/2022/02/2022-02-08_173440.png)
 
 ## 三、在 application.properties 中配置监听器
 
@@ -95,7 +95,7 @@ context.listener.classes=com.qinweizhao.listener.MyListener3
 
 ### 2、运行截图
 
-![2022-02-08_173614](img.qinweizhao.com/2022/02/2022-02-08_173614.png)
+![2022-02-08_173614](https://img.qinweizhao.com/2022/02/2022-02-08_173614.png)
 
 ## 四、通过@EventListener注解实现事件监听
 
@@ -116,5 +116,5 @@ public class MyListener4 {
 
 ### 2、运行截图
 
-![2022-02-08_173750](img.qinweizhao.com/2022/02/2022-02-08_173750.png)
+![2022-02-08_173750](https://img.qinweizhao.com/2022/02/2022-02-08_173750.png)
 
