@@ -1,3 +1,5 @@
+
+
 # Java 泛型
 
 >Java 泛型（generics）是 JDK 5 中引入的一个新特性, 泛型提供了编译时类型安全检测机制，该机制允许开发者在编译时检测到非法的类型。
@@ -44,7 +46,25 @@ public class GlmapperGeneric<T> {
 
 上面这段代码中的 specifyType 方法中省去了强制转换，可以在编译时候检查类型安全，可以用在类，方法，接口上。
 
-## 一、泛型类
+## 二、泛型的原理
+
+Java 语言的泛型采用的是**擦除法**实现的**伪泛型**，泛型信息（类型变量、参数化类型）编译之后通通被除掉了。
+
+**类型擦除**
+
+泛型信息只存在于编译前，编译后的字节码中是不包含泛型中的类型信息的。因此，编译器在编译时去掉类型参数，叫做类型擦除。
+
+例如 List<Integer> 和 List<String> 等类型在编译之后都会变成 List。JVM 看到的只是 List，而泛型信息对 JVM 来说是不可见的。
+
+```
+Class class1= new ArrayList<String>().getClass();
+Class class2= new ArrayList<Integer>().getClass();
+System.out.println(class1 == class2);  // true
+```
+
+两个 ArrayList 对象相等，既 JVM 认为这是同一类型。
+
+## 三、泛型类
 
 >泛型类的类型参数声明部分也包含一个或多个类型参数，参数间用逗号隔开。一个泛型参数，也被称为一个类型变量，是用于指定一个泛型类型名称的标识符。因为他们接受一个或多个参数，这些类被称为参数化的类或参数化的类型。
 
@@ -85,7 +105,7 @@ public class BoxGeneric<T> {
 
 ![2021-12-29_164719](https://img.qinweizhao.com/2021/12/2021-12-29_164719.png)
 
-## 二、泛型方法
+## 四、泛型方法
 
 - 所有泛型方法声明都有一个类型参数声明部分（由尖括号分隔），该类型参数声明部分在方法返回类型之前（在下面例子中的 **<E>**）。
 - 每一个类型参数声明部分包含一个或多个类型参数，参数间用逗号隔开。一个泛型参数，也被称为一个类型变量，是用于指定一个泛型类型名称的标识符。
@@ -142,7 +162,7 @@ public class MethodGeneric {
 
 ![2021-12-29_165147](https://img.qinweizhao.com/2021/12/2021-12-29_165147.png)
 
-## 三、泛型标识符
+## 五、泛型标识符
 
 Java 中泛型标记符：
 
@@ -402,3 +422,10 @@ public class Test3<T> {
     // 不会报错
     public Class<T> clazzT;
 ```
+
+##  
+
+>代码地址：
+>
+>https://github.com/qinweizhao/qwz-sample/tree/master/basic/b-generics
+
