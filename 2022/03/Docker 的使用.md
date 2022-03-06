@@ -145,7 +145,7 @@ $ docker rm -f 1e560fca390
 docker container prune
 ```
 
-## 11、其他
+### 11、其他
 
 更多命令直接输入 docker 命令来查看
 
