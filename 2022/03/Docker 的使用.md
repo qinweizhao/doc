@@ -145,3 +145,91 @@ $ docker rm -f 1e560fca390
 docker container prune
 ```
 
+## 11、其他
+
+更多命令直接输入 docker 命令来查看
+
+可以通过命令 **docker command --help** 更深入的了解指定的 Docker 命令使用方法。
+
+例如我们要查看 **docker stats** 指令的具体使用方法：
+
+```bash
+docker stats --help
+```
+
+![2022-03-06_212339](https://img.qinweizhao.com/2022/03/2022-03-06_212339.png)
+
+## 二、镜像
+
+> 当运行容器时，使用的镜像如果在本地中不存在，docker 就会自动从 docker 镜像仓库中下载，默认是从 Docker Hub 公共镜像源下载。
+
+### 1、列出镜像列表
+
+使用 **docker images** 列出本地主机上的镜像
+
+![2022-03-06_212718](https://img.qinweizhao.com/2022/03/2022-03-06_212718.png)
+
+各个选项说明
+
+- **REPOSITORY：**表示镜像的仓库源
+- **TAG：**镜像的标签
+- **IMAGE ID：**镜像ID
+- **CREATED：**镜像创建时间
+- **SIZE：**镜像大小
+
+同一仓库源可以有多个 TAG，代表这个仓库源的不同个版本。当有多个不同的版本，我们使用 REPOSITORY:TAG 来定义不同的镜像。
+
+如果不指定一个镜像的版本标签，将默认使用 xxx:latest 镜像。
+
+### 2、获取一个新的镜像
+
+当本地主机上使用一个不存在的镜像时 Docker 就会自动下载这个镜像。如果想预先下载这个镜像，可以使用 docker pull 命令来下载它。
+
+### 3、查找镜像
+
+可以从 Docker Hub 网站来搜索镜像，Docker Hub 网址为： **https://hub.docker.com/**
+
+我们也可以使用 docker search 命令来搜索镜像。比如我们需要一个 centos 镜像。我们可以通过 docker search 命令搜索 centos 来寻找适合我们的镜像。
+
+```bash
+docker search centos
+```
+
+![2022-03-06_213408](https://img.qinweizhao.com/2022/03/2022-03-06_213408.png)
+
+**NAME:** 镜像仓库源的名称
+
+**DESCRIPTION:** 镜像的描述
+
+**OFFICIAL:** 是否 docker 官方发布
+
+**stars:** 类似 Github 里面的 star，表示点赞、喜欢的意思
+
+**AUTOMATED:** 自动构建
+
+### 4、删除镜像
+
+镜像删除使用 **docker rmi** 命令
+
+```bash
+docker rmi fab
+```
+
+### 5、创建镜像
+
+当从 docker 镜像仓库中下载的镜像不能满足我们的需求时，我们可以通过以下两种方式对镜像进行更改。
+
+- 1、从已经创建的容器中更新镜像，并且提交这个镜像
+- 2、使用 Dockerfile 指令来创建一个新的镜像
+
+#### 1. 更新镜像
+
+通过命令 docker commit 来提交容器副本
+
+#### 2. 构建镜像
+
+使用命令 **docker build** ， 从零开始来创建一个新的镜像。为此，我们需要创建一个 Dockerfile 文件，其中包含一组指令来告诉 Docker 如何构建我们的镜像。
+
+#### 3. 设置镜像标签
+
+使用 docker tag 命令，为镜像添加一个新的标签。
