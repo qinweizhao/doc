@@ -37,7 +37,7 @@ docker run -it centos /bin/bash
 exit
 ```
 
-![](../../../img/2022/03/2022-03-06_203544.png)
+![2022-03-06_203544](https://img.qinweizhao.com/2022/03/2022-03-06_203544.png)
 
 ### 3、启动已停止运行的容器
 
@@ -47,7 +47,7 @@ exit
 docker ps -a
 ```
 
-![](../../../img/2022/03/2022-03-06_203610.png)
+![2022-03-06_203610](https://img.qinweizhao.com/2022/03/2022-03-06_203610.png)
 
 输出详情介绍
 
@@ -96,7 +96,7 @@ docker stop fab
 docker restart fab
 ```
 
-![](../../../img/2022/03/2022-03-06_210511.png)
+![2022-03-06_210511](https://img.qinweizhao.com/2022/03/2022-03-06_210511.png)
 
 ### 7、进入容器
 
@@ -129,7 +129,7 @@ cat docker/centos.tar | docker import - icentos:v1
 $ docker import http://example.com/exampleimage.tgz example/imagerepo
 ```
 
-![](../../../img/2022/03/2022-03-06_211459.png)
+![2022-03-06_211459](https://img.qinweizhao.com/2022/03/2022-03-06_211459.png)
 
 ### 10、删除容器
 
