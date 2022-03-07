@@ -26,10 +26,10 @@ docker run -it centos /bin/bash
 
 参数说明：
 
-- **-i**: 交互式操作
-- **-t**: 终端
-- **centos**: centos 镜像
-- **/bin/bash**：放在镜像名后的是命令，这里我们希望有个交互式 Shell，因此用的是 /bin/bash
+- **-i**: 交互式操作。
+- **-t**: 终端。
+- **centos**: centos 镜像。
+- **/bin/bash**：放在镜像名后的是命令，这里我们希望有个交互式 Shell，因此用的是 /bin/bash。
 
 要退出终端，直接输入 **exit**：
 
@@ -51,11 +51,11 @@ docker ps -a
 
 输出详情介绍：
 
-- **CONTAINER ID:** 容器 ID
-- **IMAGE:** 使用的镜像
-- **COMMAND:** 启动容器时运行的命令
-- **CREATED:** 容器的创建时间
-- **STATUS:** 容器状态，状态有 7 种
+- **CONTAINER ID:** 容器 ID。
+- **IMAGE:** 使用的镜像。
+- **COMMAND:** 启动容器时运行的命令。
+- **CREATED:** 容器的创建时间。
+- **STATUS:** 容器状态，状态有 7 种：
   + created（已创建）
   + restarting（重启中）
   + running 或 Up（运行中）
@@ -171,11 +171,11 @@ docker stats --help
 
 各个选项说明
 
-- **REPOSITORY：**表示镜像的仓库源
-- **TAG：**镜像的标签
-- **IMAGE ID：**镜像ID
-- **CREATED：**镜像创建时间
-- **SIZE：**镜像大小
+- **REPOSITORY:** 表示镜像的仓库源。
+- **TAG:** 镜像的标签。
+- **IMAGE ID: **镜像ID。
+- **CREATED:** 镜像创建时间。
+- **SIZE:** 镜像大小。
 
 同一仓库源可以有多个 TAG，代表这个仓库源的不同个版本。当有多个不同的版本，我们使用 REPOSITORY:TAG 来定义不同的镜像。
 
@@ -197,15 +197,15 @@ docker search centos
 
 ![2022-03-06_213408](https://img.qinweizhao.com/2022/03/2022-03-06_213408.png)
 
-**NAME:** 镜像仓库源的名称
+**NAME:** 镜像仓库源的名称。
 
-**DESCRIPTION:** 镜像的描述
+**DESCRIPTION:** 镜像的描述。
 
-**OFFICIAL:** 是否 docker 官方发布
+**OFFICIAL:** 是否 docker 官方发布。
 
-**stars:** 类似 Github 里面的 star，表示点赞、喜欢的意思
+**STARS:** 类似 Github 里面的 star，表示点赞、喜欢的意思。
 
-**AUTOMATED:** 自动构建
+**AUTOMATED:** 自动构建。
 
 ### 4、删除镜像
 
@@ -219,12 +219,12 @@ docker rmi fab
 
 当从 docker 镜像仓库中下载的镜像不能满足我们的需求时，我们可以通过以下两种方式对镜像进行更改。
 
-- 1、从已经创建的容器中更新镜像，并且提交这个镜像
-- 2、使用 Dockerfile 指令来创建一个新的镜像
+- 1、从已经创建的容器中更新镜像，并且提交这个镜像。
+- 2、使用 Dockerfile 指令来创建一个新的镜像。
 
 #### 1. 更新镜像
 
-在运行的容器中新增一个 wz.txt 文件，然后退出
+在运行的容器中新增一个 wz.txt 文件，然后退出：
 
 ```bash
 touch wz.txt
@@ -242,10 +242,10 @@ docker commit -m="add file" -a="qwz" fab wzcentos
 
 参数说明：
 
-- **-m:** 提交的描述信息
-- **-a:** 指定镜像作者
-- **fab:** 容器 ID
-- **wzcentos:** 指定要创建的目标镜像名
+- **-m:** 提交的描述信息。
+- **-a:** 指定镜像作者。
+- **fab:** 容器 ID。
+- **wzcentos:** 指定要创建的目标镜像名。
 
 
 #### 2. 构建镜像
@@ -260,8 +260,8 @@ docker build -t bcentos:b .
 
 参数说明：
 
-- **-t** ：指定要创建的目标镜像名
-- **.** ：Dockerfile 文件所在目录，可以指定Dockerfile 的绝对路径
+- **-t** ：指定要创建的目标镜像名。
+- **.** ：Dockerfile 文件所在目录，可以指定Dockerfile 的绝对路径。
 
 ### 6、 设置镜像标签
 
@@ -277,7 +277,7 @@ docker tag 339 wzcentos:a
 
 ### 1、网络端口映射
 
-创建一个 web 应用的容器（镜像使用的是 halo 博客）
+创建一个 web 应用的容器（镜像使用的是 halo 博客）：
 
 ```bash
 docker run -it -d --name halo -p 8090:8090 halohub/halo:latest
@@ -289,7 +289,7 @@ docker run -it -d --name halo -p 8090:8090 halohub/halo:latest
 docker run -it -d --name ihalo -p 127.0.0.1:8090:8090 halohub/halo:latest
 ```
 
-默认都是绑定 tcp 端口，如果要绑定 UDP 端口，可以在端口后面加上 **/udp**。
+默认都是绑定 tcp 端口，如果要绑定 UDP 端口，可以在端口后面加上 **/udp**：
 
 ```bash
 docker run -it -d --name uhalo -p 127.0.0.1:9090:8090/udp halohub/halo:latest
