@@ -244,8 +244,9 @@ docker commit -m="add file" -a="qwz" fab wzcentos
 
 - **-m:** 提交的描述信息
 - **-a:** 指定镜像作者
-- **e218edb10161：**容器 ID
-- **runoob/ubuntu:v2:** 指定要创建的目标镜像名
+- **fab:** 容器 ID
+- **wzcentos:** 指定要创建的目标镜像名
+
 
 #### 2. 构建镜像
 
@@ -375,3 +376,35 @@ docker run -it --rm -h host_centos  --dns=8.8.8.8 --dns-search=test.com centos
 **--dns-search=DOMAIN**： 设定容器的搜索域，当设定搜索域为 .example.com 时，在搜索一个名为 host 的主机时，DNS 不仅搜索 host，还会搜索 host.example.com。
 
 如果在容器启动时没有指定 **--dns** 和 **--dns-search**，Docker 会默认用宿主主机上的 /etc/resolv.conf 来配置容器的 DNS。
+
+## 四、仓库管理
+
+仓库（Repository）是集中存放镜像的地方，目前 Docker 官方维护了一个公共仓库 [Docker Hub](https://hub.docker.com/)。
+
+注册地址： [https://hub.docker.com](https://hub.docker.com/)
+
+### 1、登录和退出
+
+登录需要输入用户名和密码，登录成功后，我们就可以从 docker hub 上拉取自己账号下的全部镜像。
+
+```bash
+docker login
+```
+
+退出 docker hub 可以使用以下命令：
+
+```bash
+docker logout
+```
+
+### 2、推送镜像
+
+用户登录后，可以通过 docker push 命令将自己的镜像推送到 Docker Hub。
+
+```bash
+docker push qinweizhao/centos:7
+```
+
+![2022-03-07_211825](https://img.qinweizhao.com/2022/03/2022-03-07_211825.png)
+
+结果（ps：使用 docker search qinweizhao/centos 没搜索到，但是确实已经 push 成功)：![2022-03-07_211913](https://img.qinweizhao.com/2022/03/2022-03-07_211913.png)
