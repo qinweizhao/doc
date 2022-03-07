@@ -6,7 +6,7 @@
 >
 >容器是完全使用沙箱机制，相互之间不会有任何接口（类似手机的 app），更重要的是容器性能开销极低。
 
-## 一、容器
+## 一、容器使用
 
 ### 1、获取镜像
 
@@ -159,7 +159,7 @@ docker stats --help
 
 ![2022-03-06_212339](https://img.qinweizhao.com/2022/03/2022-03-06_212339.png)
 
-## 二、镜像
+## 二、镜像使用
 
 > 当运行容器时，使用的镜像如果在本地中不存在，docker 就会自动从 docker 镜像仓库中下载，默认是从 Docker Hub 公共镜像源下载。
 
@@ -271,3 +271,107 @@ docker tag 339 wzcentos:a
 ```
 
 ![2022-03-07_105226](https://img.qinweizhao.com/2022/03/2022-03-07_105226.png)
+
+## 三、容器连接
+
+### 1、网络端口映射
+
+创建一个 web 应用的容器（镜像使用的是 halo 博客）
+
+```bash
+docker run -it -d --name halo -p 8090:8090 halohub/halo:latest
+```
+
+使用 **-p** 标识来指定容器端口绑定到主机端口，也可以指定容器绑定的网络地址，比如绑定 127.0.0.1：
+
+```bash
+docker run -it -d --name ihalo -p 127.0.0.1:8090:8090 halohub/halo:latest
+```
+
+默认都是绑定 tcp 端口，如果要绑定 UDP 端口，可以在端口后面加上 **/udp**。
+
+```bash
+docker run -it -d --name uhalo -p 127.0.0.1:9090:8090/udp halohub/halo:latest
+```
+
+**docker port** 命令可以让我们快捷地查看端口的绑定情况：
+
+```bash
+docker port cb8
+```
+
+![2022-03-07_181506](https://img.qinweizhao.com/2022/03/2022-03-07_181506.png)
+
+### 2、容器互联
+
+端口映射并不是唯一把 docker 连接到另一个容器的方法。docker 有一个连接系统允许将多个容器连接在一起，共享连接信息。docker 连接会创建一个父子关系，其中父容器可以看到子容器的信息。
+
+#### 1. 新建网络
+
+```bash
+docker network create -d bridge test-net
+```
+
+参数说明：
+
+**-d**：参数指定 Docker 网络类型，有 bridge、overlay（用于 Swarm mode）。
+
+#### 2. 连接容器
+
+```bash
+docker run -itd --name test1 --network test-net centos /bin/bash
+```
+
+再运行一个容器并加入到 test-net 网络:
+
+```bash
+docker run -itd --name test2 --network test-net centos /bin/bash
+```
+
+下面通过 ping 来证明 test1 容器和 test2 容器建立了互联关系。
+
+![2022-03-07_184643](https://img.qinweizhao.com/2022/03/2022-03-07_184643.png)
+
+如果有多个容器之间需要互相连接，推荐使用 Docker Compose。
+
+#### 3.配置 DNS
+
+在宿主机（Linux）的 /etc/docker/daemon.json 文件中增加以下内容来设置全部容器的 DNS：
+
+```json
+{
+  "dns" : [
+    "114.114.114.114"
+  ]
+}
+```
+
+设置后，启动容器的 DNS 会自动配置为 114.114.114.114 和 8.8.8.8。
+
+配置完，需要重启 docker 才能生效。
+
+查看容器的 DNS 是否生效可以使用以下命令，它会输出容器的 DNS 信息：
+
+```bash
+docker run -it --rm  centos  cat etc/resolv.conf
+```
+
+如果只想在指定的容器设置 DNS，则可以使用以下命令：
+
+```bash
+docker run -it --rm -h host_centos  --dns=8.8.8.8 --dns-search=test.com centos
+```
+
+![2022-03-07_200016](https://img.qinweizhao.com/2022/03/2022-03-07_200016.png)
+
+参数说明：
+
+**--rm**：容器退出时自动清理容器内部的文件系统。
+
+**-h HOSTNAME 或者 --hostname=HOSTNAME**： 设定容器的主机名，它会被写到容器内的 /etc/hostname 和 /etc/hosts。
+
+**--dns=IP_ADDRESS**： 添加 DNS 服务器到容器的 /etc/resolv.conf 中，让容器用这个服务器来解析所有不在 /etc/hosts 中的主机名。
+
+**--dns-search=DOMAIN**： 设定容器的搜索域，当设定搜索域为 .example.com 时，在搜索一个名为 host 的主机时，DNS 不仅搜索 host，还会搜索 host.example.com。
+
+如果在容器启动时没有指定 **--dns** 和 **--dns-search**，Docker 会默认用宿主主机上的 /etc/resolv.conf 来配置容器的 DNS。
