@@ -4,13 +4,13 @@
 >
 >Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。
 >
->容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app）,更重要的是容器性能开销极低。
+>容器是完全使用沙箱机制，相互之间不会有任何接口（类似手机的 app），更重要的是容器性能开销极低。
 
 ## 一、容器
 
 ### 1、获取镜像
 
-如果我们本地没有 centos 镜像，我们可以使用 docker pull 命令来载入 centos 镜像
+如果本地没有 centos 镜像，可以使用 docker pull 命令来载入 centos 镜像：
 
 ```bash
 docker pull centos
@@ -18,7 +18,7 @@ docker pull centos
 
 ### 2、启动容器
 
-使用 centos 镜像启动一个容器，参数为以命令行模式进入该容器
+使用 centos 镜像启动一个容器，参数为以命令行模式进入该容器：
 
 ```bash
 docker run -it centos /bin/bash
@@ -31,7 +31,7 @@ docker run -it centos /bin/bash
 - **centos**: centos 镜像
 - **/bin/bash**：放在镜像名后的是命令，这里我们希望有个交互式 Shell，因此用的是 /bin/bash
 
-要退出终端，直接输入 **exit**
+要退出终端，直接输入 **exit**：
 
 ```bash
 exit
@@ -41,7 +41,7 @@ exit
 
 ### 3、启动已停止运行的容器
 
-查看所有的容器命令
+查看所有的容器命令：
 
 ```bash
 docker ps -a
@@ -49,7 +49,7 @@ docker ps -a
 
 ![2022-03-06_203610](https://img.qinweizhao.com/2022/03/2022-03-06_203610.png)
 
-输出详情介绍
+输出详情介绍：
 
 - **CONTAINER ID:** 容器 ID
 - **IMAGE:** 使用的镜像
@@ -66,7 +66,7 @@ docker ps -a
 - **PORTS**: 容器的端口信息和使用的连接类型（tcp\udp）。
 - **NAMES:** 自动分配的容器名称。
 
-使用 docker start  （容器 ID 或容器名称）启动一个已停止的容器
+使用 docker start  （容器 ID 或容器名称）启动一个已停止的容器：
 
 ```bash
 docker start 6a74bbdf323e 
@@ -74,7 +74,7 @@ docker start 6a74bbdf323e
 
 ### 4、后台运行
 
-在大部分的场景下，我们希望 docker 的服务是在后台运行的，我们可以过 **-d** 指定容器的运行模式。加了 **-d** 参数默认不会进入容器
+在大部分的场景下，我们希望 docker 的服务是在后台运行的，我们可以过 **-d** 指定容器的运行模式。加了 **-d** 参数默认不会进入容器：
 
 ```bash
 docker run -itd --name my-centos centos /bin/bash
@@ -82,7 +82,7 @@ docker run -itd --name my-centos centos /bin/bash
 
 ### 5、停止一个容器
 
-停止容器使用 docker stop 命令
+停止容器使用 docker stop 命令：
 
 ```
 docker stop fab
@@ -90,7 +90,7 @@ docker stop fab
 
 ### 6、重启
 
-容器可以通过 docker restart 重启
+容器可以通过 docker restart 重启：
 
 ```bash
 docker restart fab
@@ -107,7 +107,7 @@ docker restart fab
 
 ### 8、导出容器快照
 
-如果要导出本地某个容器，可以使用 **docker export** 命令
+如果要导出本地某个容器，可以使用 **docker export** 命令：
 
 ```bash
 docker export fab > centos.tar
@@ -117,7 +117,7 @@ docker export fab > centos.tar
 
 ### 9、导入容器快照
 
-使用 docker import 从容器快照文件中再导入为镜像，以下实例将快照文件 centos.tar 导入到镜像 centos:v1:
+使用 docker import 从容器快照文件中再导入为镜像，以下实例将快照文件 centos.tar 导入到镜像 centos:v1：
 
 ```bash
 cat docker/centos.tar | docker import - icentos:v1
@@ -139,7 +139,7 @@ $ docker import http://example.com/exampleimage.tgz example/imagerepo
 $ docker rm -f 1e560fca390
 ```
 
-下面的命令可以清理掉所有处于终止状态的容器。
+下面的命令可以清理掉所有处于终止状态的容器：
 
 ```bash
 docker container prune
@@ -147,7 +147,7 @@ docker container prune
 
 ### 11、其他
 
-更多命令直接输入 docker 命令来查看
+更多命令直接输入 docker 命令来查看。
 
 可以通过命令 **docker command --help** 更深入的了解指定的 Docker 命令使用方法。
 
@@ -165,7 +165,7 @@ docker stats --help
 
 ### 1、列出镜像列表
 
-使用 **docker images** 列出本地主机上的镜像
+使用 **docker images** 列出本地主机上的镜像：
 
 ![2022-03-06_212718](https://img.qinweizhao.com/2022/03/2022-03-06_212718.png)
 
@@ -187,7 +187,7 @@ docker stats --help
 
 ### 3、查找镜像
 
-可以从 Docker Hub 网站来搜索镜像，Docker Hub 网址为： **https://hub.docker.com/**
+可以从 Docker Hub 网站来搜索镜像，Docker Hub 网址为： **https://hub.docker.com/**。
 
 我们也可以使用 docker search 命令来搜索镜像。比如我们需要一个 centos 镜像。我们可以通过 docker search 命令搜索 centos 来寻找适合我们的镜像。
 
@@ -209,7 +209,7 @@ docker search centos
 
 ### 4、删除镜像
 
-镜像删除使用 **docker rmi** 命令
+镜像删除使用 **docker rmi** 命令：
 
 ```bash
 docker rmi fab
@@ -224,12 +224,50 @@ docker rmi fab
 
 #### 1. 更新镜像
 
-通过命令 docker commit 来提交容器副本
+在运行的容器中新增一个 wz.txt 文件，然后退出
+
+```bash
+touch wz.txt
+```
+
+```bash
+exit
+```
+
+将定制后的容器通过命令 docker commit 来提交容器副本：
+
+```bash
+docker commit -m="add file" -a="qwz" fab wzcentos
+```
+
+参数说明：
+
+- **-m:** 提交的描述信息
+- **-a:** 指定镜像作者
+- **e218edb10161：**容器 ID
+- **runoob/ubuntu:v2:** 指定要创建的目标镜像名
 
 #### 2. 构建镜像
 
 使用命令 **docker build** ， 从零开始来创建一个新的镜像。为此，我们需要创建一个 Dockerfile 文件，其中包含一组指令来告诉 Docker 如何构建我们的镜像。
 
-#### 3. 设置镜像标签
+如何创建 Dockerfile 下文详细描述......
 
-使用 docker tag 命令，为镜像添加一个新的标签。
+```bash
+docker build -t bcentos:b .
+```
+
+参数说明：
+
+- **-t** ：指定要创建的目标镜像名
+- **.** ：Dockerfile 文件所在目录，可以指定Dockerfile 的绝对路径
+
+### 6、 设置镜像标签
+
+使用 docker tag 命令，为镜像添加一个新的标签：
+
+```bash
+docker tag 339 wzcentos:a
+```
+
+![2022-03-07_105226](https://img.qinweizhao.com/2022/03/2022-03-07_105226.png)
