@@ -173,7 +173,7 @@ docker stats --help
 
 - **REPOSITORY:** 表示镜像的仓库源。
 - **TAG:** 镜像的标签。
-- **IMAGE ID: **镜像ID。
+- **IMAGE ID:** 镜像ID。
 - **CREATED:** 镜像创建时间。
 - **SIZE:** 镜像大小。
 
