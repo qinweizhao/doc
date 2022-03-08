@@ -1,6 +1,6 @@
 
 <p align="center">
-👉 <a href="https://img.qinweizhao.com">https://img.qinweizhao.com</a> 👈
+👉 <a href="https://www.qinweizhao.com">https://www.qinweizhao.com</a> 👈
 </p>
 <p align="center">
 👉 <a href="https://qinweizhao.github.io/doc/">https://qinweizhao.github.io/doc/</a> 👈
