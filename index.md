@@ -16,7 +16,7 @@
   + [12-29：Maven 自定义 Archetype](./2021/12/Maven%20自定义%20Archetype.html)
 - 2021 年 11 月
   + [11-23：Docker 安装 Jenkins](./2021/11.ker%20安装%20Jenkins.html)
-  + [11-21： List 去除重复数据](./2021/11/listqu-chu-zhong-fu-shu-ju.html)
+  + [11-21：List 去除重复数据](./2021/11/listqu-chu-zhong-fu-shu-ju.html)
   + [11-15：Spring Security 配置](./2021/11/Spring Security%20配置.html)
   + [11-12：CentOS 7 安装 Nginx](./2021/11/CentOS 7%20安装%20Nginx.html)
   + [11-06：CentOS 7 防火墙 Firewall 的使用](./2021/11/CentOS 7%20防火墙%20Firewall%20的使用.html)
