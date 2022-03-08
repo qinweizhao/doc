@@ -1,15 +1,5 @@
 theme: jekyll-theme-slate
 
-# Site settings
-title: YVKG
-SEOTitle: 秦伟诏 | qinweizhao
-#header-img: img/home-bg.jpg
-email: yvkg@qq.com
-description: "doc"
-keyword: "doc"
-url: "https://www.qinweizhao.cn"              # your host, for absolute URL
-baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
-
 # SNS settings
 RSS: false
 github_username:    qinweizhao
