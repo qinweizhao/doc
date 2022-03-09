@@ -50,7 +50,7 @@ PREFIX=24
 DNS1=114.114.114.114
 ```
 
-### 三、重启网卡
+## 三、重启网卡
 
 ```bash
 service network restart

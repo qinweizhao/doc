@@ -6,17 +6,17 @@
 
 >gcc 是 Linux 的编译器，可以编译 C、C++、Ada、Object C 和 Java 等语言。
 
-1.  查看gcc版本
+查看gcc版本
 
-   ```bash
-   gcc -v
-   ```
+```bash
+gcc -v
+```
 
-2. gcc 安装命令
+gcc 安装命令
 
-   ```bash
-   yum -y install gcc
-   ```
+```bash
+yum -y install gcc
+```
 
 ## 2、pcre 和 pcre-devel
 
