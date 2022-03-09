@@ -29,7 +29,7 @@
   + [10-19：Docker 安装 RabbitMQ](./2021/10.ker%20安装%20RabbitMQ.html)
   + [10-18：CentOS 7 安装 Redis 6.2.6](./2021/10/CentOS 7%20安装%20Redis 6.2.6.html)
   + [10-17：Spring Boot 解决跨域](./2021/10/Spring Boot%20解决跨域.html)
-  + [10-13：SpringBoot 集成 Swagger2 与 Swagger3 的区别](./2021/10/SpringBoot%20集成%20Swagger2%20与%20Swagger3%20的区别.html)
+  + [10-13：Spring Boot 集成 Swagger2 与 Swagger3 的区别](./2021/10/Spring Boot%20集成%20Swagger2%20与%20Swagger3%20的区别.html)
   + [10-11：webpack](./2021/10/webpack.html)
 - 2021 年 9 月
   + [09-23：Babel](./2021/09/babel.html)
