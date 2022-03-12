@@ -275,7 +275,7 @@ systemctl daemon-reload
 重启即可：
 
 ```sh
-systemctl  start  fops
+systemctl  start  frps
 ```
 
 ## 六、结果
