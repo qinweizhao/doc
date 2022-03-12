@@ -8,21 +8,7 @@ Calf 快速开发平台是一个前后分离的项目，将使用 Docker 部署�
 
 ### 1、安装 Docker
 
-```sh
-yum install docker
-```
-
-验证：
-
-```sha
-docker --version
-```
-
-启动：
-
-```sh
-systemctl start docker
-```
+参考 Docker 安装和配置。
 
 ### 2、安装 Docker Compose
 
@@ -32,7 +18,7 @@ systemctl start docker
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 ```
 
-因为Docker Compose存放在GitHub，可能不太稳定。可以通过DaoCloud加速下载
+因为Docker Compose存放在GitHub，可能不太稳定。可以通过 DaoCloud 加速下载
 
 ```sh
 curl -L https://get.daocloud.io/docker/compose/releases/download/1.29.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose

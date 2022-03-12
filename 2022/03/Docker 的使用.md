@@ -240,7 +240,7 @@ docker stats --help
 
 ## 二、镜像使用
 
-> 当运行容器时，使用的镜像如果在本地中不存在，docker 就会自动从 docker 镜像仓库中下载，默认是从 Docker Hub 公共镜像源下载。
+> 当运行容器时，使用的镜像如果在本地中不存在，docker 就会自动从 docker 镜像仓库中下载，默认是从 Docker Hub 公共镜像源下载。镜像都是存储在 Docker 宿主机的 /var/lib/docker 目录下。
 
 ### 1、列出镜像列表
 
@@ -326,12 +326,11 @@ docker commit -m="add file" -a="qwz" fab wzcentos
 - **fab:** 容器 ID。
 - **wzcentos:** 指定要创建的目标镜像名。
 
-
 #### 2. 构建镜像
 
-使用命令 **docker build** ， 从零开始来创建一个新的镜像。为此，我们需要创建一个 Dockerfile 文件，其中包含一组指令来告诉 Docker 如何构建我们的镜像。
+使用命令 docker build ， 从零开始来创建一个新的镜像。为此，我们需要创建一个 Dockerfile 文件，其中包含一组指令来告诉 Docker 如何构建我们的镜像。
 
-如何创建 Dockerfile 下文详细描述......
+详细参考：Dockerfile
 
 ```sh
 docker build -t bcentos:b .
@@ -342,7 +341,7 @@ docker build -t bcentos:b .
 - **-t** ：指定要创建的目标镜像名。
 - **.** ：Dockerfile 文件所在目录，可以指定Dockerfile 的绝对路径。
 
-### 6、 设置镜像标签
+### 6、设置镜像标签
 
 使用 docker tag 命令，为镜像添加一个新的标签：
 
@@ -414,7 +413,7 @@ docker run -itd --name test2 --network test-net centos /bin/bash
 
 如果有多个容器之间需要互相连接，推荐使用 Docker Compose。
 
-#### 3.配置 DNS
+#### 3. 配置 DNS
 
 在宿主机（Linux）的 /etc/docker/daemon.json 文件中增加以下内容来设置全部容器的 DNS：
 
