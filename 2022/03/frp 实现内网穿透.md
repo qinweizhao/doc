@@ -12,7 +12,7 @@
 
 ## 三、下载
 
-根据个人需求下载需要的版本，下载地址：https://github.com/fatedier/frp/releases。本次服务器和客户端都选择amd64版本。
+根据个人需求下载需要的版本，下载地址：https://github.com/fatedier/frp/releases 。本次服务器和客户端都选择amd64版本。
 
 ![2022-03-12_162802](https://img.qinweizhao.com/2022/03/2022-03-12_162802.png)
 
