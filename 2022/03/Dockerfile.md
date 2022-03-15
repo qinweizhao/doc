@@ -213,7 +213,7 @@ docker build -f /home/ruoyi/docker/Dockerfile -t mycentos:7 .
 - -f：指定要使用的 Dockerfile 路径；
 - --tag, -t：镜像的名字及标签，可以在一次构建中为一个镜像设置多个标签。
 
-## 三、实践
+## 三、操作示例
 
 接下来我们通过基础镜像`centos:7`，在该镜像中安装`jdk`和`tomcat`以后将其制作为一个新的镜像`mycentos:7`
 
@@ -265,7 +265,7 @@ docker run -di --name mycentos -p 8080:8080 mycentos:test
 docker exec -it mycentos7 /bin/bash
 ```
 
-## 四、镜像构建历史
+## 四、构建历史
 
 ```
 docker history 镜像名称:标签|ID

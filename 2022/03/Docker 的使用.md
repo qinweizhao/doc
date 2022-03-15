@@ -201,8 +201,8 @@ $ docker import http://example.com/exampleimage.tgz example/imagerepo
 
 删除容器使用 **docker rm** 命令：
 
-```
-$ docker rm -f 1e560fca390
+```sh
+docker rm -f 1e560fca390
 ```
 
 下面的命令可以清理掉所有处于终止状态的容器：
