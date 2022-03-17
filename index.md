@@ -3,7 +3,8 @@
 ### 目录概览
 
 - 2022 年 3 月
-  + [03-17：Nacos-注册中心](./2022/03/Nacos-注册中心.html)
+  + [03-18：Spring Cloud Alibaba Nacos-配置中心](./2022/03/Spring Cloud Alibaba Nacos-配置中心.html)
+  + [03-17：Spring Cloud Alibaba Nacos-注册中心](./2022/03/Spring Cloud Alibaba Nacos-注册中心.html)
   + [03-16：Spring Cloud Gateway 实现限流](./2022/03/Spring Cloud Gateway%20实现限流.html)
   + [03-16：Spring Cloud Gateway 实现熔断降级](./2022/03/Spring Cloud Gateway%20实现熔断降级.html)
   + [03-15：Spring Cloud Gateway 的基础使用](./2022/03/Spring Cloud Gateway%20的基础使用.html)

@@ -1,4 +1,4 @@
-# Nacos-注册中心
+# Spring Cloud Alibaba Nacos-注册中心
 
 
 > 注册中心类似于**通讯录**，它记录了服务和服务地址的映射关系。在分布式架构中，服务会注册到这里，当服务需要调用其它服务时，就到这里找到服务的地址，进行调用。注册中心解决了**服务发现**的问题。在没有注册中心时候，服务间调用需要知道被调方的地址或者代理地址。当服务更换部署地址，就不得不修改调用当中指定的地址或者修改代理配置。而有了注册中心之后，服务之间调用只需要记住服务名即可。
@@ -7,15 +7,13 @@
 >
 > Nacos 文档地址： https://nacos.io/zh-cn/docs/quick-start.html
 
-## 一、下载并启动
+## 一、下载
 
 官方地址：https://github.com/alibaba/nacos/releases
 
 ### 1、安装包
 
-从 GitHub 上下载对应平台的压缩包，bin 目录的 startup.xx 即为启动脚本。
-
-注意：Nacos默认是集群模式 cluster。可以修改启动脚本将模式更改为 standalone。
+从 GitHub 上下载对应平台的压缩包
 
 ### 2、源码
 
@@ -41,17 +39,32 @@ cd distribution/target/nacos-server-$version/nacos/bin
 
 ```sh
 docker pull nacos/nacos-server
+```
 
+## 二、启动
+
+- 压缩包
+- 源码
+
+bin 目录的 startup.xx 即为启动脚本，根据相应的环境，选择不同的文件。
+
+```sh
+./startup.xx -m standalone
+```
+
+注意：xx
+
+- Docker
+
+```sh
 docker run --env MODE=standalone --name nacos -d -p 8848:8848 nacos/nacos-server
 ```
 
-注意：
-
-**当 Nacos 从1.x版本升级为2.x版本后，需要暴露 9848 端口。**
+注意：Nacos默认是集群模式 cluster。可以修改启动脚本将模式更改为 standalone。当 Nacos 从1.x版本升级为2.x版本后，需要暴露 9848 端口。
 
 Nacos 提供了一个可视化的操作平台，访问  http://localhost:8848/nacos/ ，使用默认的 nacos/nacos 进行登录。
 
-## 二、注册到 Nacos
+## 三、使用
 
 ### 1、引入依赖
 
@@ -132,10 +145,17 @@ dn-test 模块和 dn-discovery 都注册在 Nacos。dn-test 通过 restTemplate 
 
 访问：http://localhost:8080/1
 
-结果：201
+结果：2011
 
-## 
+##  
 
+>涉及模块：
+>
+>dn-discovery
+>
+>dn-test
+>
 >代码地址：
 >
 >https://github.com/qinweizhao/qwz-sample/tree/master/distributed/d-nacos
+
