@@ -110,6 +110,17 @@ public class DiscoveryApplication {
 
 Nacos Discovery Starter 默认集成了 Ribbon ，所以对于使用了 Ribbon 做负载均衡的组件，可以直接使用 Nacos 的服务发现。
 
+经过测试 SpringCloudAlibaba 的版本在2021.1剔除了 Ribbon，所以要使用 @LoadBalanced 注解则需要引入 loadbalancer：
+
+```xml
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+</dependency>
+```
+
+
+
 - FeignClient 已经默认集成了 Ribbon。（测试略）
 - 配置 RestTemplate 添加 @LoadBlanced 注解，使得 RestTemplate 接入 Ribbon。（此次使用）
 
