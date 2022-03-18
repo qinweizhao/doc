@@ -353,5 +353,5 @@ server-addr: 192.168.79.65:8848,192.168.79.66:8848,192.168.79.67:8848
 
 >代码地址：
 >
->https://github.com/qinweizhao/qwz-sample/tree/master/distributed/d-nacos/dn-test
+>https://github.com/qinweizhao/qwz-sample/tree/master/distributed/d-nacos/dn-config 
 

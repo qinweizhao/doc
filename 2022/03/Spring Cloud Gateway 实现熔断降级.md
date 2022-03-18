@@ -99,3 +99,7 @@ public class RouterFunctionConfiguration
 
 启动网关服务 `GatewayApplication.java`，访问`/service/**`在进行测试，会发现返回服务已被降级熔断，表示降级成功。
 
+
+>代码地址：
+>
+>https://github.com/qinweizhao/qwz-sample/tree/master/distributed/d-gateway

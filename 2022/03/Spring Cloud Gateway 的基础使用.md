@@ -384,3 +384,6 @@ public class AuthFilter implements GlobalFilter, Ordered
 }
 ```
 
+>代码地址：
+>
+>https://github.com/qinweizhao/qwz-sample/tree/master/distributed/d-gateway

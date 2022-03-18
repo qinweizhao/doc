@@ -141,19 +141,19 @@ Nacos Discovery Starter 默认集成了 Ribbon ，所以对于使用了 Ribbon �
 
 解释：
 
-dn-test 模块和 dn-discovery 都注册在 Nacos。dn-test 通过 restTemplate 调用 dn-discovery。
+dn-discovery-test 模块和 dn-discovery 都注册在 Nacos。dn-discovery-test 通过 restTemplate 调用 dn-discovery。dn-discovery 做的处理为 id 加 100。
 
 访问：http://localhost:8080/1
 
-结果：2011
+结果：1011
 
-##  
+##
 
 >涉及模块：
 >
 >dn-discovery
 >
->dn-test
+>dn-discovery-test
 >
 >代码地址：
 >
