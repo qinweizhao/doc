@@ -1,4 +1,4 @@
-# Spring Cloud Gateway 实现限流
+# Gateway 实现限流
 
 限流即限制流量。通过限流，我们可以很好地控制系统的 QPS，从而达到保护系统的目的。常见的限流算法有：计数器算法，漏桶(Leaky Bucket)算法，令牌桶(Token Bucket)算法。
 

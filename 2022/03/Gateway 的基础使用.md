@@ -1,4 +1,4 @@
-# Spring Cloud Gateway 的基础使用
+# Gateway 的基础使用
 
 > Spring Cloud Gateway 是基于 Spring 生态系统之上构建的 API 网关，包括： Spring 5.x ， Spring Boot 2.x 和 Project Reactor 。 旨在提供一种简单而有效的方法来路由到API，并为它们提供跨领域的关注点，例如：安全性，监视/指标，限流等。
 

@@ -1,4 +1,4 @@
-# Spring Cloud Gateway 实现熔断降级
+# Gateway 实现熔断降级
 
 ##  一、添加依赖。
 
