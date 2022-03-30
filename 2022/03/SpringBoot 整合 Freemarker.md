@@ -1,4 +1,4 @@
-# Spring Boot 整合 Freemarker
+# SpringBoot 整合 Freemarker
 
 ## 一、导包
 
