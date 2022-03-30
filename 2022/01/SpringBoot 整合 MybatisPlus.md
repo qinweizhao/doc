@@ -54,7 +54,7 @@ spring.datasource.data=classpath:data.sql
 spring.h2.console.settings.web-allow-others=true
 #console url。Spring启动后，可以访问 http://127.0.0.1:8080/h2-console 查看数据库
 spring.h2.console.path=/h2-console
-#default true。咱也可以用命令行访问好数据库，感兴趣的同学点这个链接 http://www.h2database.com/html/tutorial.html?highlight=Mac&search=mac#firstFound
+#default true。也可以用命令行访问好数据库
 spring.h2.console.enabled=true
 spring.h2.console.settings.trace=true
 #指定数据库的种类，这里 file意思是文件型数据库
