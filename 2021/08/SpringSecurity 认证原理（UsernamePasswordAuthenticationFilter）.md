@@ -1,4 +1,4 @@
-# Spring Security 认证原理（UsernamePasswordAuthenticationFilter）
+# SpringSecurity 认证原理（UsernamePasswordAuthenticationFilter）
 
 ## 1、获取到页面的用户名和密码
 

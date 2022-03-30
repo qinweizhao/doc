@@ -1,4 +1,4 @@
-# Spring Security 配置
+# SpringSecurity 配置
 
 ## 一、流程
 

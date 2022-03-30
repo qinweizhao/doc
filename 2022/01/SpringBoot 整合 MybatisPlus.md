@@ -1,8 +1,8 @@
-# Spring Boot 整合 MybatisPlus
+# SpringBoot 整合 MybatisPlus
 
 > 官方地址：https://baomidou.com/
 
-## 一、导入依赖
+## 一、导包
 
 ### 1、MybatisPlus
 
@@ -80,7 +80,7 @@ public class Application {
 }
 ```
 
-## 三、准备数据
+## 三、准备
 
 entity:
 
