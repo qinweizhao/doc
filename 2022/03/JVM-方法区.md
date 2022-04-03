@@ -92,7 +92,7 @@ JVisualVM 查看加载类的个数：
 
 ## 四、方法区异常
 
-  代码举例
+**代码举例：**
 
   ```java
   public class OOMTestMetaSpace extends ClassLoader {
@@ -118,9 +118,9 @@ JVisualVM 查看加载类的个数：
   }
   ```
 
-  结果爆出 OOM   ![2022-03-31_194543](https://img.qinweizhao.com/2022/03/2022-03-31_194543.png)
+**结果爆出 OOM**   ![2022-03-31_194543](https://img.qinweizhao.com/2022/03/2022-03-31_194543.png)
 
-  **如何解决OOM**
+**如何解决OOM**
 
   1、要解决 00M 异常或 heap space 的异常，一般的手段是首先通过内存映像分析工具（如Eclipse Memory Analyzer） 对 dump 出来的堆转储快照进行分析，重点是确认内存中的对象是否是必要的，也就是要先分清楚到底是出现了内存泄漏（Memory Leak）还是内存溢出（Memory 0verflow） 。
 
