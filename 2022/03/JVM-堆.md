@@ -48,7 +48,7 @@
  - **-Xmn:** 设置新生代大小（初始值及最大值）。
  - **-XX:MaxTenuringThreshold**：设置新生代垃圾的最大年龄(默认15)。
  - **-XX:+PrintGCDetails**：输出详细的GC处理日志。
- - 打印gc简要信息：
+ - 打印 GC 简要信息：
    - -XX:+PrintGC
    -  -verbose:gc
 - **-XX:HandlePromotionFailure**：是否设置空间分配担保。
