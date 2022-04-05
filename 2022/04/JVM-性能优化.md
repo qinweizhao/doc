@@ -23,7 +23,7 @@
    - 运行阶段
    - 线上出现OOM
 
-### 2、优概述
+### 2、调优概述
 
 1.  监控的依据
    - 运行日志
@@ -81,71 +81,70 @@
 
 ## 二、监控及诊断工具-命令行
 
-### 1、概述
+性能诊断是软件工程师在日常工作中经常要面对和解决的问题，在用户体验至上的今天，解决好应用的性能问题能带来巨大的收益。Java 作为最流行的编程语言之一，其应用性能诊断一直受到业界的广泛关注。可能造成 Java 应用出现性能问题的因素非常多如：线程控制、磁盘读写、数据库访问、网络IO、垃圾收集要想定位这些问题，一款优秀的性能诊断工具必不可少。
 
-性能诊断是软件工程师在日常工作中经常要面对和解决的问题，在用户体验至上的今天，解决好应用的i性能问题能带来巨大的收益。Java作为最流行的编程语言之一，其应用性能诊断一直受到业界的广泛关注。可能造成Java应用出现性能问题的因素非常多，比如
+### 2、jps
 
-- 线程控制
+jps(Java Process Status) 用于指定系统内所有的HotSpot虚拟机进程（查看虚拟机进程信息），可用于查询正在运行的虚拟机进程。
 
-- 磁盘读写
-
-- 数据库访问
-
-- 网络IO
-
-- 垃圾收集
-
-  要想定位这些问题，一款优秀的性能诊断工具必不可少。
-
-### 2、jps （Java Process Status）查看正在运行的Java进程
+> jps [-q] [-mlvV] [<hostid>]
 
 参数
 
-- -q: 仅显示ID
+- -q：仅显示 ID。
 
-- -l 输出程序的全限定名
+- -l：输出程序的全限定名。
 
-- -m 输出进程启动时传递给main的参数
+- -m：输出进程启动时传递给 main 的参数。
 
-- -v 列出JVM参数
+- -v：列出 JVM 参数。
 
-注意：
+  **注意：**
 
-​	如果Java进程关闭了默认开启的`UserPerfData`参数，则jps无法探测。
+  如果Java进程关闭了默认开启的`UserPerfData`参数，则 jps 无法探测。
 
-### 3、jstat JVM统计信息
+### 3、jstat
 
-- jstat 用于监视虚拟机各种运行状态信息，比如类装载，内存，GC，JIT编译等。
+jstat（JVM Statistics Monitoring Tool）用于监视虚拟机各种运行状态信息的命令行工具。它可以显示本地或者远程虚拟机进程中的类装载、内存、垃圾收集、JIT编译等运行数据。在没有GUI图形界面，只提供了纯文本控制台环境的服务器上，它将是运行期定位虚拟机性能问题的首选工具。常用于检测垃圾回收问题以及内存泄漏问题。
 
-  > jstat -<option> [-t] [-h<lines>] <vmid> [<interval> [<count>]]
+> jstat -<option> [-t] [-h<lines>] <vmid> [<interval> [<count>]]
 
 - option
 
-  - -class  显示ClassLoader的相关信息
+  - -class：显示 ClassLoader 的相关信息。
 
-  - -gc 显示与GC相关的堆信息（后缀C表示容量 后缀U表示已使用 后缀T表示耗时）
+  - -gc：显示与GC相关的堆信息（后缀 C 表示容量，后缀 U 表示已使用，后缀 T 表示耗时）。
 
-  - -gccapacity: 显示内容与-gc基本相同，但是输出主要关注堆各个区域最大最小空间
+  - -gccapacity：显示内容与 -gc 基本相同，但是输出主要关注堆各个区域最大最小空间。
 
-  - -gcutil :关注已使用占总空间的比例
-  - -gcnew 显示新生代的情况
-  - -gcold 显示老年代的情况
-  - -gccause 与gcutil输出一样，最后多显示最后一次发生GC的原因
+  - -gcutil：关注已使用占总空间的比例。
+  - -gcnew：显示新生代的情况。
+  - -gcold：显示老年代的情况。
+  - -gccause：与gcutil输出一样，最后多显示最后一次发生GC的原因。
 
-  - -compiler: 显示JIT编译器编译过的方法 耗时等
+  - -compiler：显示JIT编译器编译过的方法 耗时等。
 
-  - -printcompilation: 输出已经被JIT编译过的方法
+  - -printcompilation：输出已经被JIT编译过的方法。
 
-- -t 表示在输出信息前加时间戳 表示程序的运行时间 单位 s 
+- -t：表示在输出信息前加时间戳 表示程序的运行时间单位 s 。
 
-- -h 表示多少行内容之后输入一次表头信息
+- -h：表示多少行内容之后输入一次表头信息。
 
-- interval 指定更新统计数据的周期，单位ms 每隔n毫秒输入一次
+- interval：指定更新统计数据的周期，单位ms 每隔n毫秒输入一次。
 
 
-- count  与上个参数 配合使用 表示一共输出多少次 空表示一直输出
+- count：与上个参数 配合使用 表示一共输出多少次 空表示一直输出。
 
-### 4、jinfo 查看和修改JVM配置参数
+  补充： jstat还可以用来判断是否出现内存泄漏。
+
+  第1步：在长时间运行的 Java 程序中，我们可以运行jstat命令连续获取多行性能数据，并取这几行数据中 OU 列（即已占用的老年代内存）的最小值。
+
+  第2步：然后，我们每隔一段较长的时间重复一次上述操作，来获得多组 OU 最小值。如果这些值呈上涨趋势，则说明该 Java 程序的老年代内存已使用量在不断上涨，这意味着无法回收的对象在不断增加，因此很有可能存在内存泄漏。
+
+
+### 4、jinfo
+
+jinfo(Configuration Info for Java)：查看虚拟机配置参数信息，也可用于调整虚拟机的配置参数。在很多情况卡，Java应用程序不会指定所有的Java虚拟机参数。而此时，开发人员可能不知道某一个具体的Java虚拟机参数的默认值。在这种情况下，可能需要通过查找文档获取某个参数的默认值。这个查找过程可能是非常艰难的。但有了jinfo工具，开发人员可以很方便地找到Java虚拟机参数的当前值。
 
 > jinfo <option> <pid>
 
@@ -153,26 +152,63 @@
 
   - 查看
 
-    - jinfo -sysprpos pid ：查看该进程的全部配置信息
-    - jinfo -flag 参数名 pid： 查看指定参数值
+    - jinfo -sysprpos pid ：查看该进程的全部配置信息。
+    - jinfo -flag 参数名 pid： 查看指定参数值。
 
-    - -flag <具体参数> pid： 查看具体参数的值
+    - -flag <具体参数> pid： 查看具体参数的值。
 
   - 修改
 
-    - 布尔类型: jinfo -flag +-参数 pid
-    - 非布尔类型: jinfo -flag 参数名=参数值 pid
+    - 布尔类型: jinfo -flag +-参数 pid。
+    - 非布尔类型: jinfo -flag 参数名=参数值 pid。
 
+### 5、jmap
 
-### 5、jmap 导出内存映像文件&内存使用情况
+**导出内存映像文件&内存使用情况**
 
-### 6、jhat JDK自带的堆分析工具
+jmap（JVM Memory Map）作用是获取 dump文件（堆转储快照文件，二进制文件），它还可以获取目标 Java 进程的内存相关信息，包括 Java 堆各区域的使用情况、堆中对象的统计信息、类加载信息等。
 
-### 7、jstack 打印JVM中的线程快照
+> jmap -histo <pid>
+>
+> jmap -dump:<dump-options> <pid>
 
-### 8、 jcmd 多功能命令行
+- -dump：生成dump文件（Java堆转储快照），-dump:live只保存堆中的存活对象。
+- -histo	输出堆空间中对象的统计信息，包括类、实例数量和合计容量，-histo:live只统计堆中的存活对象。
 
->  在JDK1.7之后，新增了一个命令行工具jcmd ，它是一个多功能的工具，实现之前的所有功能。
+### 6、jhat
+
+**JDK自带堆分析工具**
+
+jhat 命令在 JDK9、JDK10 中已经被删除，官方建议用 VisualVM 代替。
+
+### 7、jstack
+
+**打印 JVM 中的线程快照**
+
+jstack（JVM Stack Trace）用于生成虚拟机指定进程当前时刻的线程快照（虚拟机堆栈跟踪）。线程快照就是当前虚拟机内指定进程的每一条线程正在执行的方法堆栈的集合。生成线程快照的作用：可用于定位线程出现长时间停顿的原因，如线程间死锁、死循环、请求外部资源导致的长时间等待等问题。这些都是导致线程长时间停顿的常见原因。当线程出现停顿时，就可以用jstack显示各个线程调用的堆栈情况。在thread dump中，要留意下面几种状态：
+
+- 死锁，Deadlock（重点关注）
+- 等待资源，Waiting on condition（重点关注）
+- 等待获取监视器，Waiting on monitor entry（重点关注）
+- 阻塞，Blocked（重点关注）
+- 执行中，Runnable
+- 暂停，Suspended
+- 对象等待中，Object.wait() 或 TIMED＿WAITING
+- 停止，Parked
+
+> jstack [-l] <pid>
+
+- option
+
+  -F：当正常输出的请求不被响应时，强制输出线程堆栈。
+  -l：除堆栈外，显示关于锁的附加信息。
+  -m：如果调用本地方法的话，可以显示C/C++的堆栈。
+
+### 8、jcmd
+
+**多功能命令行**
+
+在 JDK1.7之后，新增了一个命令行工具 jcmd ，它是一个多功能的工具，实现之前的所有功能。
 
 语法
 
@@ -182,7 +218,6 @@
 
 - jcmd pid 命令（上图中可选的命令均可）
 
-
 ### 9、jstatd 远程主机信息收集
 
 ![2022-04-05_115230](https://img.qinweizhao.com/2022/04/2022-04-05_115230.png)
@@ -190,49 +225,19 @@
 
 ## 三、监控及诊断工具-GUI
 
-### 1、工具概述
-
-JDK自带的GUI工具
-
-	- JConsole
-	- VisualVM
-	- JMC
-
-第三方工具
-
-- MAT
-
-- Jprofiler
-
-- Arthas
-
-- Btrace
-
-  ......
-
 ### 1、JConsole
 
-基本概述
+从 Java5 开始，JDK自带的Java监控和管理控制台。jdk bin目录下执行即可。
 
-从 Java5开始，JDK自带的Java监控和管理控制台。
+### 2、Visual VM
 
-启动
+一个功能强大的集合-故障诊断和性能监控的可视化工具， jdk bin 目录下执行即可。
 
-cmd jconsole或者在jdk bin目录下执行即可
+### 3、eclipse MAT
 
-### 3、Visual VM
+> 需要 JDK11之后，由于我的JDK版本不支持，此处略。
 
-> 一个功能强大的集合-故障诊断和性能监控的可视化工具
-
-启动
-
-cmd jconsole或者在jdk bin目录下执行即可
-
-### 4、eclipse MAT
-
-> 需要JDK11之后，由于我的JDK版本不支持，此处略
-
-### 5、Jprofiler
+### 4、Jprofiler
 
 > 软件下载地址: [JProfiler11免费版下载](https://www.jb51.net/softs/608640.html#downintro2)
 >
@@ -246,7 +251,7 @@ cmd jconsole或者在jdk bin目录下执行即可
 
 - CPU，Thread，Memory分析功能强大
 
-- 支持对JDBC，jsp,servlet,socket等分析
+- 支持对 JDBC，jsp,servlet,socket 等分析
 
 - 支持多种模式
 
@@ -269,98 +274,15 @@ cmd jconsole或者在jdk bin目录下执行即可
   - 优点：对应用影响小
   - 缺点： 一些数据无法提供
 
-### 6、Arthas（阿里巴巴）
+### 5、Arthas（阿里巴巴）
 
 >  阿尔萨斯，是Alibaba开源的Java诊断工具，在线排查问题，无需重启，动态跟踪Java代码，实时监控JVM状态。
 
 [官方地址](https://arthas.aliyun.com/zh-cn/)
 
-### 7、关于内存泄漏
+## 四、JVM 运行时参数
 
-可达性分析算法来判断对象是否是不再使用的对象，本质是判断一个对象是否还被引用，由于代码的实现不同就会出现很多种内存泄漏问题。
-
-内存泄露的理解
-
-- 严格来说，只有对象不再被程序使用，但是GC又不能回收的情况叫做内存泄露
-- 实际上，很多时候一些不好的编程习惯会使得某些对象的生命周期变的很长，比如局部变量定义为类变量，类变量定义为静态变量，此时，可能会导致OOM，这种也可以叫做宽泛意义上的`内存泄露`
-- 比如
-
-![2022-04-05_115310](https://img.qinweizhao.com/2022/04/2022-04-05_115310.png)
-
-- 内存泄漏过多，就会导致内存溢出
-
-
-
-演示内存泄漏并排查问题
-
-代码
-
-```java
-/**
-演示内存泄漏
-*/
-public class Stack {
-    private Object[] elements;
-    private int size = 0;
-    /**
-     * 默认容量
-     */
-    private static final int DEFAULT_INITIAL_CAPACITY = 16;
-
-    public Stack() {
-        elements = new Object[DEFAULT_INITIAL_CAPACITY];
-    }
-
-    /**
-     * 入栈
-     */
-    public void push(Object e) { //入栈
-        ensureCapacity();
-        elements[size++] = e;
-    }
-
-    /**
-     * 出栈
-     */
-    public Object pop() {
-        if (size == 0)
-            throw new EmptyStackException();
-        Object result = elements[--size];
-
-        //不加此行代码 容易造成内存泄漏
-        //elements[size] = null;
-        return result;
-    }
-
-    /**
-     * 扩容
-     */
-    private void ensureCapacity() {
-        if (elements.length == size)
-            elements = Arrays.copyOf(elements, 2 * size + 1);
-    }
-}
-```
-
-代码中出栈操作只是将当前位置下移，；出栈的对象并未置Null,此时，指向的对象无法被GC回收
-
-##### 解决方案
-
-在返回出栈对象之前，将该对象置空 即加入 即可
-
-```java
-public Object pop() {
-        if (size == 0)
-            throw new EmptyStackException();
-        Object result = elements[--size];
-        elements[size] = null;
-        return result;
-    }
-```
-
-## 四、JVM运行时参数
-
-### 1、JVM参数选项类型
+### 1、JVM 参数选项类型
 
 - 标准参数选项
 
@@ -463,7 +385,7 @@ public Object pop() {
   - 布尔类型 : -XX +<option> 启用     -XX -<option> 停用
   - 非布尔类型：-XX:name=value
 
-### 2、添加JVM参数选项
+### 2、添加 JVM 参数选项
 
 -  IDEA：
 
@@ -477,7 +399,7 @@ public Object pop() {
 
   - catalina.bat中添加：set "JAVA_OPTS=-Xms100m -Xmx100m"
 
-### 3、常用的JVM参数选项
+### 3、常用的 JVM 参数选项
 
 打印设置的参数
 
