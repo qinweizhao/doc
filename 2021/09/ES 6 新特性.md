@@ -27,7 +27,7 @@ console.log(y); //ReferenceError: y is not defined
 let y = 20;
 ```
 
-## 2、const 声明常量（只读变量）
+## 二、const 声明常量（只读变量）
 
 ```javascript
 // 1. 声明之后不允许改变
@@ -36,7 +36,7 @@ const a = 1;
 a = 3; //Uncaught TypeError: Assignment to constant variable.
 ```
 
-## 3、解构表达式
+## 三、解构表达式
 
 1. 数组解构
 
@@ -73,7 +73,7 @@ a = 3; //Uncaught TypeError: Assignment to constant variable.
    console.log(language);
    ```
 
-## 4、字符串扩展
+## 四、字符串扩展
 
 1. 新增 API
 
@@ -123,7 +123,7 @@ a = 3; //Uncaught TypeError: Assignment to constant variable.
    console.log(ss); //这是一个函数
    ```
 
-## 5、函数优化
+## 五、函数优化
 
 1. 函数参数默认值
 
@@ -212,7 +212,7 @@ a = 3; //Uncaught TypeError: Assignment to constant variable.
    hello2(person);
    ```
 
-## 6、对象优化
+## 六、对象优化
 
 1. 新增的 API
 
@@ -295,53 +295,53 @@ a = 3; //Uncaught TypeError: Assignment to constant variable.
    console.log(person2) // {age: 15, name: "Amy"}
    ```
 
-## 7、map 和 reduce
+## 七、map 和 reduce
 
-1. map
+### 1、map
 
-   >map()：接收一个函数，将原数组中的所有元素用这个函数处理后放入新数组返回。
+>map()：接收一个函数，将原数组中的所有元素用这个函数处理后放入新数组返回。
 
-   ```javascript
-   let arr = ['1', '20', '-5', '3'];
-   console.log(arr)
-   arr = arr.map(s => parseInt(s));
-   console.log(arr)
-   ```
+```javascript
+let arr = ['1', '20', '-5', '3'];
+console.log(arr)
+arr = arr.map(s => parseInt(s));
+console.log(arr)
+```
 
-2. reduce
+### 2、reduce
 
-   >语法： arr.reduce(callback,[initialValue]) reduce 为数组中的每一个元素依次执行回调函数，不包括数组中被删除或从未被赋值的元素，接受四个参数：初始值（或者上一次回调函数的返回值），当前元素值，当前索引，调用 reduce 的数组。
-   >
-   >callback （执行数组中每个值的函数，包含四个参数）
-   >
-   >1、previousValue （上一次调用回调返回的值，或者是提供的初始值（initialValue））
-   >
-   >2、currentValue （数组中当前被处理的元素）
-   >
-   >3、index （当前元素在数组中的索引）
-   >
-   >4、array （调用 reduce 的数组） initialValue （作为第一次调用 callback 的第一个参数。）
+>语法： arr.reduce(callback,[initialValue]) reduce 为数组中的每一个元素依次执行回调函数，不包括数组中被删除或从未被赋值的元素，接受四个参数：初始值（或者上一次回调函数的返回值），当前元素值，当前索引，调用 reduce 的数组。
+>
+>callback （执行数组中每个值的函数，包含四个参数）
+>
+>1、previousValue （上一次调用回调返回的值，或者是提供的初始值（initialValue））
+>
+>2、currentValue （数组中当前被处理的元素）
+>
+>3、index （当前元素在数组中的索引）
+>
+>4、array （调用 reduce 的数组） initialValue （作为第一次调用 callback 的第一个参数。）
 
-   ```javascript
-   const arr = [1,20,-5,3];
-   // 没有初始值：
-   console.log(arr.reduce((a,b)=>a+b)); // 19
-   console.log(arr.reduce((a,b)=>a*b)); // -300
-   
-   // 指定初始值：
-   console.log(arr.reduce((a,b)=>a+b,1)); // 20
-   console.log(arr.reduce((a,b)=>a*b,0)); // -0
-   ```
+```javascript
+const arr = [1,20,-5,3];
+// 没有初始值：
+console.log(arr.reduce((a,b)=>a+b)); // 19
+console.log(arr.reduce((a,b)=>a*b)); // -300
 
-## 8、Promise
+// 指定初始值：
+console.log(arr.reduce((a,b)=>a+b,1)); // 20
+console.log(arr.reduce((a,b)=>a*b,0)); // -0
+```
+
+## 八、Promise
 
 在 JavaScript 的世界中，所有代码都是单线程执行的。由于这个“缺陷”，导致 JavaScript 的所有网络操作，浏览器事件，都必须是异步执行。异步执行可以用回调函数实现。一旦有一连串的 ajax 请求 a,b,c,d... 后面的请求依赖前面的请求结果，就需要层层嵌套。这种缩进和层层嵌套的方式，非常容易造成上下文代码混乱，我们不得不非常小心翼翼处理内层函数与外层函数的数据，一旦内层函数使用了上层函数的变量，这种混乱程度就会加剧......总之，这 种`层叠上下文`的层层嵌套方式，着实增加了神经的紧张程度。案例：用户登录，并展示该用户的各科成绩。在页面发送两次请求：
 
-1. 查询用户，查询成功说明可以登录
+1. 查询用户，查询成功说明可以登录。
 
-2. 查询用户成功，查询科目
+2. 查询用户成功，查询科目。
 
-3. 根据科目的查询结果，获取去成绩 分析：此时后台应该提供三个接口，一个提供用户查询接口，一个提供科目的接口，一个提 供各科成绩的接口，为了渲染方便，最好响应 json 数据。在这里就不编写后台接口了，而 是提供三个 json 文件，直接提供 json
+3. 根据科目的查询结果，获取去成绩 分析：此时后台应该提供三个接口，一个提供用户查询接口，一个提供科目的接口，一个提 供各科成绩的接口，为了渲染方便，最好响应 json 数据。在这里就不编写后台接口了，而 是提供三个 json 文件，直接提供 json。
 
 ```json
 user.json：
@@ -428,7 +428,7 @@ corse_score_10.json:
 
    这样，在 promise 中就封装了一段异步执行的结果
 
-2. 、处理异步结果
+2. 处理异步结果
 
    如果我们想要等待异步执行完成，做一些事情，我们可以通过 promise 的 then 方法来实现。 如果想要处理 promise 异步执行失败的事件，还可以跟上 catch
 
@@ -517,7 +517,7 @@ corse_score_10.json:
 
    通过比较，我们知道了 Promise 的扁平化设计理念，也领略了这种`上层设计`带来的好处。 我们的项目中会使用到这种异步处理的方式；
 
-## 9、模块化
+## 九、模块化
 
 1. 什么是模块化
 
