@@ -7,7 +7,7 @@
 
 ## 一、向 ApplicationContext 中添加监听器
 
-创建 MyListener1 类，在springboot应用启动类中获取ConfigurableApplicationContext上下文，装载监听
+创建 MyListener1 类，在springBoot应用启动类中获取ConfigurableApplicationContext上下文，装载监听
 
 ### 1、代码
 
