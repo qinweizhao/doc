@@ -1012,7 +1012,7 @@ public class StopTheWorld {
 
 - 收集频率：相对于应用程序的执行，收集操作发生的频率。
 
-- 内存占用： Java堆区所占的内存大小。
+- 内存占用： Java 堆区所占的内存大小。
 
 - 快速：一个对象从诞生到被回收所经历的时间。
 
@@ -1030,15 +1030,15 @@ public class StopTheWorld {
 
 1.  发展史
 
-- 1999年随JDK1.3.1一 起来的是串行方式的Serial GC，它是第一款GC。ParNew垃圾收集器是Serial收集器的多线程版本
+- 1999年随 JDK1.3.1一 起来的是串行方式的 Serial GC，它是第一款 GC。ParNew 垃圾收集器是 Serial 收集器的多线程版本
 
-- 2002年2月26日，Parallel GC和Concurrent Mark Sweep GC跟随JDK1.4.2一起发布
+- 2002年2月26日，Parallel GC和 Concurrent Mark Sweep GC跟随JDK1.4.2一起发布
 
-- Parallel GC在JDK6之后成为HotSpot默认GC。
+- Parallel GC 在JDK6之后成为HotSpot默认GC。
 
 - 2012年，在JDK1.7u4版本中，G1可用。
 
-- 2017年，JDK9中G1变成默认的垃圾收集器，以替代CMS。
+- 2017年，JDK9 中 G1 变成默认的垃圾收集器，以替代 CMS。
 
 - 2018年3月，JDK10中G1垃圾回收器的并行完整垃圾回收，实现并行性来改善最坏情况下的延迟。
 
