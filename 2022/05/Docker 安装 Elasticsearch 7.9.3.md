@@ -3,7 +3,7 @@
 ## 一、拉取镜像
 
 ```bash
-docker pull kibana:7.9.3
+docker pull elasticsearch:7.9.3
 ```
 
 ## 二、前置准备
