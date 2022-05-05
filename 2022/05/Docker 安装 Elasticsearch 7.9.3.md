@@ -3,7 +3,7 @@
 ## 一、拉取镜像
 
 ```bash
-docker pull elasticsearch:7.9.3
+docker pull kibana:7.9.3
 ```
 
 ## 二、前置准备
@@ -30,6 +30,10 @@ docker run --name elasticsearch -p 9200:9200 -p 9300:9300 \
 -v /Users/weizhao/Docker/elasticsearch/plugins:/usr/share/elasticsearch/plugins \
 -d elasticsearch:7.9.3
 ```
+
+**注意：**
+
+-e ES_JAVA_OPTS="-Xms128m -Xmx1024m" \ 测试环境下，设置 ES 的初始内存和最大内存，否则导致过大启动不了 ES。
 
 ## 四、测试
 
