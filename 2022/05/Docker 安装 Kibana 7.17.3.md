@@ -14,9 +14,9 @@ docker run --name kibana -e ELASTICSEARCH_HOSTS=http://elasticsearch:9200 -p 560
 
 **说明：**
 
-**--network elk-net：**指定为和 ES 同一个网络环境。
+**--network elk-net**：指定为和 ES 同一个网络环境。
 
-**http://elasticsearch:9200：**elasticsearch 为 ES 容器名。
+**http://elasticsearch:9200**：elasticsearch 为 ES 容器名。
 
 ### 三、测试
 
