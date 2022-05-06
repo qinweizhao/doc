@@ -6,27 +6,19 @@
 docker pull kibana:7.17.3
 ```
 
-## 二、准备
+## 二、运行
 
-查看ES 暴露的 IP
-
-```
-docker inspect 5aa
+```sh
+docker run --name kibana -e ELASTICSEARCH_HOSTS=http://elasticsearch:9200 -p 5601:5601 --network elk-net -d kibana:7.17.
 ```
 
-说明：5aa 为 ES 容器 id 的前三位。
+**说明：**
 
-![2022-05-06_022851](https://img.qinweizhao.com/2022/05/2022-05-06_022851.png)
+**--network elk-net：**指定为和 ES 同一个网络环境。
 
-## 三、运行
+**http://elasticsearch:9200：**elasticsearch 为 ES 容器名。
 
-```bash
-docker run --name kibana -e ELASTICSEARCH_HOSTS=http://172.17.0.4:9200 -p 5601:5601 -d kibana:7.17.3
-```
-
-http://172.17.0.4:9200 为 ES 的地址。
-
-### 4、测试
+### 三、测试
 
 浏览器访问：http://localhost:5601
 

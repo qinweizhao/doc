@@ -18,6 +18,14 @@ echo "http.host: 0.0.0.0" >> /Users/weizhao/Docker/elasticsearch/config/elastics
 
 /Users/weizhao/Docker/elasticsearch 为我本地的路径，具体存放位置根据自己安排创建。
 
+如果要使用 Kibana 则需要使用创建一个网络，当然这不是唯一可行的解决方案。
+
+```sh
+docker network create elk-net
+```
+
+后续启动时指定为此网络即可。
+
 ## 三、运行
 
 ```bash
@@ -27,7 +35,7 @@ docker run --name elasticsearch -p 9200:9200 -p 9300:9300 \
 -v /Users/weizhao/Docker/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml \
 -v /Users/weizhao/Docker/elasticsearch/data:/usr/share/elasticsearch/data \
 -v /Users/weizhao/Docker/elasticsearch/plugins:/usr/share/elasticsearch/plugins \
--d elasticsearch:7.17.3
+--network elk-net -d elasticsearch:7.17.3
 ```
 
 ## 四、测试
