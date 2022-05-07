@@ -3,6 +3,7 @@
 ### 目录概览
 
 - 2022 年 5 月
+  + [05-06：Elasticsearch](./2022/05/Elasticsearch.html)
   + [05-05：Docker 安装 Elasticsearch 7.17.3](./2022/05/Docker%20安装%20Elasticsearch 7.17.3.html)
   + [05-05：Docker 安装 Kibana 7.17.3](./2022/05/Docker%20安装%Kibana 7.17.3.html)
   + [05-02：Vue-父子组件传值](./2022/05/Vue-父子组件传值.html)
