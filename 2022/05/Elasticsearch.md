@@ -736,3 +736,83 @@ POST _reindex
 
 一个 tokenizer（分词器）接收一个字符流，将之分割为独立的 tokens（词元，通常是独立 的单词），然后输出 tokens 流。 例如，whitespace tokenizer 遇到空白字符时分割文本。它会将文本 "Quick brown fox!" 分割 为 [Quick, brown, fox!]。 该 tokenizer（分词器）还负责记录各个 term（词条）的顺序或 position 位置（用于 phrase 短 语和 word proximity 词近邻查询），以及 term（词条）所代表的原始 word（单词）的 start （起始）和 end（结束）的 character offsets（字符偏移量）（用于高亮显示搜索的内容）。 Elasticsearch 提供了很多内置的分词器，可以用来构建 custom analyzers（自定义分词器）。
 
+#### 1. 安装 ik 分词器
+
+GitHub 地址：[Releases · medcl/elasticsearch-analysis-ik (github.com)](https://github.com/medcl/elasticsearch-analysis-ik/releases)
+
+选择与 ES 对应的版本，解压到容器内部的 plugin 目录下，并且更名为 ik。
+
+可以确认是否安装好了分词器 ：
+
+```sh
+ cd ../bin
+```
+
+列出系统的分词器
+
+```sh
+elasticsearch plugin list
+```
+
+#### 2. 测试分词器
+
+使用默认：
+
+```http
+POST _analyze 
+{ 
+  "text": " 我是中国人" 
+}
+```
+
+使用分词器：
+
+```http
+POST _analyze 
+{ 
+  "analyzer": "ik_smart",
+  "text": "我是中国人"
+}
+```
+
+另外一个分词器 ik_max_word：
+
+```http
+POST _analyze 
+{ 
+  "analyzer": "ik_max_word",
+  "text": "我是中国人"
+}
+```
+
+能够看出不同的分词器，分词有明显的区别，所以以后定义一个索引不能再使用默认的 mapping 了，要手工建立 mapping，因为要选择分词器。
+
+#### 3. 自定义词库
+
+修改**/usr/share/elasticsearch/plugins/ik/config/**中的 **IKAnalyzer.cfg.xml**。
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>IK Analyzer 扩展配置</comment>
+	<!--用户可以在这里配置自己的扩展字典 -->
+	<entry key="ext_dict"></entry>
+	<!--用户可以在这里配置自己的扩展停止词字典-->
+	<entry key="ext_stopwords"></entry>
+	<!--用户可以在这里配置远程扩展字典 -->
+  <!-- 更改此处 -->
+	<!-- <entry key="remote_ext_dict">words_location</entry> -->
+	<!--用户可以在这里配置远程扩展停止词字典-->
+	<!-- <entry key="remote_ext_stopwords">words_location</entry> -->
+</properties>
+```
+
+注意：
+
+更新完成后， es 只会对新增的数据用新词分词。历史数据是不会重新分词的。如果想要历 史数据重新分词。需要执行：
+
+```http
+POST 索引/_update_by_query?conflicts=proceed
+```
+
