@@ -4,7 +4,7 @@
 
 - 2022 年 5 月
   + [05-29：接囗幂等性](./2022/05/接囗幂等性.html)
-  + [05-28：Elasticsearch](./2022/05/RabbitMQ.html)
+  + [05-28：RabbitMQ](./2022/05/RabbitMQ.html)
   + [05-17：分布式锁-基本原理](./2022/05/分布式锁-基本原理.html)
   + [05-15：缓存](./2022/05/缓存.html)
   + [05-07：SpringBoot 整合 Elasticsearch](./2022/05/SpringBoot%20整合%20Elasticsearch.html)
