@@ -80,7 +80,7 @@
   + [09-12：CentOS 7 安装 Kibana 7.14](./2021/09/CentOS 7%20安装%20Kibana 7.14.html)
   + [09-12：CentOS 7 安装 Elasticsearch 7.14](./2021/09/CentOS 7%20安装%20Elasticsearch 7.14.html)
   + [09-11：CentOS 7 通过 Yum 安装 MySQL 8](./2021/09/CentOS 7%20通过%20Yum%20安装%20MySQL 8.html)
-  + [09-07：SpringBoot 日志](./2021/09/SpringBoot%20日志.html)
+  + [09-07：SpringBoot-日志](./2021/09/SpringBoot-日志.html)
 - 2021 年 8 月
   + [08-24：MySQL DATE_FORMAT() 函数](./2021/08/MySQL DATE_FORMAT()%20函数.html)
   + [08-17：CentOS 7 端口被占用处理](./2021/08/CentOS 7%20端口被占用处理.html)

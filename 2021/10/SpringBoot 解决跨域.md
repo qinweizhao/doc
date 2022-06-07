@@ -1,4 +1,4 @@
-# Spring Boot 解决跨域
+# SpringBoot 解决跨域
 
 ## 一、实现 WebMvcConfigurer 接口
 

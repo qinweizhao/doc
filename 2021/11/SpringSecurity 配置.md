@@ -10,7 +10,7 @@
 
 - 当到 FilterSecurityInterceptor 的时候会拿到 uri ，根据 uri 去找对应的鉴权管理器，鉴权管理器做鉴权工作，鉴权成功则到 Controller 层否则到 AccessDeniedHandler 鉴权失败处理器处理。
 
-## 二、配置类代码
+## 二、代码
 
 ```java
 /**
