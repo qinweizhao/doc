@@ -1,10 +1,22 @@
-# SpringSecurity 的执行流程
+# SpringSecurity-执行流程
 
-## 一、Spring Security执行流程图
+Spring Security 采用的是责任链的设计模式，它有一条很长的过滤器链。
+
+## 一、流程图
 
 ![2021-08-03_151308](https://img.qinweizhao.com/2021/08/2021-08-03_151308.png)
 
-## 二、Spring Security 采用的是责任链的设计模式，它有一条很长的过滤器链。过滤器链的各个过滤器说明
+## 二、简要概述
+
+- 客户端发起一个请求，进入 Security 过滤器链。
+
+- 当到 LogoutFilter 的时候判断是否是登出路径，如果是登出路径则到 logoutHandler ，如果登出成功则到 logoutSuccessHandler 登出成功处理，如果登出失败则由 ExceptionTranslationFilter ；如果不是登出路径则直接进入下一个过滤器。
+
+- 当到 UsernamePasswordAuthenticationFilter 的时候判断是否为登录路径，如果是，则进入该过滤器进行登录操作，如果登录失败则AuthenticationFailureHandler 登录失败处理器处理，如果登录成功则到 AuthenticationSuccessHandler 登录成功处理器处理，如果不是登录请求则不进入该过滤器。
+
+- 当到 FilterSecurityInterceptor 的时候会拿到 uri ，根据 uri 去找对应的鉴权管理器，鉴权管理器做鉴权工作，鉴权成功则到 Controller 层否则到 AccessDeniedHandler 鉴权失败处理器处理。
+
+## 三、过滤器说明
 
 ![2021-08-03_152037](https://img.qinweizhao.com/2021/08/2021-08-03_152037.png)
 
