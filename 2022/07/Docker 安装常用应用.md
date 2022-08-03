@@ -41,3 +41,42 @@ docker run -di --name redis -p 6379:6379 redis
 ```
 
 连接容器中的`Redis`时，只需要连接宿主机的`IP + 指定的映射端口`即可。
+
+## 三、Nginx
+
+### 1、创建目录
+
+```sh
+mkdir -p /Users/weizhao/Docker/nginx
+```
+
+### 2、拉取镜像
+
+```sh
+docker pull nginx
+```
+
+### 3、创建容器
+
+```sh
+docker run -di --name nginx -p 80:80 nginx
+```
+
+### 4、拷贝配置文件
+
+```sh
+docker cp nginx:/etc/nginx /Users/weizhao/Docker/nginx/conf
+```
+
+### 5、终止并删除容器
+
+```sh
+docker stop nginx
+docker rm nginx
+```
+
+### 6、重新创建容器。
+
+```sh
+docker run -di --name nginx -p 80:80 -v /Users/weizhao/Docker/nginx/conf:/etc/nginx nginx
+```
