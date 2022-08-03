@@ -23,3 +23,21 @@ docker pull mysql:8.0.30
 ```sh
 docker run -p 3316:3306 --name mysql -v /Users/weizhao/Docker/mysql/conf:/etc/mysql/conf.d -v /Users/weizhao/Docker/mysql/logs:/logs -v /Users/weizhao/Docker/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=Qwz#1201 -d mysql:8.0.30
 ```
+
+## 二、Redis
+
+### 1、拉取镜像
+
+```sh
+docker pull redis
+```
+
+也可以不指定版本号拉取最新版本。
+
+### 2、创建容器
+
+```sh
+docker run -di --name redis -p 6379:6379 redis
+```
+
+连接容器中的`Redis`时，只需要连接宿主机的`IP + 指定的映射端口`即可。
