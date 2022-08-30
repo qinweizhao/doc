@@ -202,7 +202,7 @@ FreeMarker 常用技巧
 局部变量
 
 ```html
-<#assign name=value>   
+<#assign name=value>
 <#assign name1=value1 name2=value2 ... nameN=valueN> 
 ```
 
@@ -226,7 +226,7 @@ FreeMarker 常用技巧
 
 ### include
 
-和import 类似都可以引入模板。<#include filename options> ，options 有2个参数，encoding="GBK" 编码格式 parse=true 是否作为ftl语法解析，默认是 true，false 就是以文本方式引入。注意在 ftl 文件里布尔值都是直接赋值
+和 import 类似都可以引入模板。<#include filename options> ，options 有2个参数，encoding="GBK" 编码格式 parse=true 是否作为 ftl 语法解析，默认是 true，false 就是以文本方式引入。注意在 ftl 文件里布尔值都是直接赋值
 
 ```html
 <#include "/common/header.ftl">
@@ -437,8 +437,6 @@ ${123.23?int} 输出 123
 
 ### 时间格式化
 
-Halo 博客中有个专门的宏 **timeline**
-
 ```html
 <@global.timeline datetime=journal.createTime />
 // 判断今天、昨天（可能有bug）
@@ -504,8 +502,6 @@ Halo 博客中有个专门的宏 **timeline**
 使用 replace 时第三个参数传 'r' 代表开启正则模式
 
 **?replace('[^\\d]','','ri')**
-
-### 
 
 ### 参考
 
