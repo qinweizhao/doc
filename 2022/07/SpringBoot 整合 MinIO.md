@@ -4,11 +4,11 @@
 
 打开 MinIO 可视化管理平台创建一个 Bucket ，并将访问策略调整为 public 。
 
-![2022-07-31_213413](https://img.qinweizhao.com/2022/08/2022-07-31_213413.png)
+![2022-07-31_213413](https://img.qinweizhao.com/2022/07/2022-07-31_213413.png)
 
 选择 Service Accounts ，点击 Create service account 获取 accessKey 和 secretKey 。
 
-![2022-07-31_213330](https://img.qinweizhao.com/2022/08/2022-07-31_213330.png)
+![2022-07-31_213330](https://img.qinweizhao.com/2022/07/2022-07-31_213330.png)
 
 ## 二、导包
 
@@ -200,7 +200,7 @@ controller：
 
 测试：
 
-![2022-07-31_221701](https://img.qinweizhao.com/2022/08/2022-07-31_221701.png)
+![2022-07-31_221701](https://img.qinweizhao.com/2022/07/2022-07-31_221701.png)
 
 ## 附
 
