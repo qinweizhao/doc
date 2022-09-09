@@ -1,4 +1,4 @@
-# SpringCloud 整合 OAuth2.0
+# SpringCloud 整合 OAuth 2.0
 
 微服务认证方案：
 
@@ -642,19 +642,93 @@ public class HelloController {
 
 ### 1、授权码模式
 
+#### 1. 获取授权码
+
+浏览器访问：
+
 ```http
-http://localhost:8080/oauth/authorize?client_id=c1&response_type=code
+http://127.0.0.1:8090/oauth/authorize?client_id=c1&response_type=code
 ```
+
+**注意**：端口的是**认证中心的端口**。
+
+![2022-09-09_131407](https://img.qinweizhao.com/2022/09/2022-09-09_131407.png)
+
+输入用户名和密码后会携带 code 跳转到指定地址：
+
+![2022-09-09_131735](https://img.qinweizhao.com/2022/09/2022-09-09_131735.png)
+
+#### 2. 获取令牌
+
+```http
+http://127.0.0.1:8090/oauth/token
+```
+
+![2022-09-09_132203](https://img.qinweizhao.com/2022/09/2022-09-09_132203.png)
 
 ### 2、简化模式
 
 ```http
-http://localhost:8080/oauth/authorize?response_type=token&client_id=c1&redirect_uri=http://www.qinweizhao.com&scope=all
+http://127.0.0.1:8090/oauth/authorize?response_type=token&client_id=c1
+```
+
+![2022-09-09_131407](https://img.qinweizhao.com/2022/09/2022-09-09_131407.png)
+
+输入用户名和密码后会携带信息跳转到指定地址：
+
+```http
+https://www.qinweizhao.com/
+#access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicmVzb3VyY2UxIl0sInVzZXJfbmFtZSI6InVzZXIiLCJzY29wZSI6WyJhbGwiXSwiZXhwIjoxNjYyNzA4Mzk4LCJhdXRob3JpdGllcyI6WyJST0xFX3VzZXIiXSwianRpIjoiMzg4N2I3NzQtNTQ0Ni00YTdjLWExMjQtNTliMzc1NDZhODA3IiwiY2xpZW50X2lkIjoiYzEifQ.9dVOsQAiPizexyssZ3Ek3rRMnEt-A3IQqxR-06Hzimk
+&token_type=bearer
+&expires_in=7199
+&scope=all
+&jti=3887b774-5446-4a7c-a124-59b37546a807
 ```
 
 ### 3、密码模式
 
+请求地址：
 
+```http
+http://127.0.0.1:8080/oauth/token
+```
+
+![2022-09-09_133219](https://img.qinweizhao.com/2022/09/2022-09-09_133219.png)
+
+需要认证客户端，在请求头携带参数：Authorization：Basic空格(base64 加密：client_id:client_secret)，如 **YzE6MTIz** 的明文为 **c1:123** 。
+
+![2022-09-09_133250](https://img.qinweizhao.com/2022/09/2022-09-09_133250.png)
 
 ### 4、客户端模式
 
+![2022-09-09_133219](https://img.qinweizhao.com/2022/09/2022-09-09_133219.png)
+
+![2022-09-09_133810](https://img.qinweizhao.com/2022/09/2022-09-09_133810.png)
+
+### 5、访问资源
+
+#### 1. 获取令牌
+
+以密码模式为例：
+
+![2022-09-09_133219](https://img.qinweizhao.com/2022/09/2022-09-09_133219.png)
+
+![2022-09-09_133250](https://img.qinweizhao.com/2022/09/2022-09-09_133250.png)
+
+在请求头携带参数：Authorization：Bearer空格access_token，如 **YzE6MTIz** 的明文为 **c1:123** 。
+
+#### 2. 访问资源
+
+访问 hello 接口，正常访问：
+
+![2022-09-09_140006](https://img.qinweizhao.com/2022/09/2022-09-09_140006.png)
+
+访问 admin 接口，无权访问：
+
+![2022-09-09_140104](https://img.qinweizhao.com/2022/09/2022-09-09_140104.png)
+
+## 附
+
+>代码地址：
+>
+>https://github.com/qinweizhao/qwz-integration/tree/master/spring-cloud-oauth2
