@@ -1,28 +1,47 @@
 # 配置 Java 开发环境
 
-## 一、 Windows
-
-### 1、安装 JDK
+下载 JDK
 
 - [官方](https://www.oracle.com/java/technologies/javase-downloads.html)
-- [百度网盘](https://pan.baidu.com/s/10zvgg1q02AKrtYkE3XbjzQ)(提取码：jx66)
+- [百度网盘](https://pan.baidu.com/s/10zvgg1q02AKrtYkE3XbjzQ)（提取码：jx66）
+
+## 一、Windows
+
+### 1、安装
+
+略
 
 ### 2、配置环境变量
 
 - 变量名： **JAVA_HOME**
 
-  变量值： **D:\Java\jdk1.8.0_291**
+  变量值： 
+
+  ```txt
+  D:\Java\jdk1.8.0_291
+  ```
 
 - 变量名： **CLASSPATH**
 
-  变量值： **.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;**
-
-![2021-08-14_163546](https://img.qinweizhao.com/2021/08/2021-08-14_163546.png)
+  变量值：
+  
+  ```txt
+  .;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;**
+  ```
+  ![2021-08-14_163546](https://img.qinweizhao.com/2021/08/2021-08-14_163546.png)
 
 - 变量名： **Path**
 
-  变量值： **%JAVA_HOME%\bin** / **%JAVA_HOME%\jre\bin**
+  变量值： 
 
+  ```txt
+  %JAVA_HOME%\bin
+  ```
+  
+  ```txt
+  %JAVA_HOME%\jre\bin
+  ```
+  
   ![2021-08-14_165606](https://img.qinweizhao.com/2021/08/2021-08-14_165606.png)
 
 ***注：* 根据实际安装目录修改 JAVA_HOME 的变量值。**
@@ -40,17 +59,17 @@
 
 ## 二、CentOS
 
-### 1、下载 JDK 并解压到指定目录
+### 1、解压
 
 ```bash
 tar -zxvf jdk-11.0.10_linux-x64_bin.tar.gz -C ../java
 ```
 
-​  注：压缩包路径：**/usr/local/install**
+  注：压缩包路径：**/usr/local/install**
 
 ​    安装路径：**/usr/local/java**
 
-### 2、编辑 profile 文件，配置环境变量
+### 2、配置环境变量
 
 ```bash
 vi /etc/profile
@@ -70,7 +89,7 @@ export PATH=$JAVA_HOME/bin:$PATH
 source /etc/profile
 ```
 
-### 3、在任意路径下测试
+### 3、测试
 
 ```bash
 java -version
