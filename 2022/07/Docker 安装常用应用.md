@@ -32,8 +32,6 @@ docker run -p 3316:3306 --name mysql -v /Users/weizhao/Docker/mysql/conf:/etc/my
 docker pull redis
 ```
 
-也可以不指定版本号拉取最新版本。
-
 ### 2、创建容器
 
 ```sh
@@ -79,4 +77,37 @@ docker rm nginx
 
 ```sh
 docker run -di --name nginx -p 80:80 -v /Users/weizhao/Docker/nginx/conf:/etc/nginx nginx
+```
+
+## 四、ZooKeeper
+
+### 1、创建目录
+
+```sh
+mkdir -p /Users/weizhao/Docker/zookeeper
+```
+
+具体位置可自行调整。
+
+### 2、拉取镜像
+
+```sh
+docker pull zookeeper:3.8.0
+```
+
+### 3、创建容器
+
+```sh
+docker run -d -e TZ="Asia/Shanghai" -p 2181:2181 -v /Users/weizhao/Docker/zookeeper:/data --name zookeeper --restart always zookeeper:3.8.0
+```
+
+说明：
+
+```txt
+-e TZ="Asia/Shanghai" # 指定上海时区 
+-d # 表示在一直在后台运行容器
+-p 2181:2181 # 对端口进行映射，将本地2181端口映射到容器内部的2181端口
+--name # 设置创建的容器名称
+-v # 将本地目录(文件)挂载到容器指定目录；
+--restart always #始终重新启动zookeeper
 ```
