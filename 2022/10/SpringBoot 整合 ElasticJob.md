@@ -471,3 +471,8 @@ elasticjob:
 
 ![2022-10-20_222221](https://img.qinweizhao.com/2022/10/2022-10-20_222221.png)
 
+## 附
+
+>代码地址：
+>
+>https://github.com/qinweizhao/qwz-integration/tree/master/spring-boot-elasticjob-lite
