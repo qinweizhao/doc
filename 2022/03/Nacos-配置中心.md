@@ -7,15 +7,7 @@
 > 1、用户在配置中心更新配置信息。
 > 2、服务A和服务B及时得到配置更新通知，从配置中心获取配置
 
-## 一、下载
-
-参考：[Spring Cloud Alibaba Nacos-注册中心](https://www.qinweizhao.com/?p=81)
-
-## 二、启动
-
-省略：[同上](https://www.qinweizhao.com/?p=81)
-
-## 三、使用
+## 一、基础
 
 ### 1、引入依赖
 
@@ -302,7 +294,7 @@ test:
 
 - **自动注入：** 
 
-  NacosConfigStarter 实现了 org.springframework.cloud.bootstrap.config.PropertySourceLocator 接口，并将优先级设置成了最高。 在 Spring Cloud 应用启动阶段，会主动从 Nacos Server 端获取对应的数据，并将获取到的 数据转换成 PropertySource 且入到 Environment 的 PropertySources 属性中，所以使用 @Value 注解也能直接获取 Nacos Server 端配置的内容。
+  NacosConfigStarter 实现了 org.springframework.cloud.bootstrap.config.PropertySourceLocator 接口，并将优先级设置成了最高。 在 SpringCloud 应用启动阶段，会主动从 Nacos Server 端获取对应的数据，并将获取到的 数据转换成 PropertySource 且入到 Environment 的 PropertySources 属性中，所以使用 @Value 注解也能直接获取 Nacos Server 端配置的内容。
 
 - **动态刷新：** 
 

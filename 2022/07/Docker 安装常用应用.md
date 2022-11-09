@@ -73,7 +73,7 @@ docker stop nginx
 docker rm nginx
 ```
 
-### 6、重新创建容器。
+### 6、重新创建容器
 
 ```sh
 docker run -di --name nginx -p 80:80 -v /Users/weizhao/Docker/nginx/conf:/etc/nginx nginx

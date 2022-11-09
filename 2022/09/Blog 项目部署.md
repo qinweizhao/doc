@@ -8,7 +8,7 @@
 
 ### 1、MySQL
 
-参考：https://www.qinweizhao.com/?p=31
+略
 
 说明：MySQL 不推荐 Docker ，因为使用 Docker 另外需要做一些操作，虽说不麻烦，但个人并不喜欢使用 Docker 去安装数据库。
 
@@ -20,7 +20,7 @@
 
 ### 3、Nginx
 
-参考：https://www.qinweizhao.com/?p=116
+略
 
 说明：可选，但是推荐使用 [Nginx](http://nginx.org/)  Web 服务器进行反向代理。
 
