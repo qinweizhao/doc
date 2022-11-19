@@ -475,4 +475,4 @@ elasticjob:
 
 >代码地址：
 >
->https://github.com/qinweizhao/qwz-integration/tree/master/spring-boot-elasticjob-lite
+>https://github.com/qinweizhao/qwz-integration/tree/master/spring-boot-elasticjob
