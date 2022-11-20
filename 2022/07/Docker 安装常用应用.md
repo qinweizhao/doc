@@ -1,6 +1,6 @@
 # Docker 安装常用应用
 
-## 一、MySQL
+## 一、MySQL 8.0.30
 
 ### 1、创建目录
 
@@ -15,8 +15,6 @@ mkdir -p /Users/weizhao/Docker/mysql/data /Users/weizhao/Docker/mysql/logs /User
 ```sh
 docker pull mysql:8.0.30
 ```
-
-也可以不指定版本号拉取最新版本。
 
 ### 3、创建容器
 
@@ -79,7 +77,7 @@ docker rm nginx
 docker run -di --name nginx -p 80:80 -v /Users/weizhao/Docker/nginx/conf:/etc/nginx nginx
 ```
 
-## 四、ZooKeeper
+## 四、ZooKeeper 3.8.0
 
 ### 1、创建目录
 
