@@ -344,3 +344,29 @@ docker run --name elasticsearch -p 9200:9200 -p 9300:9300 \
 浏览器访问：[localhost:9200](http://localhost:9200/)
 
 ![2022-05-06_013326](https://img.qinweizhao.com/2022/05/2022-05-06_013326.png)
+
+## 九、Kibana 7.17.3
+
+### 1、拉取镜像
+
+```bash
+docker pull kibana:7.17.3
+```
+
+### 2、运行
+
+```sh
+docker run --name kibana -e ELASTICSEARCH_HOSTS=http://elasticsearch:9200 -p 5601:5601 --network elk-net -d kibana:7.17.
+```
+
+**说明：**
+
+**--network elk-net**：指定为和 ES 同一个网络环境。
+
+**http://elasticsearch:9200**：elasticsearch 为 ES 容器名。
+
+### 3、测试
+
+浏览器访问：http://localhost:5601
+
+![2022-05-06_023600](https://img.qinweizhao.com/2022/05/2022-05-06_023600.png)
