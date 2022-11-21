@@ -1,5 +1,16 @@
 # SpringBoot 整合 Spring Authorization Server
 
+## 概述
+
+Spring 授权服务器是一个框架，它提供了 [OAuth 2.1](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-v2-1-05) 和 [OpenID Connect 1.0](https://openid.net/specs/openid-connect-core-1_0.html) 规格等相关规范。 它建立在 [Spring Security](https://spring.io/projects/spring-security) 为构建 OpenID Connect 1.0 身份提供程序和 OAuth 2 授权服务器产品提供安全、轻量级和可自定义的基础。
+
+版本说明
+
+| 框架 | SpringBoot | SpringAuthorizationServer |
+| :--: | :--------: | :-----------------------: |
+| 版本 |   2.7.5    |           0.3.1           |
+
+
 ## 依赖
 
 ```xml
