@@ -1,6 +1,8 @@
 # Docker 安装常用应用
 
-## 一、MySQL 8.0.30
+## 一、MySQL
+
+**版本：8.0.30**
 
 ### 1、创建目录
 
@@ -77,7 +79,9 @@ docker rm nginx
 docker run -di --name nginx -p 80:80 -v /Users/weizhao/Docker/nginx/conf:/etc/nginx nginx
 ```
 
-## 四、ZooKeeper 3.8.0
+## 四、ZooKeeper
+
+**版本：3.8.0**
 
 ### 1、创建目录
 
@@ -297,7 +301,9 @@ docker logs jenkins
 
 ![2021-11-23_171023](https://img.qinweizhao.com/2021/11/2021-11-23_171023.png)
 
-## 八、Elasticsearch 7.17.3
+## 八、Elasticsearch
+
+**版本：7.17.3**
 
 ### 1、拉取镜像
 
@@ -343,7 +349,9 @@ docker run --name elasticsearch -p 9200:9200 -p 9300:9300 \
 
 ![2022-05-06_013326](https://img.qinweizhao.com/2022/05/2022-05-06_013326.png)
 
-## 九、Kibana 7.17.3
+## 九、Kibana
+
+**版本：7.17.3**
 
 ### 1、拉取镜像
 
