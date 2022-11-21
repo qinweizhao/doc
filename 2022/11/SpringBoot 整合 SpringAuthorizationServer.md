@@ -1,4 +1,4 @@
-# SpringBoot 整合 Spring Authorization Server
+# SpringBoot 整合 SpringAuthorizationServer
 
 ## 概述
 
