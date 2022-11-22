@@ -186,6 +186,8 @@ public class AuthorizationServerConfig {
 
 注：还有两个工具类未贴出。
 
+说明：两个 `SecurityFilterChain` 职责不一样，且都是原型的。一个是安全策略，访问授权服务器时的安全检查；一个是授权策略，认证通过，进行授权、发放令牌等；
+
 ## 效果
 
 ### 客户端模式
