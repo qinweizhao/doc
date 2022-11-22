@@ -1,4 +1,4 @@
-# SpringAuthorizationServer-认证源码解析
+# SpringAuthorizationServer 源码分析-认证
 
 ## 一、说明
 
