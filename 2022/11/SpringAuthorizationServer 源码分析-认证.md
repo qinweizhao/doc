@@ -18,7 +18,9 @@
 
 ## 二、解析
 
-### 1、OAuth2ClientAuthenticationFilter
+### 1、客户端认证过滤器
+
+**OAuth2ClientAuthenticationFilter**
 
 ```java
 	@Override
@@ -55,7 +57,9 @@
 
 ![2022-11-22_164201](https://img.qinweizhao.com/2022/11/2022-11-22_164201.png)
 
-### 2、OAuth2TokenEndpointFilter
+### 2、令牌端点过滤器
+
+**OAuth2TokenEndpointFilter**
 
 ```java
 	@Override
@@ -96,7 +100,9 @@
 	}
 ```
 
-### 3、ProviderManager
+### 3、身份验证
+
+**ProviderManager**
 
 上面两个过滤器在处理认证时都会调用 `authenticate(authorizationGrantAuthentication)` 方法。
 
