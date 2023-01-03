@@ -2,7 +2,7 @@
 
 ## 一、查询系统是否已经安装 JDK
 
-```bash
+```sh
 rpm -qa|grep java
 # 或
 rpm -qa|grep jdk
@@ -20,7 +20,7 @@ rpm -qa|grep gcj
 
 删除命令：
 
-```bash
+```sh
 rpm -e --nodeps xxx
 ```
 
@@ -32,7 +32,7 @@ rpm -e --nodeps xxx
 
 验证是否卸载：
 
-```bash
+```sh
 java -version
 ```
 

@@ -8,19 +8,19 @@
 
 2. 下载压缩包
 
-   ```bash
+   ```sh
    wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.14.1-linux-x86_64.tar.gz
    ```
 
 3. 解压（到上层目录）
 
-   ```bash
+   ```sh
    tar -zxvf elasticsearch-7.14.1-linux-x86_64.tar.gz -C ../
    ```
 
 4. 重命名
 
-   ```bash
+   ```sh
    # 返回上层目录
    cd ..
    
@@ -34,7 +34,7 @@
 
 1. 限制 Linux 资源，配置文件为 **/etc/security/limits.conf**
 
-   ```bash
+   ```sh
    vim /etc/security/limits.conf
    ```
 
@@ -56,7 +56,7 @@
 
 2. Linux 内核配置，配置文件为 **/etc/sysctl.conf**
 
-   ```bash
+   ```sh
    vim /etc/sysctl.conf
    ```
 
@@ -73,7 +73,7 @@
 
    更改完成后执行命令使得系统文件配置生效
 
-   ```bash
+   ```sh
    sysctl -p
    ```
 
@@ -83,7 +83,7 @@
 
 1. Elasticsearch 的配置文件为安装目录的 **config/elasticsearch.yml**
 
-   ```bash
+   ```sh
    # 进入 es 的安装目录
    cd /usr/local/elasticsearch/config
    
@@ -229,7 +229,7 @@
 
 2. 修改堆内存配置文件为安装目录的 **jvm.options**
 
-   ```bash
+   ```sh
    vim config/jvm.options
    ```
 
@@ -244,7 +244,7 @@
 
 3. 使用 Elasticsearch 自带的 jdk（位置与 bin 目录同级的 jdk 文件夹）
 
-   ```bash
+   ```sh
    # 进入 bin 目录
    cd bin
    
@@ -268,7 +268,7 @@
 
 1. 新增用户
 
-   ```bash
+   ```sh
    useradd wz
    # 设置密码（可选）
    passwd wz
@@ -276,13 +276,13 @@
 
 2. 更改权限
 
-   ```bash
+   ```sh
    chown -R wz /usr/local/elasticsearch
    ```
 
 3. 切换用户
 
-   ```bash
+   ```sh
    su wz
    ```
 
@@ -290,14 +290,14 @@
 
 1. 启动
 
-   ```bash
+   ```sh
    # 在 bin 目录下
    ./elasticsearch
    ```
 
 2. 检查是否成功
 
-   ```bash
+   ```sh
    curl 192.168.79.79:9200
    ```
 

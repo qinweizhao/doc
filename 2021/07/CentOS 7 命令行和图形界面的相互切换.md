@@ -14,13 +14,13 @@ Ctrl+Alt+F2
 
 图形界面——>命令行：
 
-```bash
+```sh
 init 3
 ```
 
 图形界面<——命令行：
 
-```bash
+```sh
 init 5
 ```
 
@@ -28,7 +28,7 @@ init 5
 
 ### 1、查看系统的启动模式
 
-```bash
+```sh
 vi /etc/inittab
 ```
 
@@ -44,7 +44,7 @@ vi /etc/inittab
 
 上图中2所示：使用命令
 
-```bash
+```sh
 systemctl get-default multi-user.target
 #or
 systemctl get-default graphical.target
@@ -52,6 +52,6 @@ systemctl get-default graphical.target
 
 #### 3.重启
 
-```bash
+```sh
 reboot
 ```

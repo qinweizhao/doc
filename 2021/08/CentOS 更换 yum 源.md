@@ -2,7 +2,7 @@
 
 ## 一、将原来的CentOS-Base.repo进行备份
 
-```bash
+```sh
 # 进入源所在目录
 cd /etc/yum.repos.d
 
@@ -12,20 +12,20 @@ mv CentOS-Base.repo CentOS-Base.repo_back
 
 ## 二、下载阿里源
 
-```bash
+```sh
 # 下载源
 wget -nc http://mirrors.aliyun.com/repo/Centos-7.repo
 ```
 
 ## 三、更改阿里yum源为默认源
 
-```bash
+```sh
  mv Centos-7.repo CentOS-Base.repo
 ```
 
 ## 四、更新缓存
 
-```bash
+```sh
 # 清除
 yum clean all
 # 生成
@@ -34,7 +34,7 @@ yum makecache
 
 ## 五、更新
 
-```bash
+```sh
 yum -y update
 ```
 
