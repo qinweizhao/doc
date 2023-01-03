@@ -8,19 +8,19 @@
 
 2. 下载压缩包
 
-   ```bash
+   ```sh
    wget https://artifacts.elastic.co/downloads/kibana/kibana-7.14.1-linux-x86_64.tar.gz
    ```
 
 3. 解压（到上层目录）
 
-   ```bash
+   ```sh
    tar -zxvf kibana-7.14.1-linux-x86_64.tar.gz -C ../
    ```
 
 4. 重命名
 
-   ```bash
+   ```sh
    # 返回上层目录
    cd ..
    
@@ -32,7 +32,7 @@
 
 Kibana 的配置文件为安装目录的 **config/kibana.yml**
 
-```bash
+```sh
 # 进入 kibana 的安装目录
 cd /usr/local/kibana/config
 
@@ -65,14 +65,14 @@ i18n.locale: "zh-CN"
 
    非 root 用户（推荐）
 
-   ```bash
+   ```sh
    # 在 bin 目录下
    ./kibana
    ```
 
    root 用户
 
-   ```bash
+   ```sh
    ./kibana --allow-root
    ```
 

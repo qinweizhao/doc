@@ -4,13 +4,13 @@
 
 ![2021-10-18_131030](https://img.qinweizhao.com/2021/10/2021-10-18_131030.png)
 
-```bash
+```sh
 wget https://download.redis.io/releases/redis-6.2.6.tar.gz
 ```
 
 解压到指定目录
 
-```bash
+```sh
 tar -zxvf redis-6.2.6.tar.gz -C /usr/local/redis/
 ```
 
@@ -18,7 +18,7 @@ tar -zxvf redis-6.2.6.tar.gz -C /usr/local/redis/
 
 检查是否安装有 gcc 和 make
 
-```bash
+```sh
 whereis gcc make
 ```
 
@@ -26,20 +26,20 @@ whereis gcc make
 
 如果未安装，执行安装
 
-```bash
+```sh
 yum install -y gcc make
 ```
 
 ## 三、编译并安装
 
-```bash
+```sh
 # 编译
 make
 ```
 
 ![2021-10-18_132240](https://img.qinweizhao.com/2021/10/2021-10-18_132240.png)
 
-```bash
+```sh
 # 安装，将 redis 的命令安装到 /usr/local/bin/ 目录
 make install
 ```
@@ -48,7 +48,7 @@ make install
 
 ## 四、修改配置
 
-```bash
+```sh
 # 进入 redis 安装目录
 cd xxx
 # 编辑 redis.conf 配置文件
@@ -74,7 +74,7 @@ dir /usr/local/redis/redis-6.2.6
 
 ##  五、防火墙开放 6379 端口
 
-```bash
+```sh
 # 添加6379端口
 firewall-cmd --zone=public --add-port=6379/tcp --permanent
 # 重启防火墙
@@ -87,14 +87,14 @@ firewall-cmd --query-port=6379/tcp
 
 ## 六、启动
 
-```bash
+```sh
 # 使用指定配置启动
 redis-server /usr/local/redis/redis-single/redis.conf
 ```
 
 设置开机启动：
 
-```bash
+```sh
 vim /etc/systemd/system/redis.service
 ```
 
@@ -127,7 +127,7 @@ WantedBy=multi-user.target
 >　　 注意：[Service]的启动、重启、停止命令全部要求使用绝对路径
 >　　 [Install]运行级别下服务安装的相关设置，可设置为多用户，即系统运行级别为3
 
-```bash
+```sh
 # 设置开机自启动
 systemctl enable redis.service
 ```
@@ -136,7 +136,7 @@ systemctl enable redis.service
 
 调试相关命令
 
-```bash
+```sh
 # 此命令用于重新加载修改后的启动脚本
 systemctl daemon-reload
 # 显示概要
@@ -151,7 +151,7 @@ netstat -tunlp|grep redis
 
 systemctl 常用命令
 
-```bash
+```sh
 # 启动redis服务
 systemctl start redis.service
 # 设置开机自启动

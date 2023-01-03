@@ -2,7 +2,7 @@
 
 ## 一、查看指定端口对应的 PID
 
-```bash
+```sh
 # netstat -anp |　grep "端口号"
 netstat -anp |　grep "4682"
 ```
@@ -11,7 +11,7 @@ netstat -anp |　grep "4682"
 
 ## 二、使用 PId 杀掉进程
 
-```bash
+```sh
 # kill -9 "进程号"
 kill -9 "1905"
 ```

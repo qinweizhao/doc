@@ -2,7 +2,7 @@
 
 ## 一、安装依赖
 
-``` bash
+```sh
 sudo yum install -y wget
 sudo yum install -y gcc-c++
 sudo yum install -y zlib-devel perl-ExtUtils-MakeMaker curl-devel expat-devel
@@ -10,19 +10,19 @@ sudo yum install -y zlib-devel perl-ExtUtils-MakeMaker curl-devel expat-devel
 
 ## 二、获取压缩包
 
-```bash
+```sh
 wget https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.33.0.tar.gz
 ```
 
 ## 三、解压
 
-```bash
+```sh
 tar -zxvf tar -zxvf git-2.33.0.tar.gz
 ```
 
 ## 四、编译
 
-```bash
+```sh
 # 进入解压后的目录
 cd git-2.33.0/
 # 指定安装位置
@@ -55,7 +55,7 @@ export PATH=$PATH:/xxx/git/libexec/git-core:$PATH
 
 ## 五、验证
 
-```bash
+```sh
 git --version
 ```
 
@@ -63,21 +63,21 @@ git --version
 
 1. 配置用户名
 
-   ```bash
+   ```sh
    # git config --global user.name "Your Name"
    git config --global user.name "qinweizhao"
    ```
 
 2. 配置邮箱
 
-   ```bash
+   ```sh
    # git config --global user.email "email@example.com"
    git config --global user.email "qinweizhao1997@163.com"
    ```
 
 3. 生成公钥和私钥
 
-   ```bash
+   ```sh
    # ssh-keygen -t rsa -C "youremail@example.com"
    ssh-keygen -t rsa -C "qinweizhao1997@163.com"
    ```

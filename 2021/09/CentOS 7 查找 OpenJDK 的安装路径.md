@@ -2,7 +2,7 @@
 
 ## 一、确认是否已安装 JDK
 
-```bash
+```sh
 java -version
 ```
 
@@ -10,7 +10,7 @@ java -version
 
 ## 二、然后查找 java 命令的位置
 
-```bash
+```sh
 which java
 ```
 
@@ -18,7 +18,7 @@ which java
 
 ## 三、查找java命令的位置所对于的软链地址
 
-```bash
+```sh
 ll /usr/bin/java
 ```
 
@@ -26,7 +26,7 @@ ll /usr/bin/java
 
 ## 四、最后通过软链地址查找JDK的安装目录
 
-```bash
+```sh
 ll /etc/alternatives/java
 ```
 

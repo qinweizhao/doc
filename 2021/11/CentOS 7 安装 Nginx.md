@@ -8,13 +8,13 @@
 
 查看gcc版本
 
-```bash
+```sh
 gcc -v
 ```
 
 gcc 安装命令
 
-```bash
+```sh
 yum -y install gcc
 ```
 
@@ -22,7 +22,7 @@ yum -y install gcc
 
 > nginx 的 http 模块使用 pcre 来解析正则表达式。
 
-```bash
+```sh
 yum install -y pcre pcre-devel
 ```
 
@@ -30,7 +30,7 @@ yum install -y pcre pcre-devel
 
 >nginx使用zlib对http包的内容进行gzip。
 
-```bash
+```sh
 yum install -y zlib zlib-devel
 ```
 
@@ -38,7 +38,7 @@ yum install -y zlib zlib-devel
 
 > openssl用于数据链路通信安全加密。
 
-```bash
+```sh
 yum install -y openssl openssl-devel
 ```
 
@@ -48,7 +48,7 @@ yum install -y openssl openssl-devel
 
 2. 下载 nginx
 
-   ```bash
+   ```sh
    wget http://nginx.org/download/nginx-1.20.1.tar.gz  
    ```
    
@@ -57,13 +57,13 @@ yum install -y openssl openssl-devel
 
 ### 1、解压
 
-```bash
+```sh
 tar -zxvf  nginx-1.20.1.tar.gz
 ```
 
 ## 2、切换到解压目录，编译并安装。
 
-```bash
+```sh
 # 不需要https模块的， 这里只输入./configure即可
 ./configure --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module
 
@@ -76,7 +76,7 @@ make install
 
 ## 3、启动
 
-```bash
+```sh
 # 启动
 ./nginx -s start
 
@@ -234,24 +234,24 @@ esac
 
 ### 2、赋值文件执行权限
 
-```bash
+```sh
 chmod a+x /etc/init.d/nginx
 ```
 
 ### 3、将nginx服务加入chkconfig管理列表
 
-```bash
+```sh
 chkconfig --add /etc/init.d/nginx
 ```
 
 ### 4、设置开机自启
-```bash
+```sh
 chkconfig nginx on
 ```
 
 ### 5、其他操作命令 
 
-```bash
+```sh
 # 启动nginx
 service nginx start
 
@@ -261,5 +261,3 @@ service nginx stop
 # 重启nginx
 service nginx restart
 ```
-
-

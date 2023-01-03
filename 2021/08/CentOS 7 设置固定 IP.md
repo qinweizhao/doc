@@ -2,7 +2,7 @@
 
 ## 一、查看当前网卡名称
 
-```bash
+```sh
 ip addr
 ```
 
@@ -12,7 +12,7 @@ ip addr
 
 ens33网卡对应的配置文件为**ifcfg-ens33**
 
-```bash
+```sh
 vi /etc/sysconfig/network-scripts/ifcfg-ens33
 ```
 
@@ -52,7 +52,7 @@ DNS1=114.114.114.114
 
 ## 三、重启网卡
 
-```bash
+```sh
 service network restart
 ```
 

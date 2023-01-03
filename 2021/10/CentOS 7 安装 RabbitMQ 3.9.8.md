@@ -2,13 +2,13 @@
 
 ## 一、安装依赖
 
-```bash
+```sh
 yum -y install gcc glibc-devel make ncurses-devel openssl-devel xmlto perl wget gtk2-devel binutils-devel
 ```
 
 ## 二、下载并解压 erlang
 
-```bash
+```sh
 # 下载
 wget https://erlang.org/download/otp_src_24.0.tar.gz
 # 解压
@@ -21,7 +21,7 @@ tar -zxvf otp_src_24.0.tar.gz
 
 ## 三、编译并安装
 
-```bash
+```sh
 # 安装位置分别为 /usr/local/erlang
 # 配置安装路径
 ./configure --prefix=/usr/local/erlang
@@ -37,7 +37,7 @@ make install
 
 ## 四、配置环境变量并检验
 
-```bash
+```sh
 # 添加 erlang 环境变量
 echo 'export PATH=$PATH:/usr/local/erlang/bin' >> /etc/profile
 # 刷新环境变量
@@ -50,7 +50,7 @@ halt().
 
 ## 五、下载并解压 RabbitMQ
 
-```bash
+```sh
 # 下载
 wget https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.9.8/rabbitmq-server-generic-unix-3.9.8.tar.xz
 # 解压 RabbitMQ 
@@ -69,7 +69,7 @@ tar -xvf rabbitmq-server-generic-unix-3.9.8.tar -C /usr/local/rabbitmq/
 
 ## 六、配置 RabbitMQ 环境变量
 
-```bash
+```sh
 # 添加 rabbitmq 环境变量
 echo 'export PATH=$PATH:/usr/local/rabbitmq/rabbitmq_server-3.9.8/sbin' >> /etc/profile
 # 刷新环境变量
@@ -78,7 +78,7 @@ source /etc/profile
 
 ## 七、开启 web 插件
 
-```bash
+```sh
 rabbitmq-plugins enable rabbitmq_management
 ```
 
@@ -94,7 +94,7 @@ rabbitmq-plugins enable rabbitmq_management
 
 解决方案：创建一个新的用户。
 
-```bash
+```sh
 # 查看所有用户
 rabbitmqctl list_users
 # 添加一个用户
@@ -111,7 +111,7 @@ rabbitmqctl delete_user guest
 
 ## 十、常用命令
 
-```bash
+```sh
 # 启动
 rabbitmq-server -detached
 # 停止

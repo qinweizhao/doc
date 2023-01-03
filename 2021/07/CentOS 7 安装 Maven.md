@@ -2,19 +2,19 @@
 
 ## 一、下载
 
- ```bash
+ ```sh
  wget https://mirrors.sonic.net/apache/maven/maven-3/3.8.1/binaries/apache-maven-3.8.1-bin.tar.gz
  ```
 
 ## 二、解压
 
- ```bash
+ ```sh
  tar -zxvf apache-maven-3.8.1-bin.tar.gz
  ```
 
 ## 三、配置环境变量
 
-```bash
+```sh
 vim /etc/profile
 ```
 
@@ -27,13 +27,13 @@ export PATH=$MAVEN_HOME/bin:$PATH
 
 ## 四、刷新环境变量
 
- ```bash
+ ```sh
  source /etc/profile
  ```
 
 ## 五、检查版本
 
- ```bash
+ ```sh
  mvn -v
  ```
 
