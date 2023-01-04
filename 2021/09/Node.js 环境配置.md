@@ -16,7 +16,7 @@
 
 打开 cmd 窗口，执行命令
 
-```bash
+```sh
 npm config set prefix "D:\Node\nodejs\node_global"
 npm config set cache "D:\Node\nodejs\node_cache"
 ```

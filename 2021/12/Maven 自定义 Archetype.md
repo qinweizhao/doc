@@ -8,7 +8,7 @@
 
 ### 1、进入到项目根目录下执行（ pom.xml 同级目录）
 
-```bash
+```sh
 mvn archetype:create-from-project
 ```
 
@@ -51,13 +51,13 @@ SOLVE:将 Maven 安装目录的 conf 文件夹中的 setting.xml 复制一份到
 
 ### 3、将 target 目录下的 archetype 安装到本地仓库
 
-```bash
+```sh
  mvn install
 ```
 
 ### 4、生成骨架配置文件
 
-```bash
+```sh
 mvn archetype:crawl
 ```
 
@@ -67,7 +67,7 @@ mvn archetype:crawl
 
 ## 三、使用 archetype 模板
 
-```bash
+```sh
  mvn archetype:generate -DarchetypeCatalog=local
 ```
 

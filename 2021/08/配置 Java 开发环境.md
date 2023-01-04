@@ -61,17 +61,17 @@
 
 ### 1、解压
 
-```bash
+```sh
 tar -zxvf jdk-11.0.10_linux-x64_bin.tar.gz -C ../java
 ```
 
   注：压缩包路径：**/usr/local/install**
 
-​    安装路径：**/usr/local/java**
+    安装路径：**/usr/local/java**
 
 ### 2、配置环境变量
 
-```bash
+```sh
 vi /etc/profile
 ```
 
@@ -85,13 +85,13 @@ export PATH=$JAVA_HOME/bin:$PATH
 
 ### 3、刷新环境变量
 
-```bash
+```sh
 source /etc/profile
 ```
 
 ### 3、测试
 
-```bash
+```sh
 java -version
 ```
 

@@ -190,19 +190,19 @@ docker logs minio
 
 **查询获取 management 版本的，不要获取 last 版本的，management版本的才带有管理界面。**
 
-```bash
+```sh
  docker search rabbitmq:management
 ```
 
 ### 2、拉取镜像
 
-```bash
+```sh
 docker pull rabbitmq:management
 ```
 
 ### 3、运行
 
-```bash
+```sh
 # 默认 guest 用户，密码也是 guest
 # 管理页面地址为：http://[IP]:15672
 docker run -d -p 5672:5672 -p 15672:15672 --name rabbitmq rabbitmq:management
@@ -230,13 +230,13 @@ docker run -d -p 5672:5672 -p 15672:15672 --name rabbitmq rabbitmq:management
 
 ### 1、拉取镜像
 
-```bash
+```sh
 docker pull jenkins/jenkins
 ```
 
 ### 2、创建挂载目录
 
-```bash
+```sh
 # 当前位置应该为 /usr/local
 mkdir -p mount/jenkins/jenkins_home
 # 授权
@@ -245,7 +245,7 @@ chmod 777 mount/jenkins/jenkins_home
 
 ### 3、创建并启动容器
 
-```bash
+```sh
 docker run -d -p 8080:8080 -v /usr/local/mount/jenkins/jenkins_home:/var/jenkins_home -v /etc/localtime:/etc/localtime --name jenkins jenkins/jenkins
 ```
 
@@ -263,7 +263,7 @@ docker run -d -p 8080:8080 -v /usr/local/mount/jenkins/jenkins_home:/var/jenkins
 
 ### 4、查看是否成功
 
-```bash
+```sh
 # 查看运行中的容器
 docker ps
 
@@ -307,13 +307,13 @@ docker logs jenkins
 
 ### 1、拉取镜像
 
-```bash
+```sh
 docker pull elasticsearch:7.17.3
 ```
 
 ### 2、前置准备
 
-```bash
+```sh
 mkdir -p /Users/weizhao/Docker/elasticsearch/config
 mkdir -p /Users/weizhao/Docker/elasticsearch/data
 echo "http.host: 0.0.0.0" >> /Users/weizhao/Docker/elasticsearch/config/elasticsearch.yml
@@ -333,7 +333,7 @@ docker network create elk-net
 
 ### 3、运行
 
-```bash
+```sh
 docker run --name elasticsearch -p 9200:9200 -p 9300:9300 \
 -e "discovery.type=single-node" \
 -e ES_JAVA_OPTS="-Xms128m -Xmx1024m" \
@@ -355,7 +355,7 @@ docker run --name elasticsearch -p 9200:9200 -p 9300:9300 \
 
 ### 1、拉取镜像
 
-```bash
+```sh
 docker pull kibana:7.17.3
 ```
 

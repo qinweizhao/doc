@@ -2,7 +2,7 @@
 
 ## 一、检查 SSH keys 是否存在
 
-```bash
+```sh
 ls -al ~/.ssh
 ```
 
@@ -10,7 +10,7 @@ ls -al ~/.ssh
 
 ## 二、生成 ssh key
 
-```bash
+```sh
 # ssh-keygen -t rsa -C "youremail@example.com"
 ssh-keygen -t rsa -C "qinweizhao1997@163.com"
 ```

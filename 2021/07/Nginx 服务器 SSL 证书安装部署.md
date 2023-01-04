@@ -14,7 +14,7 @@
 
 ### 3、编辑 Nginx 根目录下的 `conf/nginx.conf` 文件。修改内容如下
 
- ```bash
+ ```sh
  vim /usr/local/nginx/conf/nginx.conf
  ```
 
@@ -48,13 +48,13 @@ server {
 
 ### 4、在 Nginx 根目录下，通过执行以下命令验证配置文件问题
 
- ```bash
+ ```sh
  ./sbin/nginx -t
  ```
 
 ### 5、重启 Nginx，即可使用 `https://www.qinweizhao.com` 进行访问
 
- ```bash
+ ```sh
  ./sbin/nginx -s reload
  ```
 
@@ -100,6 +100,6 @@ server {
 
 ### 2、若修改完成，重启 Nginx。即可使用 `http://www.qinweizhao.com` 进行访问
 
- ```bash
+ ```sh
  ./sbin/nginx -s reload
  ```

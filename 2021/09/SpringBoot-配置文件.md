@@ -585,7 +585,7 @@ springboot 启动会扫描以下位置的 application.properties 或者 applicat
 
 可以通过 spring.config.location 来改变默认的配置文件位置；项目打包好以后，可以使用命令行参数的形式，启动项目的时候来指定配置文件的新位置；指定配置文件和默认加载的这些配置文件共同起作用形成互补配置；
 
-```bash
+```sh
 java -jar boot-config-0.0.1-SNAPSHOT.jar --spring.config.location=G:/application.properties
 ```
 
@@ -597,7 +597,7 @@ SpringBoot也可以从以下位置加载配置； 优先级从高到低；高优
 
    所有的配置都可以在命令行上进行指定
 
-   ```bash
+   ```sh
    # 多个配置用空格分开； --配置项=值
    java -jar boot-config-0.0.1-SNAPSHOT.jar --server.port=8087  --server.context-path=/abc
    ```

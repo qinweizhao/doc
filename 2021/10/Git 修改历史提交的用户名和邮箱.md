@@ -2,7 +2,7 @@
 
 ## 一、裸需要修改的仓库
 
-```bash
+```sh
 # 仓库地址 .git 可以不要，也可以不加 --bare 参数 直接克隆完整项目
 # git clone --bare https://github.com/qinweizhao/仓库地址.git
 git clone --bare https://github.com/qinweizhao/qwz-spring-boot-sample.git 
@@ -12,7 +12,7 @@ cd qwz-spring-boot-sample.git
 
 ## 二、修改本地项目的邮箱和用户名
 
-```bash
+```sh
 # !/bin/sh
 git filter-branch --env-filter '
 OLD_EMAIL="老的邮箱"
@@ -33,7 +33,7 @@ fi
 
 例子
 
-```bash
+```sh
 git filter-branch --env-filter '
   OLD_EMAILA="qinweizhao1997@126.com"
   OLD_EMAILB="qinweizhao1997@163.com"
@@ -64,7 +64,7 @@ git filter-branch --env-filter '
 
 ## 三、提交修改
 
-```bash
+```sh
 git push --force --tags origin 'refs/heads/*'
 ```
 
@@ -76,7 +76,7 @@ git push --force --tags origin 'refs/heads/*'
 
 因为执行过一次 **git filter-branch**，所以在 **refs/original/** 有一个备份，只要删掉那个备份即可。
 
-```bash
+```sh
 git update-ref -d refs/original/refs/heads/master
 ```
 

@@ -8,13 +8,13 @@ webpack 是一个前端资源加载/打包工具。它将根据模块的依赖�
 
 ### 1、全局安装
 
-```bash
+```sh
 npm install -g webpack webpack-cli
 ```
 
 ### 2、查看版本号
 
-```bash
+```sh
 webpack -v
 ```
 
@@ -22,7 +22,7 @@ webpack -v
 
 创建 webpack-sample 文件夹
 
-```bash
+```sh
 # webpack-sample 目录下执行
 npm init -y
 ```
@@ -77,7 +77,7 @@ npm init -y
 
 2. 命令行执行编译命令
 
-   ```bash
+   ```sh
    webpack #有黄色警告
    webpack --mode=development #没有警告
    #执行后查看bundle.js 里面包含了上面两个js文件的内容并进行了代码压缩
@@ -94,7 +94,7 @@ npm init -y
 
    运行npm命令执行打包
 
-   ```bash
+   ```sh
    npm run dev
    ```
 
@@ -116,7 +116,7 @@ npm init -y
 
    首先我们需要安装相关Loader插件，css-loader 是将 css 装载到 javascript；style-loader 是让 javascript 认识css
 
-   ```bash
+   ```sh
    npm install --save-dev style-loader css-loader 
    ```
 
@@ -160,7 +160,7 @@ npm init -y
 
 5. 运行编译命令
 
-   ```bash
+   ```sh
    npm run dev
    ```
 

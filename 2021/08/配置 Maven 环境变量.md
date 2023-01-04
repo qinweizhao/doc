@@ -27,7 +27,7 @@
 
 ### 1、编辑 profile 文件，配置环境变量
 
-```bash
+```sh
 vim /etc/profile
 ```
 
@@ -42,13 +42,13 @@ export PATH=${MAVEN_HOME}/bin:${PATH}
 
 重载环境变量
 
-```bash
+```sh
 source /etc/profile
 ```
 
 ### 2、在任意路径下测试
 
-```bash
+```sh
 mvn –v
 ```
 

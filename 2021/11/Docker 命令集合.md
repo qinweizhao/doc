@@ -2,7 +2,7 @@
 
 ## 一、基本命令
 
- ```bash
+ ```sh
  # Docker 安装
  yum -y install docker-io
  docker --version
@@ -15,7 +15,7 @@
 
 ## 二、 镜像操作
 
-```bash
+```sh
 # 查看镜像并下载
 docker search hello-world
 docker pull hello-world
@@ -47,7 +47,7 @@ docker tag
 
 ## 三、容器操作
 
-```bash
+```sh
 # 创建一个容器但是不启动它
 docker create
 # 创建并启动一个容器
@@ -92,7 +92,7 @@ docker export
 
 ## 四、镜像仓库 (registry) 操作
 
-```bash
+```sh
 # 登录到一个 registry
 docker login
 # 从 registry 仓库搜索镜像

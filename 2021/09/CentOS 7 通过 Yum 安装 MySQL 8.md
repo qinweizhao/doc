@@ -8,19 +8,19 @@
 
 ### 1、获取 rpm 包
 
-``` bash
+``` sh
 wget https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
 ```
 
 ### 2、安装 MySQL 源
 
-```bash
+```sh
 yum -y install mysql80-community-release-el7-3.noarch.rpm
 ```
 
 ### 3、查看效果
 
-```bash
+```sh
 yum repolist enabled | grep mysql.*
 ```
 
@@ -28,17 +28,17 @@ yum repolist enabled | grep mysql.*
 
 ## 三、安装 MySQL 服务器
 
-``` bash
+```sh
 yum install mysql-community-server
 ```
 
 ## 四、启动 MySQL 服务
 
-```bash
+```sh
 systemctl start  mysqld.service
 ```
 
-```bash
+```sh
 systemctl status mysqld.service
 ```
 
@@ -150,7 +150,7 @@ FLUSH PRIVILEGES;
 
 ## 九、防火墙打开3306端口
 
-```bash
+```sh
 # 执行 exit 退出 MySQL
 firewall-cmd --zone=public --add-port=3306/tcp --permanent
 ```
@@ -159,7 +159,7 @@ firewall-cmd --zone=public --add-port=3306/tcp --permanent
 
 ## 十、重启防火墙
 
-```bash
+```sh
 firewall-cmd --reload
 ```
 
