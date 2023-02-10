@@ -405,7 +405,7 @@ public class Pet {
 
 如果说，我们只是在某个业务逻辑中需要获取一下配置文件中的某项值，使用 @Value；
 
-如果说，我们专门编写了一个 javaBean 来和配置文件进行映射，我们就直接使用 @ConfigurationProperties；
+如果说，我们专门编写了一个 JavaBean 来和配置文件进行映射，我们就直接使用 @ConfigurationProperties；
 
 ### 4、注入值数据校验
 
@@ -425,7 +425,6 @@ public class Pet {
    @ConfigurationProperties(prefix = "person")
    @Validated
    public class Person {
-    、、、
        
        /**
         * 邮箱
@@ -435,7 +434,6 @@ public class Pet {
        @Email
        private String email;
            
-       、、、
    }
    ```
 
@@ -445,7 +443,7 @@ public class Pet {
 
 ```java
 @PropertySource(value = {"classpath:person.properties"})
-加载 person.properties 配置文件
+// 加载 person.properties 配置文件
 ```
 
 **注**：即便指定了配置文件但还是会去读取 application 配置文件，并且优先读取 application 配置文件；指定配置文件默认只支持 properties 文件，若要用指定的 yam 则需要如下配置：
@@ -482,22 +480,22 @@ public class YamlPropertySourceFactory implements PropertySourceFactory {
 
 ```
 
-@**ImportResource**：导入Spring的配置文件，让配置文件里面的内容生效；
+@**ImportResource**：导入Spring 的配置文件，让配置文件里面的内容生效；
 
-Spring Boot里面没有 Spring 的配置文件，我们自己编写的配置文件，也不能自动识别；
+SpringBoot 里面没有 Spring 的配置文件，我们自己编写的配置文件，也不能自动识别；
 
 想让 Spring 的配置文件生效，加载进来；@ImportResource 标注在一个配置类上
 
 ```java
 @ImportResource(locations = {"classpath:beans.xml"})
-导入Spring的配置文件让其生效
+// 导入 Spring 的配置文件让其生效
 ```
 
 SpringBoot 推荐给容器中添加组件的方式；推荐使用全注解的方式
 
-1、配置类**@Configuration**------>Spring配置文件
+1、配置类 **@Configuration** ------>Spring配置文件
 
-2、使用**@Bean**给容器中添加组件
+2、使用 **@Bean** 给容器中添加组件
 
 ```java
 /**
@@ -569,7 +567,7 @@ public class MyConfig {
 
 ### 1、加载位置
 
-springboot 启动会扫描以下位置的 application.properties 或者 application.yml 文件作为 SpringBoot 的默认配置文件
+SpringBoot 启动会扫描以下位置的 application.properties 或者 application.yml 文件作为 SpringBoot 的默认配置文件
 
 ```help
 –file:./config/
@@ -591,7 +589,7 @@ java -jar boot-config-0.0.1-SNAPSHOT.jar --spring.config.location=G:/application
 
 ### 2、加载顺序
 
-SpringBoot也可以从以下位置加载配置； 优先级从高到低；高优先级的配置覆盖低优先级的配置，所有的配置会形成互补配置
+SpringBoot 也可以从以下位置加载配置； 优先级从高到低；高优先级的配置覆盖低优先级的配置，所有的配置会形成互补配置
 
 1. 命令行参数
 
@@ -602,15 +600,15 @@ SpringBoot也可以从以下位置加载配置； 优先级从高到低；高优
    java -jar boot-config-0.0.1-SNAPSHOT.jar --server.port=8087  --server.context-path=/abc
    ```
 
-2. 来自java:comp/env的JNDI属性
+2. 来自 java:comp/env 的 JNDI 属性
 
-3. Java系统属性（System.getProperties()）
+3. Java 系统属性（System.getProperties()）
 
 4. 操作系统环境变量
 
-5. RandomValuePropertySource配置的random.*属性值
+5. RandomValuePropertySource 配置的 random.* 属性值
 
-   由jar包外向jar包内进行寻找
+   由 jar 包外向 jar 包内进行寻找
 
    **优先加载带profile**
 
@@ -620,9 +618,9 @@ SpringBoot也可以从以下位置加载配置； 优先级从高到低；高优
 
    **再来加载不带profile**
 
-8. jar包外部的 application.properties 或 application.yml(不带spring.profile) 配置文件
+8. jar 包外部的 application.properties 或 application.yml(不带 spring.profile ) 配置文件
 
-9. jar包内部的 application.properties 或 application.yml(不带spring.profile) 配置文件
+9. jar 包内部的 application.properties 或 application.yml(不带 spring.profile ) 配置文件
 
 10. @Configuration 注解类上的 @PropertySource
 
