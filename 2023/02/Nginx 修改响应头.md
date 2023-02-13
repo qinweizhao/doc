@@ -32,7 +32,7 @@ http {
 
 Server ：nginx
 
-![2023-02-13_201428](../../../img/2023/02/2023-02-13_201428.png)
+![2023-02-13_201428](https://img.qinweizhao.com/2023/02/2023-02-13_201428.png)
 
 
 # 2、完全移除Server HTTP 头
@@ -94,4 +94,4 @@ more_clear_headers 'Server';
 > 
  直接使用reload可能会无效
 
-![2023-02-13_202034](/Users/weizhao/Note/img/2023/02/2023-02-13_202034.png)
+![2023-02-13_202034](https://img.qinweizhao.com/2023/02/2023-02-13_202034.png)
