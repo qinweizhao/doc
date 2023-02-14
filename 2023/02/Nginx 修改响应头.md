@@ -78,11 +78,10 @@ vim /app/nginx112/conf/nginx.conf
 more_clear_headers 'Server';
 ```
 
-> 
- 上面配置只是将http响应头中的Server:nginx/1.12.2清除，详细使用方案可阅读
- ,
-  支持添加·修改·清除响应头的操作，
-
+>  上面配置只是将http响应头中的Server:nginx/1.12.2清除。
+>
+> [openresty/headers-more-nginx-module: Set, add, and clear arbitrary output headers in NGINX http servers (github.com)](https://github.com/openresty/headers-more-nginx-module)
+> 支持添加、修改、清除响应头的操作，
 
 ## 2.4 重启nginx
 
