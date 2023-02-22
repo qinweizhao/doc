@@ -442,19 +442,19 @@ public class Pet {
 @**PropertySource**：加载指定的配置文件；
 
 ```java
-@PropertySource(value = {"classpath:person.properties"})
 // 加载 person.properties 配置文件
+@PropertySource(value = {"classpath:person.properties"})
+@ConfigurationProperties(prefix = "xxx")
 ```
 
-**注**：即便指定了配置文件但还是会去读取 application 配置文件，并且优先读取 application 配置文件；指定配置文件默认只支持 properties 文件，若要用指定的 yam 则需要如下配置：
+**注**：即便指定了配置文件但还是会去读取 application 配置文件，并且优先读取 application 配置文件；指定配置文件默认只支持 properties 文件且**必须添加** @ConfigurationProperties ，若要用指定的 yam 则需要如下配置：
 
 ```java
 // 实体类
 @PropertySource(value = "classpath:person.yml",factory = YamlPropertySourceFactory.class)
-public class Person
-    
-    
-    
+```
+
+```java
 // factory
 package com.qinweizhao.support;
 import org.springframework.boot.env.YamlPropertySourceLoader;
@@ -589,7 +589,7 @@ java -jar boot-config-0.0.1-SNAPSHOT.jar --spring.config.location=G:/application
 
 ### 2、加载顺序
 
-SpringBoot 也可以从以下位置加载配置； 优先级从高到低；高优先级的配置覆盖低优先级的配置，所有的配置会形成互补配置
+SpringBoot 也可以从以下位置加载配置；优先级从高到低；高优先级的配置覆盖低优先级的配置，所有的配置会形成互补配置
 
 1. 命令行参数
 
@@ -612,7 +612,7 @@ SpringBoot 也可以从以下位置加载配置； 优先级从高到低；高�
 
    **优先加载带profile**
 
-6. jar 包外部的 application-{profile}.propertie s或 application.yml (带 spring.profile) 配置文件
+6. jar 包外部的 application-{profile}.properties 或 application.yml (带 spring.profile) 配置文件
 
 7. jar 包内部的 application-{profile}.properties 或 application.yml (带spring.profile) 配置文件
 
