@@ -58,11 +58,11 @@ public class ProcessDefinitionController {<!-- -->
 
 启动项目后，效果如下图：
 
-<img src="https://img-blog.csdnimg.cn/a73412dc2d1d4c6a810fc4169d2b7323.png" alt="图片1 在线接口文档">
+![2023-03-15_153142](../../../img/2023/03/2023-03-15_153142.png)
 
-<img src="https://img-blog.csdnimg.cn/d5d07a11122443aa851e3abfb95c5643.png" alt="在这里插入图片描述">
+![2023-03-15_153225](../../../img/2023/03/2023-03-15_153225.png)
 
-<img src="https://img-blog.csdnimg.cn/6860615987fa414d92783cbfdb5ac8a3.png" alt="在这里插入图片描述">
+![2023-03-15_153310](../../../img/2023/03/2023-03-15_153310.png)
 
 #### 2. 给 Model 加注解
 
@@ -94,13 +94,13 @@ public class JsonResult&lt;T&gt; {<!-- -->
 
 效果如下图：
 
-<img src="https://img-blog.csdnimg.cn/e122b1760c764fb38d7c68683b65661c.png" alt="在这里插入图片描述"> 点击 Example Value 后面的 Schema 可以看到如下图的内容：
+![2023-03-15_153405](../../../img/2023/03/2023-03-15_153405.png)
 
-<img src="https://img-blog.csdnimg.cn/7ac8115c51454cb9b2a4e542f954703c.png" alt="在这里插入图片描述">
+![2023-03-15_153451](../../../img/2023/03/2023-03-15_153451.png)
 
 滑到页面的最下方，可以看到：
 
-<img src="https://img-blog.csdnimg.cn/6d62d0319c814fb59238e19a08f2c51d.png" alt="在这里插入图片描述">
+![2023-03-15_153601](../../../img/2023/03/2023-03-15_153601.png)
 
 ### 3. 上传附件
 
@@ -121,7 +121,9 @@ public JsonResult&lt;DeploymentResp&gt; uploadAndDeployBpmnFile(
 
 效果如下：
 
-<img src="https://img-blog.csdnimg.cn/aa184549f991425ba6d91198dd302fee.png" alt="在这里插入图片描述"> 这表明，springdoc 并不能根据接口的请求参数类型是 MultipartFile ，来自动识别出我们要的是上传附件。所以解决办法就是指明此接口需要媒体类型的是附件。
+![2023-03-15_153749](../../../img/2023/03/2023-03-15_153749.png)
+
+这表明，springdoc 并不能根据接口的请求参数类型是 MultipartFile ，来自动识别出我们要的是上传附件。所以解决办法就是指明此接口需要媒体类型的是附件。
 
 #### 3.2 正确写法
 
@@ -140,7 +142,7 @@ public JsonResult&lt;DeploymentResp&gt; uploadAndDeployBpmnFile(
 
 效果如下：
 
-<img src="https://img-blog.csdnimg.cn/6e40fbaaf75840f1af3d3ee276427535.png" alt="在这里插入图片描述">
+![2023-03-15_153859](../../../img/2023/03/2023-03-15_153859.png)
 
 ### 4. 排序
 
@@ -180,7 +182,7 @@ springdoc:
 
 最终效果如下图所示：
 
-<img src="https://img-blog.csdnimg.cn/a976ac449f154038b9a6b0ccad238782.png" alt="在这里插入图片描述">
+![2023-03-15_153956](../../../img/2023/03/2023-03-15_153956.png)
 
 #### 4.2 HTTP 方法排序示例
 
@@ -198,11 +200,11 @@ springdoc:
 
 最终效果如下图所示：
 
-<img src="https://img-blog.csdnimg.cn/92fb4ddb71e94afbb29f081c0ebf8982.png" alt="在这里插入图片描述">
+![2023-03-15_154150](../../../img/2023/03/2023-03-15_154150.png)
 
 ## 二、高级用法
 
-springdoc与SpringSecurity配合_使用访问令牌来认证。
+SpringDoc 与 SpringSecurity 配合_使用访问令牌来认证。
 
 ### 1、依赖
 
@@ -295,7 +297,7 @@ public class MySpringDocConfig {<!-- -->
 
 效果如下图：
 
-<img src="https://img-blog.csdnimg.cn/a7aface21b76449ca17bf6cce3793061.png" alt="在这里插入图片描述">
+![2023-03-15_154330](../../../img/2023/03/2023-03-15_154330.png)
 
 SpringSecurity：
 
@@ -409,7 +411,7 @@ public class ProcessDefinitionController {<!-- -->
 
 效果如下图：
 
-<img src="https://img-blog.csdnimg.cn/7ae089ebb5b7485e80d80887f995c100.png" alt="在这里插入图片描述">
+![2023-03-15_154454](../../../img/2023/03/2023-03-15_154454.png)
 
 ### 3、验证
 
@@ -417,7 +419,7 @@ public class ProcessDefinitionController {<!-- -->
 
 首先在登录API里面登录一个用户，如下图：
 
-<img src="https://img-blog.csdnimg.cn/8a304823f89c46c2bfc10856d71d1a3e.png" alt="在这里插入图片描述">
+![2023-03-15_154620](../../../img/2023/03/2023-03-15_154620.png)
 
 由图可知 accessToken 是 `eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzbWl0aCIsImF1dGhvcml0aWVzIjpbIlJPTEVfQUNUSVZJVElfVVNFUiJdLCJpYXQiOjE2NzU4MzM2NjIsImV4cCI6MTY3NTg1MTY2Mn0.aW4ui_kEzrvxxSQbx4XZAfR6UGU-5Q7avyOM4oDnf2IdKB4nvA8Vt0DLo1JwKMtzyvZe_4Zwi6v5s_9HUvTpiQ`
 
@@ -425,7 +427,7 @@ public class ProcessDefinitionController {<!-- -->
 
 把 3.1 的 accessToken 设置到 springdoc 中，如下图，粘贴好 accessToken 之后，点 Authorize 按钮就行。
 
-<img src="https://img-blog.csdnimg.cn/a31d90e215654955897a57d54f1f948c.png" alt="在这里插入图片描述">
+![2023-03-15_154725](../../../img/2023/03/2023-03-15_154725.png)
 
 #### 3.3 请求一个需要认证的接口
 
@@ -449,7 +451,7 @@ curl -X 'POST' \
 
 ```
 
-<img src="https://img-blog.csdnimg.cn/f7dec7d684374b588a40f4f99553161f.png" alt="在这里插入图片描述">
+![2023-03-15_154808](../../../img/2023/03/2023-03-15_154808.png)
 
 其实费了大半天劲，要的就是自动加上请求头 `Authorization: Bearer xxx.xxx.xxx` 的效果。
 
