@@ -58,11 +58,11 @@ public class ProcessDefinitionController {<!-- -->
 
 启动项目后，效果如下图：
 
-![2023-03-15_153142](../../../img/2023/03/2023-03-15_153142.png)
+![2023-03-15_153142](https://img.qinweizhao.com/img/2023/03/2023-03-15_153142.png)
 
-![2023-03-15_153225](../../../img/2023/03/2023-03-15_153225.png)
+![2023-03-15_153225](https://img.qinweizhao.com/img/2023/03/2023-03-15_153225.png)
 
-![2023-03-15_153310](../../../img/2023/03/2023-03-15_153310.png)
+![2023-03-15_153310](https://img.qinweizhao.com/img/2023/03/2023-03-15_153310.png)
 
 #### 2. 给 Model 加注解
 
@@ -94,13 +94,13 @@ public class JsonResult&lt;T&gt; {<!-- -->
 
 效果如下图：
 
-![2023-03-15_153405](../../../img/2023/03/2023-03-15_153405.png)
+![2023-03-15_153405](https://img.qinweizhao.com/img/2023/03/2023-03-15_153405.png)
 
-![2023-03-15_153451](../../../img/2023/03/2023-03-15_153451.png)
+![2023-03-15_153451](https://img.qinweizhao.com/img/2023/03/2023-03-15_153451.png)
 
 滑到页面的最下方，可以看到：
 
-![2023-03-15_153601](../../../img/2023/03/2023-03-15_153601.png)
+![2023-03-15_153601](https://img.qinweizhao.com/img/2023/03/2023-03-15_153601.png)
 
 ### 3. 上传附件
 
@@ -121,7 +121,7 @@ public JsonResult&lt;DeploymentResp&gt; uploadAndDeployBpmnFile(
 
 效果如下：
 
-![2023-03-15_153749](../../../img/2023/03/2023-03-15_153749.png)
+![2023-03-15_153749](https://img.qinweizhao.com/img/2023/03/2023-03-15_153749.png)
 
 这表明，springdoc 并不能根据接口的请求参数类型是 MultipartFile ，来自动识别出我们要的是上传附件。所以解决办法就是指明此接口需要媒体类型的是附件。
 
@@ -142,7 +142,7 @@ public JsonResult&lt;DeploymentResp&gt; uploadAndDeployBpmnFile(
 
 效果如下：
 
-![2023-03-15_153859](../../../img/2023/03/2023-03-15_153859.png)
+![2023-03-15_153859](https://img.qinweizhao.com/img/2023/03/2023-03-15_153859.png)
 
 ### 4. 排序
 
@@ -182,7 +182,7 @@ springdoc:
 
 最终效果如下图所示：
 
-![2023-03-15_153956](../../../img/2023/03/2023-03-15_153956.png)
+![2023-03-15_153956](https://img.qinweizhao.com/img/2023/03/2023-03-15_153956.png)
 
 #### 4.2 HTTP 方法排序示例
 
@@ -200,7 +200,7 @@ springdoc:
 
 最终效果如下图所示：
 
-![2023-03-15_154150](../../../img/2023/03/2023-03-15_154150.png)
+![2023-03-15_154150](https://img.qinweizhao.com/img/2023/03/2023-03-15_154150.png)
 
 ## 二、高级用法
 
@@ -297,7 +297,7 @@ public class MySpringDocConfig {<!-- -->
 
 效果如下图：
 
-![2023-03-15_154330](../../../img/2023/03/2023-03-15_154330.png)
+![2023-03-15_154330](https://img.qinweizhao.com/img/2023/03/2023-03-15_154330.png)
 
 SpringSecurity：
 
@@ -411,7 +411,7 @@ public class ProcessDefinitionController {<!-- -->
 
 效果如下图：
 
-![2023-03-15_154454](../../../img/2023/03/2023-03-15_154454.png)
+![2023-03-15_154454](https://img.qinweizhao.com/img/2023/03/2023-03-15_154454.png)
 
 ### 3、验证
 
@@ -419,7 +419,7 @@ public class ProcessDefinitionController {<!-- -->
 
 首先在登录API里面登录一个用户，如下图：
 
-![2023-03-15_154620](../../../img/2023/03/2023-03-15_154620.png)
+![2023-03-15_154620](https://img.qinweizhao.com/img/2023/03/2023-03-15_154620.png)
 
 由图可知 accessToken 是 `eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzbWl0aCIsImF1dGhvcml0aWVzIjpbIlJPTEVfQUNUSVZJVElfVVNFUiJdLCJpYXQiOjE2NzU4MzM2NjIsImV4cCI6MTY3NTg1MTY2Mn0.aW4ui_kEzrvxxSQbx4XZAfR6UGU-5Q7avyOM4oDnf2IdKB4nvA8Vt0DLo1JwKMtzyvZe_4Zwi6v5s_9HUvTpiQ`
 
@@ -427,7 +427,7 @@ public class ProcessDefinitionController {<!-- -->
 
 把 3.1 的 accessToken 设置到 springdoc 中，如下图，粘贴好 accessToken 之后，点 Authorize 按钮就行。
 
-![2023-03-15_154725](../../../img/2023/03/2023-03-15_154725.png)
+![2023-03-15_154725](https://img.qinweizhao.com/img/2023/03/2023-03-15_154725.png)
 
 #### 3.3 请求一个需要认证的接口
 
@@ -451,7 +451,7 @@ curl -X 'POST' \
 
 ```
 
-![2023-03-15_154808](../../../img/2023/03/2023-03-15_154808.png)
+![2023-03-15_154808](https://img.qinweizhao.com/img/2023/03/2023-03-15_154808.png)
 
 其实费了大半天劲，要的就是自动加上请求头 `Authorization: Bearer xxx.xxx.xxx` 的效果。
 
