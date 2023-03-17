@@ -1,10 +1,11 @@
-# 美团Leaf实战（分布式Id算法）
+# 美团 Leaf 算法
 
 分布式Id算法
 
-# 1、 Leaf-segment号段模式
+# 1、 segment
 
-Leaf-segment号段模式是对直接用数据库自增ID充当分布式ID的一种优化，减少对数据库的频率操作。相当于从数据库批量的获取自增ID，每次从数据库取出一个号段范围，例如 (1,1000] 代表1000个ID，业务服务将号段在本地生成1~1000的自增ID并加载到内存。 大致流程如下： <img src="https://img-blog.csdnimg.cn/93067ca3183840e2a4e50e2050fbfaec.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAWk5pbmVTdW4=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述">
+Leaf-segment号段模式是对直接用数据库自增ID充当分布式ID的一种优化，减少对数据库的频率操作。相当于从数据库批量的获取自增ID，每次从数据库取出一个号段范围，例如 (1,1000] 代表1000个ID，业务服务将号段在本地生成1~1000的自增ID并加载到内存。 大致流程如下：
+![2023-03-17_151000](../../../img/2023/03/2023-03-17_151000.png)
 
 号段耗尽之后再去数据库获取新的号段，可以大大的减轻数据库的压力。对max_id字段做一次update操作，update max_id= max_id + step，update成功则说明新号段获取成功，新的号段范围是(max_id ,max_id +step]。 
 
@@ -34,7 +35,7 @@ insert into leaf_alloc(biz_tag, max_id, step, description) values('leaf-segment-
 
 ## 1.2 导入并修改leaf项目
 
-我们需要先导入Leaf项目： 导入之后的项目如下： <img src="https://img-blog.csdnimg.cn/9f247811118947258a05d912d71dc516.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAWk5pbmVTdW4=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述">
+![2023-03-17_151059](../../../img/2023/03/2023-03-17_151059.png)
 
 在leaf-server项目下修改配置(leaf.properties)如下：
 
@@ -50,25 +51,31 @@ leaf.snowflake.enable=false
 
 注意：leaf.segment和leaf.snowflake务必保证只有一个开启，由于本节使用的是segment（号段模式），所以开启此服务 然后由于我的mysql服务器是8.0.1版本，所以我将pom中的mysql-connector以及druid对做了相应的版本修改，注意如果你的mysql版本是5.x.x版本的就无须任何修改，否则的话就要到父级的pom下修改成和我同样的版本
 - druid:1.1.10- mysql-connector：8.0.13
-<img src="https://img-blog.csdnimg.cn/4f421fb50c284f56aad20e039185935f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAWk5pbmVTdW4=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述">
 
-启动项目leaf-server 访问地址：http://127.0.0.1:8080/api/segment/get/leaf-segment-test 注意：leaf-segment-test是我们的key，这个key来自于哪儿呢，来自于刚刚我们insert的biz_tag <img src="https://img-blog.csdnimg.cn/bc2f2527c6ff4bd587d8b4e8e4e0f28f.png#pic_center" alt="在这里插入图片描述">
+![2023-03-17_150907](../../../img/2023/03/2023-03-17_150907.png)
+
+启动项目leaf-server 访问地址：http://127.0.0.1:8080/api/segment/get/leaf-segment-test 注意：leaf-segment-test是我们的key，这个key来自于哪儿呢，来自于刚刚我们insert的biz_tag
+![2023-03-17_151150](../../../img/2023/03/2023-03-17_151150.png)
 
 ## 1.3 Leaf-segment双buffer模式
 
 下面在拓展讲一点： leaf的号段模式在更新号段时是无阻塞的，当号段耗尽时再去DB中取下一个号段，如果此时网络发生抖动，或者DB发生慢查询，业务系统拿不到号段，就会导致整个系统的响应时间变慢，对流量巨大的业务，这是不可容忍的。
 
-所以Leaf在当前号段消费到**某个点**时，就异步的把下一个号段加载到内存中。而不需要等到号段用尽的时候才去更新号段。这样做很大程度上的降低了系统的风险。 好，眼见为实，我们看看 这个点到底什么时候会发生，由于我们初始化的时候把maxx_id和step设置的太大，我们修改一下，step=10，max_id=1，如下所示： <img src="https://img-blog.csdnimg.cn/77261c53d51940dc9bbc72463b4b595a.png#pic_center" alt="在这里插入图片描述">
+所以Leaf在当前号段消费到**某个点**时，就异步的把下一个号段加载到内存中。而不需要等到号段用尽的时候才去更新号段。这样做很大程度上的降低了系统的风险。 好，眼见为实，我们看看 这个点到底什么时候会发生，由于我们初始化的时候把maxx_id和step设置的太大，我们修改一下，step=10，max_id=1，如下所示： 
+![2023-03-17_151400](../../../img/2023/03/2023-03-17_151400.png)
 
-我们去访问地址：http://127.0.0.1:8080/api/segment/get/leaf-segment-test <img src="https://img-blog.csdnimg.cn/c4797251ab77422b94c999100e5a35a5.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAWk5pbmVTdW4=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述">
+我们去访问地址：http://127.0.0.1:8080/api/segment/get/leaf-segment-test 
+![2023-03-17_151236](../../../img/2023/03/2023-03-17_151428.png)
 
-<img src="https://img-blog.csdnimg.cn/920856ad271b4b2e83306f088c220bc4.png#pic_center" alt="在这里插入图片描述">
+![2023-03-17_151303](../../../img/2023/03/2023-03-17_151441.png)
 
-我们可以看到我们id生成到2的时候，max_id就变成了11，我们再继续获取id <img src="https://img-blog.csdnimg.cn/1ca9c8b2f5e04d189ead19899e1b79e0.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAWk5pbmVTdW4=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述">
+我们可以看到我们id生成到2的时候，max_id就变成了11，我们再继续获取id 
+![2023-03-17_151606](../../../img/2023/03/2023-03-17_151606.png)
 
-<img src="https://img-blog.csdnimg.cn/a69ec667619647b99a95fd16f9213dfa.png#pic_center" alt="在这里插入图片描述">
+![2023-03-17_151637](../../../img/2023/03/2023-03-17_151637.png)
 
-我们获取到3的时候，max_id就已经变成了21 这是怎么一回事呢？ Leaf-segment采用双buffer的方式，它的服务内部有两个号段缓存区segment。 当前号段已消耗10%时，还没能拿到下一个号段，则会另启一个更新线程去更新下一个号段。 简而言之就是Leaf保证了总是会多缓存两个号段，即便哪一时刻数据库挂了，也会保证发号服务可以正常工作一段时间。 <img src="https://img-blog.csdnimg.cn/bbacde50ad5541a2bcc61945968acb06.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAWk5pbmVTdW4=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述">
+我们获取到3的时候，max_id就已经变成了21 这是怎么一回事呢？ Leaf-segment采用双buffer的方式，它的服务内部有两个号段缓存区segment。 当前号段已消耗10%时，还没能拿到下一个号段，则会另启一个更新线程去更新下一个号段。 简而言之就是Leaf保证了总是会多缓存两个号段，即便哪一时刻数据库挂了，也会保证发号服务可以正常工作一段时间。 
+![2023-03-17_151713](../../../img/2023/03/2023-03-17_151713.png)
 
 那我们在平时开发时去怎么设置步长呢？
 
@@ -78,7 +85,8 @@ leaf.snowflake.enable=false
 
 ## 1.4 Leaf segment监控
 
-访问：http://127.0.0.1:8080/cache 可以看到： <img src="https://img-blog.csdnimg.cn/6cb30d60ed844f959dfbbc408d3af74e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAWk5pbmVTdW4=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述">
+访问：http://127.0.0.1:8080/cache 可以看到： 
+![2023-03-17_151804](../../../img/2023/03/2023-03-17_151804.png)
 
 ## 1.5 优缺点
 - 优点： Leaf服务可以很方便的线性扩展，性能完全能够支撑大多数业务场景。 容灾性高：Leaf服务内部有号段缓存，即使DB宕机，短时间内Leaf仍能正常对外提供服务。- 缺点： ID号码不够随机，能够泄露发号数量的信息，不太安全。 DB宕机会造成整个系统不可用（用到数据库的都有可能）。
@@ -105,7 +113,8 @@ leaf.snowflake.port=2181
 
 ```
 
-注意：在启动项目之前，请保证已经正常启动zookeeper 访问：http://127.0.0.1:8080/api/snowflake/get/leaf-segment-test 可以看到： <img src="https://img-blog.csdnimg.cn/c09df7afc77648c79238b37ffc541951.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAWk5pbmVTdW4=,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述">
+注意：在启动项目之前，请保证已经正常启动zookeeper 访问：http://127.0.0.1:8080/api/snowflake/get/leaf-segment-test 可以看到： 
+![2023-03-17_151837](../../../img/2023/03/2023-03-17_151837.png)
 
 ## 2.2 优缺点
 - 优点： ID号码是趋势递增的8 byte的64位数字，满足上述数据库存储的主键要求。- 缺点： 依赖ZooKeeper，存在服务不可用风险
