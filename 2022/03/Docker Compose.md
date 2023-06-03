@@ -24,12 +24,6 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-
 
 要安装其他版本的 Compose，请替换 1.29.2 。
 
-因为Docker Compose 存放在 GitHub，可能不太稳定。可以通过 DaoCloud 加速下载
-
-```sh
-curl -L https://get.daocloud.io/docker/compose/releases/download/1.29.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
-```
-
 授权：
 
 ```sh
